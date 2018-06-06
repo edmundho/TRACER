@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+#root {
+  font-family: Avenir Next Condensed;
+  width: 65%;
+  margin: 0 auto;
+}
+
+body {
+  background: lightgoldenrodyellow;  
+}
+ 
+#test-head {
+  font-family: Avenir Next;
+  font-size: 50px;
+}
+
+input {
+  display: block;
+  margin: 5px;
+}
