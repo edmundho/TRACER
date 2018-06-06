@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
-class SessionForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoUser = this.handleDemoUser.bind(this);
   }
 
   update(field) {
@@ -24,6 +25,13 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+  }
+
+  handleDemoUser(e) {
+    e.preventDefault();
+    let demoUser = { username: 'demouser', password: 'password' };
+    this.setState(demoUser);
+    setTimeout(() => this.props.processForm(demoUser), 1000);
   }
 
   render () {
@@ -49,10 +57,12 @@ class SessionForm extends React.Component {
             placeholder="Password" />
           <input type="submit" value={this.props.formType} />
         </form>
+        
+        <button onClick={this.handleDemoUser}>Demo Login</button>
 
       </div>
     );
   }
 }
 
-export default SessionForm;
+export default LoginForm;

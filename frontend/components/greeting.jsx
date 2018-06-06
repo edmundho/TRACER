@@ -12,6 +12,7 @@ class Greeting extends React.Component {
           <ul>
             <li><Link to="/signup">Sign Up</Link></li>
             <li><Link to="/login">Log In</Link></li>
+            <li><Link to="/demologin">Demo Login</Link></li>
           </ul>
         </div>
       );

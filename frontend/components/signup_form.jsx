@@ -28,6 +28,7 @@ class SignupForm extends React.Component {
     this.props.processForm(user);
   }
 
+
   render() {
     const errors = this.props.errors.map((error, i) => {
       return (<li key={i}>{error}</li>);

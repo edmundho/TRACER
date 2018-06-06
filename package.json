@@ -28,14 +28,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack -w -d"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/edmundho/strava_fsp.git"
-  },
+
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/edmundho/strava_fsp/issues"
-  },
-  "homepage": "https://github.com/edmundho/strava_fsp#readme"
+  "license": "ISC"
+
 }
