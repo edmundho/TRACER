@@ -8,7 +8,7 @@ class Greeting extends React.Component {
     // console.log(currentUser);
     if (currentUser === undefined) {
       return (
-        <div>
+        <div className="session-buttons">
           <ul>
             <li><Link to="/signup">Sign Up</Link></li>
             <li><Link to="/login">Log In</Link></li>
@@ -19,8 +19,8 @@ class Greeting extends React.Component {
     }
 
     return (
-      <div>
-        <h2>Welcome, {currentUser.name}</h2>
+      <div className="session-logged-in">
+        <p>Welcome, {currentUser.name}</p>
         <button onClick={this.props.logout}>Log Out</button>
       </div>
     );

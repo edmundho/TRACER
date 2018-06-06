@@ -1,0 +1,53 @@
+
+.nav-bar {
+  display: flex;
+  background: white;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.nav-bar > h1 {
+  padding: 15px;
+  font-family: Avenir Next;
+  font-size: 40px;
+  font-weight: 700;
+  color: orangered;
+}
+
+.session-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.session-buttons ul {
+  margin: 0;
+  padding: 0;
+}
+
+.session-buttons li {
+  display: inline;
+  margin: 10px;
+}
+
+
+.session-logged-in {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+.session-logged-in p {
+  margin: 10px;
+}
+
+.session-logged-in button {
+  display: block;
+  margin: 10px;
+  padding: 10px;
+  background: orangered;
+  color: white;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+}

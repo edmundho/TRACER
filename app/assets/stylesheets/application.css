@@ -16,20 +16,14 @@
 
 #root {
   font-family: Avenir Next Condensed;
-  width: 65%;
   margin: 0 auto;
 }
 
-body {
-  background: lightgreen  
-}
- 
-#test-head {
-  font-family: Avenir Next;
-  font-size: 50px;
+.app {
+  width: 100%;
 }
 
-input {
-  display: block;
-  margin: 5px;
+body {
+  background: lightgoldenrodyellow  
 }
+

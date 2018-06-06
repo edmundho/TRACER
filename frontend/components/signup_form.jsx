@@ -28,6 +28,10 @@ class SignupForm extends React.Component {
     this.props.processForm(user);
   }
 
+  componentWillUnmount () {
+    this.props.clearErrors();
+  }
+
 
   render() {
     const errors = this.props.errors.map((error, i) => {
@@ -66,9 +70,10 @@ class SignupForm extends React.Component {
               onChange={this.update('birthDate')}
               value={this.state.birthDate} />
           </label>
-          <input type="submit" value={this.props.formType} />
+          <input id="submit-input" type="submit" value={this.props.formType} />
         </form>
 
+        <Link id="demo-redirect" to="/login/demo">Demo Login</Link>
       </div>
     );
   }

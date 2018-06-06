@@ -28,15 +28,6 @@ class DemoLoginForm extends React.Component {
     this.props.processForm(user);
   }
 
-  // autofillForm() {
-  //   const demoUser = 'eho'.split('');
-  //   const demoPassword = 'fayefaye'.split('');
-
-  //   setInterval((username, password) => {
-  //     demoUser.forEach((ch) => this.setState({ username }));
-  //   }, 500);
-  // }
-
   componentWillMount () {
     let demoUser = { username: 'demouser', password: 'password' };
     this.setState(demoUser);
@@ -44,26 +35,8 @@ class DemoLoginForm extends React.Component {
   
   componentDidMount () {
     let demoUser = { username: 'demouser', password: 'password' };
-    setTimeout(
-      this.props.processForm(demoUser), 5000
-    );
+    this.props.processForm(demoUser);
   }
-
-  // componentDidMount () {
-  //   let demoUsername = 'demouser'.split('');
-  //   let demoPassword = 'password'.split('');
-
-
-  //   for (let i = 0; i < demoUsername.length; i++) {
-  //     const that = this;
-  //     (function(i) {
-  //       setTimeout(() => {
-  //         console.log(demoUsername[i]);
-  //         that.setState({ username: that.state.username.concat(demoUsername[i]) });
-  //       }, 1000);
-  //     })(i);
-  //   }
-  // }
 
   render() {
 
@@ -82,7 +55,7 @@ class DemoLoginForm extends React.Component {
             onChange={this.update('password')}
             value={this.state.password}
             placeholder="Password" />
-          <input type="submit" value={this.props.formType} />
+          <input id="submit-input" type="submit" value={this.props.formType} />
         </form>
 
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
+
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -28,10 +29,22 @@ class LoginForm extends React.Component {
   }
 
   handleDemoUser(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     let demoUser = { username: 'demouser', password: 'password' };
     this.setState(demoUser);
-    setTimeout(() => this.props.processForm(demoUser), 1000);
+    setTimeout(() => this.props.processForm(demoUser), 500);
+  }
+
+  componentDidMount () {
+    if (this.props.match.params.demo) {
+      this.handleDemoUser();
+    }
+  }
+
+  componentWillUnmount () {
+    this.props.clearErrors();
   }
 
   render () {
@@ -55,7 +68,7 @@ class LoginForm extends React.Component {
             onChange={this.update('password')} 
             value={this.state.password} 
             placeholder="Password" />
-          <input type="submit" value={this.props.formType} />
+          <input id="submit-input" type="submit" value={this.props.formType} />
         </form>
         
         <button onClick={this.handleDemoUser}>Demo Login</button>
