@@ -23,28 +23,28 @@
 }
 
 .session-main label {
-  justify-content: center;
   text-align: center;
   font-family: inherit;
   color: whitesmoke;
-  margin: 10px;
+  margin: 15px;
 }
 
 .session-main form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: whitesmoke;
   font-family: geneva;
 }
 
 .session-main h3 {
   color: whitesmoke;
   font-family: inherit;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   font-size: 20px;
   margin: 15px;
 }
+
 
 .errors-list {
   color: #ff0000;
@@ -61,16 +61,18 @@
   height: 30px;
   display: block;
   margin: 10px;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   background: rgba(0, 0, 0, 0.65);
   color: lightgray;
   border: none;
-  font-family: inherit;
+  font-family: ARIAL;
+  font-weight: 700;
+  border-radius: 1px;
 }
 
 .session-main input:focus {
-  background: white;
+  background: whitesmoke;
   color: black;
 }
 
@@ -78,30 +80,39 @@
 #submit-input {
   border-radius: 1px;
   background: orangered;
-  color: white;
+  color: whitesmoke;
   border: none;
   cursor: pointer;
+}
+
+#submit-input:hover {
+  background: darkorange;
 }
 
 // demo login button
 .session-main button {
   width: 240px;
   background: orangered;
-  color: white;
+  color: whitesmoke;
   height: 30px;
   border: none;
   border-radius: 1px;
   margin: 10px 0 15px 0;
-  font-size: 16px;
-  font-family: inherit;
+  font-size: 14px;
+  font-family: arial;
+  font-weight: 700;
   cursor: pointer;
   text-align: center;
+}
+
+.session-main button:hover {
+  background: darkorange;
 }
 
 #demo-redirect {
   border-radius: 1px;
   background: orangered;
-  color: white;
+  color: whitesmoke;
   border: none;
   cursor: pointer;
   width: 240px;
@@ -111,21 +122,27 @@
   align-items: center;
   text-decoration: none;
   margin: 10px;
+  font-family: arial;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+#demo-redirect:hover {
+  background: darkorange;
 }
 
 
 #signup-form-with-errors {
   border: 2px red solid;
   background: whitesmoke;
+  width: 236px;
+  height: 26px;
+  border-radius: 1px;
 }
 
 #signup-form p {
   margin: 0 0 -10px 0;
   font-size: 11px;
   color: red;
-}
-
-#show p {
-  display: block;
-
+  height: 15px;
 }

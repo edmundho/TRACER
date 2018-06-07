@@ -15,7 +15,7 @@
  */
 
 #root {
-  font-family: Avenir Next Condensed;
+  font-family: Geneva;
   margin: 0 auto;
 }
 
@@ -23,4 +23,13 @@
   width: 100%;
 }
 
-
+.session-main h1 {
+  color: whitesmoke;
+  text-align: center;
+  font-size: 60px;
+  display: block;
+  text-shadow: 2px 2px darkslategray;
+  margin: 0 auto;
+  width: 75%;
+  font-family: Verdana;
+}

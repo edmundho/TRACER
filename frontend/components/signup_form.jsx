@@ -74,7 +74,7 @@ class SignupForm extends React.Component {
             type="text"
             onChange={this.update('username')}
             value={this.state.username}
-            placeholder="Your Username" />   
+            placeholder="Username" />   
           <p id="password-p"></p>
           <input
             name="password"
@@ -88,15 +88,15 @@ class SignupForm extends React.Component {
             type="text"
             onChange={this.update('firstName')}
             value={this.state.firstName}
-            placeholder="Your First Name" />
+            placeholder="First Name" />
           <p id="last-name-p"></p>
           <input
             name="last-name"
             type="text"
             onChange={this.update('lastName')}
             value={this.state.lastName}
-            placeholder="Your Last Name" />
-          <label>Your DOB:
+            placeholder="Last Name" />
+          <label>Date of Birth:
             <input
               type="date"
               onChange={this.update('birthDate')}
