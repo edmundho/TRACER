@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 class Greeting extends React.Component {
 
@@ -9,9 +9,9 @@ class Greeting extends React.Component {
       return (
         <div className="session-buttons">
           <ul>
-            <li><NavLink to="/signup">Sign Up</NavLink></li>
-            <li><NavLink to="/login">Log In</NavLink></li>
-            <li><NavLink to="/demologin">Demo Login</NavLink></li>
+            <li><NavLink activeClassName="active" to="/signup">Sign Up</NavLink></li>
+            <li><NavLink activeClassName="active" to="/login">Log In</NavLink></li>
+            <li><NavLink activeClassName="active" to="/demologin">Demo Login</NavLink></li>
           </ul>
         </div>
       );
