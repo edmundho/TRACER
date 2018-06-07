@@ -32,34 +32,66 @@ class SignupForm extends React.Component {
     this.props.clearErrors();
   }
 
+  highlightIncorrectInputs (errors) {
+    const usernameInput = document.getElementsByName('username')[0];
+    if (errors.includes("Username can't be blank")) {
+      document.getElementById('username-p').innerText = "Required";
+      usernameInput.id = 'signup-form-with-errors'; 
+    }
+    if (errors.includes("Username has already been taken")) {
+      document.getElementById('username-p').innerText = "Username has already been taken";      
+      usernameInput.id = 'signup-form-with-errors';       
+    }
+    if (errors.includes("First name can't be blank")) {
+      const firstnameInput = document.getElementsByName('first-name')[0];
+      document.getElementById('first-name-p').innerText = "Required";
+      firstnameInput.id = 'signup-form-with-errors';
+    }
+    if (errors.includes("Last name can't be blank")) {
+      const lastnameInput = document.getElementsByName('last-name')[0];   
+      document.getElementById('last-name-p').innerText = "Required";
+      lastnameInput.id = 'signup-form-with-errors';
+    }
+    if (errors.includes("Password is too short (minimum is 6 characters)")) {
+      const passwordInput = document.getElementsByName('password')[0];
+      document.getElementById('password-p').innerText = "Password is too short (minimum is 6 characters)";
+      passwordInput.id = 'signup-form-with-errors';
+    }
+  }
 
   render() {
-    const errors = this.props.errors.map((error, i) => {
-      return (<li key={i}>{error}</li>);
-    });
-
+    const errors = this.props.errors;
+    this.highlightIncorrectInputs(errors);
+    
     return (
       <div>
         <h3>{this.props.formType}</h3>
 
-        <ul className="errors-list">{errors}</ul>
-        <form onSubmit={this.handleSubmit}>
+        <form id="signup-form" onSubmit={this.handleSubmit}>
+          <p id="username-p"></p>
           <input
+            name="username"
             type="text"
             onChange={this.update('username')}
             value={this.state.username}
-            placeholder="Your Username" />
+            placeholder="Your Username" />   
+          <p id="password-p"></p>
           <input
+            name="password"
             type="password"
             onChange={this.update('password')}
             value={this.state.password}
-            placeholder="Password" />
+            placeholder="Password" />    
+          <p id="first-name-p"></p>
           <input
+            name="first-name"
             type="text"
             onChange={this.update('firstName')}
             value={this.state.firstName}
             placeholder="Your First Name" />
+          <p id="last-name-p"></p>
           <input
+            name="last-name"
             type="text"
             onChange={this.update('lastName')}
             value={this.state.lastName}
