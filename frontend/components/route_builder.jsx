@@ -56,6 +56,8 @@ class RouteBuilder extends React.Component {
     this.clicks = [];
     this.route = undefined;
     this.origin = undefined;
+    this.totalDistance = 0;
+    this.markersArray = [];
   }
   
   componentDidMount () {
@@ -68,7 +70,6 @@ class RouteBuilder extends React.Component {
   }
 
   calculateRoute (start, end) {
-    // method taken from https://developers.google.com/maps/documentation/javascript/examples/event-poi
     let request;
     if (this.waypoints.length < 2) {
       request = {
@@ -85,10 +86,16 @@ class RouteBuilder extends React.Component {
       };
     }
 
+    // console.log(this.clicks);
+    // console.log(this.waypoints);
+    
     this.directionsService.route(request, (response, status) => {
       if (status === 'OK') {
-        console.log(request);
-        console.log(response);
+        // console.log(request);
+        // console.log(response.routes[0].legs);
+        // const lastLeg = response.routes[0].legs[this.waypoints.length - 1];
+        // console.log(lastLeg);
+        // this.totalDistance += lastLeg.distance;
         this.directionsDisplay.setDirections(response);
       } else {
         window.alert('Directions request failed due to ' + status);
@@ -96,34 +103,28 @@ class RouteBuilder extends React.Component {
     });
   }
 
-  drawRoute (directionResultObject) {
-    this.directionsDisplay.setDirections(directionResultObject);
-  }
-
-  // method inspired by bench bnb solutions
   registerListeners () {
     google.maps.event.addListener(this.map, 'click', (event) => {
       const coords = getCoordsObj(event.latLng);
-      console.log(coords);
+      this.clicks.push(coords);
+      
       if (this.origin === undefined) {
         this.origin = coords;
       }
-      const marker = new google.maps.Marker({
-        position: this.origin,
-      });
-      if (this.waypoints.length < 1) {
+
+      if (this.clicks.length === 1) {
+        let marker = new google.maps.Marker({
+          position: coords,
+        });
         marker.setMap(this.map);
-      } else {
-        marker.setMap(null);
+        this.markersArray.push(marker);
       }
-      if (this.clicks.length >= 1) {
-        this.waypoints.push({ location: coords, stopover: true });
-      }
-      this.clicks.push(coords);
+
       if (this.clicks.length > 1) {
+        this.waypoints.push({ location: coords });
+        this.markersArray[0].setMap(null);
         this.calculateRoute(this.origin, coords);
-        marker.setMap(null);
-      } 
+      }
     });
     
   }
