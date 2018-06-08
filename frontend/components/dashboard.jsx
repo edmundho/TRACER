@@ -1,12 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 class Dashboard extends React.Component {
  
   render () {
     return (
-      <div style={{background: "rgba(52, 28, 26, 0.65)", color: "white"}}>
-        DASHBOARD
-      </div>
+      <Link to="/routebuilder">
+        <div className="dashboard">
+          map attack!!!
+        </div>        
+      </Link>
     );
   }
 }

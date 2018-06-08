@@ -33,3 +33,11 @@
   width: 75%;
   font-family: Verdana;
 }
+
+#map-container {
+  display: block;
+  width: 100%;;
+  height: 750px;
+  background: lightgoldenrodyellow;
+  border: 2px yellow solid;
+} 
