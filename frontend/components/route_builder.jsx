@@ -1,47 +1,6 @@
 import React from 'react';
 
-const mapOptions = {
-  // SF
-  center: {
-    lat: 37.78,
-    lng: -122.42
-  },
-  zoom: 14,
-  mapTypeId: google.maps.MapTypeId.ROADMAP,
-  styles: [
-    {
-      "featureType": "poi.place_of_worship",
-      "stylers": [{
-        "visibility": "off"
-      }]
-    },
-    {
-      "featureType": "poi.sports_complex",
-      "stylers": [{ "visibility": "off" }]
-    },
-    {
-      "featureType": "poi.medical",
-      "stylers": [{ "visibility": "off" }]
-    },
-    {
-      "featureType": "poi.government",
-      "stylers": [{ "visibility": "off" }]
-    },
-    {
-      "featureType": "poi.business",
-      "stylers": [{ "visibility": "off" }]
-    },
-    {
-      "featureType": "poi.school",
-      "stylers": [{ "visibility": "off" }]
-    },
-    {
-      "featureType": "poi.attraction",
-      "stylers": [{ "visibility": "off" }]
-    },
-
-  ]
-};
+import { mapOptions } from '../util/map_options';
 
 const getCoordsObj = latLng => ({
   lat: latLng.lat(),
@@ -69,6 +28,28 @@ class RouteBuilder extends React.Component {
     this.registerListeners();
   }
 
+  calculateElevation (path, numLegs) {
+    const elevator = new google.maps.ElevationService;
+    elevator.getElevationAlongPath({
+      'path': path,
+      'samples': 9*numLegs
+    }, (elevations, status) => {
+      let elevationGain = 0;
+      if (status === 'OK') {
+        for (let i = 0; i < elevations.length - 1; i++) {
+          if (elevations[i + 1].elevation > elevations[i].elevation) {
+            elevationGain += (elevations[i + 1].elevation - elevations[i].elevation);
+          }
+        }
+        console.log(elevationGain);
+        // setState elevationGain here:
+        return elevationGain;
+      } else {
+        window.alert('Elevation request failed due to ' + status);
+      }
+    });
+  }
+
   calculateRoute (start, end) {
     let request;
     if (this.waypoints.length < 2) {
@@ -92,15 +73,18 @@ class RouteBuilder extends React.Component {
     this.directionsService.route(request, (response, status) => {
       if (status === 'OK') {
         // console.log(request);
-        // console.log(response.routes[0].legs);
-        // const lastLeg = response.routes[0].legs[this.waypoints.length - 1];
+        console.log(response);
+        const lastLeg = response.routes[0].legs[this.waypoints.length - 1];
         // console.log(lastLeg);
-        // this.totalDistance += lastLeg.distance;
+        this.totalDistance += lastLeg.distance.value;
+        // setState totalDistance here:
+        console.log(this.totalDistance);
         this.directionsDisplay.setDirections(response);
       } else {
         window.alert('Directions request failed due to ' + status);
       }
     });
+    const elevationGain = this.calculateElevation(this.clicks, this.waypoints.length);
   }
 
   registerListeners () {
@@ -115,6 +99,7 @@ class RouteBuilder extends React.Component {
       if (this.clicks.length === 1) {
         let marker = new google.maps.Marker({
           position: coords,
+          animation: google.maps.Animation.DROP,
         });
         marker.setMap(this.map);
         this.markersArray.push(marker);
