@@ -1,5 +1,4 @@
 import React from 'react';
-// import mapOptions from '../util/map_util.js';
 
 const mapOptions = {
   // SF
@@ -49,17 +48,14 @@ const getCoordsObj = latLng => ({
   lng: latLng.lng()
 });
 
-const starting = { lat: 37.795940189124806, lng: -122.41733924865724 };
-const ending = { lat: 37.777896994949145, lng: -122.42506401062013 };
-
 class RouteBuilder extends React.Component {
 
   constructor (props) {
     super(props);
-    this.clicks = [];
     this.waypoints = [];
-    this.route = [];
-    this.calculateAndDisplayRoute = this.calculateAndDisplayRoute.bind(this);
+    this.clicks = [];
+    this.route = undefined;
+    this.origin = undefined;
   }
   
   componentDidMount () {
@@ -71,17 +67,28 @@ class RouteBuilder extends React.Component {
     this.registerListeners();
   }
 
-  calculateAndDisplayRoute (start, end) {
+  calculateRoute (start, end) {
     // method taken from https://developers.google.com/maps/documentation/javascript/examples/event-poi
+    let request;
+    if (this.waypoints.length < 2) {
+      request = {
+        origin: this.origin,
+        destination: end,
+        travelMode: 'WALKING'
+      };
+    } else {
+      request = {
+        origin: this.origin,
+        destination: end,
+        waypoints: this.waypoints.slice(0, this.waypoints.length - 1),
+        travelMode: 'WALKING'
+      };
+    }
 
-    this.directionsService.route({
-      origin: start,
-      destination: end,
-      // waypoints: this.waypoints,
-      travelMode: 'WALKING'
-    }, (response, status) => {
+    this.directionsService.route(request, (response, status) => {
       if (status === 'OK') {
-        console.log(response.geocoded_waypoints);
+        console.log(request);
+        console.log(response);
         this.directionsDisplay.setDirections(response);
       } else {
         window.alert('Directions request failed due to ' + status);
@@ -89,27 +96,33 @@ class RouteBuilder extends React.Component {
     });
   }
 
-  drawRoute(start, end) {
-
+  drawRoute (directionResultObject) {
+    this.directionsDisplay.setDirections(directionResultObject);
   }
 
   // method inspired by bench bnb solutions
   registerListeners () {
     google.maps.event.addListener(this.map, 'click', (event) => {
       const coords = getCoordsObj(event.latLng);
-      // const waypoint = new google.maps.LatLng(coords.lat, coords.lng);
-      // this.waypoints.push(waypoint);
-      // console.log(waypoint);
-      this.clicks.push(coords);
-      let marker = new google.maps.Marker({
-        position: coords,
-        map: this.map,
-        title: "TestMark"
+      console.log(coords);
+      if (this.origin === undefined) {
+        this.origin = coords;
+      }
+      const marker = new google.maps.Marker({
+        position: this.origin,
       });
+      if (this.waypoints.length < 1) {
+        marker.setMap(this.map);
+      } else {
+        marker.setMap(null);
+      }
+      if (this.clicks.length >= 1) {
+        this.waypoints.push({ location: coords, stopover: true });
+      }
+      this.clicks.push(coords);
       if (this.clicks.length > 1) {
-        this.calculateAndDisplayRoute(this.clicks[this.clicks.length - 2], coords);
-        // this.calculateAndDisplayRoute(this.clicks[this.clicks.length - 2], coords);
-
+        this.calculateRoute(this.origin, coords);
+        marker.setMap(null);
       } 
     });
     
