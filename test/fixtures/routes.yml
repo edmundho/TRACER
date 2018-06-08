@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  title: MyString
+  type: 1
+  date: 2018-06-08
+  start_time: 2018-06-08 11:50:15
+  end_time: 2018-06-08 11:50:15
+  distance: 1
+  elevation: 1
+  map_image: MyString
+  polyline_string: MyText
+
+two:
+  user_id: 1
+  title: MyString
+  type: 1
+  date: 2018-06-08
+  start_time: 2018-06-08 11:50:15
+  end_time: 2018-06-08 11:50:15
+  distance: 1
+  elevation: 1
+  map_image: MyString
+  polyline_string: MyText

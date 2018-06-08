@@ -17,6 +17,7 @@ class RouteBuilder extends React.Component {
     this.origin = undefined;
     this.totalDistance = 0;
     this.markersArray = [];
+    this.ignoreClicks = false;
   }
   
   componentDidMount () {
@@ -45,6 +46,7 @@ class RouteBuilder extends React.Component {
         // setState elevationGain here:
         return elevationGain;
       } else {
+        this.ignoreClicks = true;
         window.alert('Elevation request failed due to ' + status);
       }
     });
@@ -79,12 +81,13 @@ class RouteBuilder extends React.Component {
         this.totalDistance += lastLeg.distance.value;
         // setState totalDistance here:
         console.log(this.totalDistance);
+        const elevationGain = this.calculateElevation(this.clicks, this.waypoints.length);
         this.directionsDisplay.setDirections(response);
       } else {
+        this.ignoreClicks = true;
         window.alert('Directions request failed due to ' + status);
       }
     });
-    const elevationGain = this.calculateElevation(this.clicks, this.waypoints.length);
   }
 
   registerListeners () {
