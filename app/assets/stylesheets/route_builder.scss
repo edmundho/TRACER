@@ -1,0 +1,85 @@
+
+
+#map-container {
+  display: block;
+  width: inherit;
+  height: 100vh;
+  background: lightgoldenrodyellow;
+  position: relative;
+}
+
+#map-controls {
+  width: 100%;
+  height: 50px;
+  background: whitesmoke;
+  display: flex;
+}
+
+#map-search {
+  display: flex;
+  background: whitesmoke;
+  align-items: center;
+  margin: 0
+}
+
+#map-search form {
+  background: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 15px;
+}
+
+#search-bar {
+  width: 225px;
+  margin: 0;
+  height: 40px;
+  background: white;
+  color: black;
+
+}
+
+#recenter-button {
+  margin: 0;
+  width: 65px;
+  height: 40px;
+  font-size: 24px;
+  background: lightgray;
+  color: gray;
+}
+
+#recenter-button:hover {
+  background: gray;
+  color: whitesmoke;
+}
+
+#route-builder-container {
+  width: 100%;
+  height: inherit;
+  margin: 0;
+  padding: 0;
+
+}
+
+#route-controls {
+  margin: 0 50px;
+}
+
+#route-controls button {
+  margin: 0;
+  width: 65px;
+  height: 40px;
+  font-size: 24px;
+  background: lightgray;
+  color: gray;
+}
+
+#route-stats-bar {
+  position: absolute;
+  height: 50px;
+  width: 90%;
+  bottom: -10px;
+  z-index: 99;
+  background: whitesmoke;
+  box-shadow: 1px 1px 1px lightgray; 
+}

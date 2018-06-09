@@ -13,7 +13,7 @@ export const postRoute = route => (
     data: {
       route: {
         title: route.title,
-        type: route.type,
+        sport: route.sport,
         date: route.date,
         start_time: route.startTime,
         end_time: route.endTime,

@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { mapOptions } from '../util/map_options';
+import { mapOptions } from '../../util/map_options';
 
 const getCoordsObj = latLng => ({
   lat: latLng.lat(),
@@ -18,13 +17,19 @@ class RouteBuilder extends React.Component {
     this.totalDistance = 0;
     this.markersArray = [];
     this.ignoreClicks = false;
+    this.state = {
+      searchQuery: ""
+    };
+
+    this.recenterMap = this.recenterMap.bind(this);
   }
   
   componentDidMount () {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, mapOptions);
     this.directionsService = new google.maps.DirectionsService;
-    this.directionsDisplay = new google.maps.DirectionsRenderer();
+    this.directionsDisplay = new google.maps.DirectionsRenderer;
+    this.geocoder = new google.maps.Geocoder;
     this.directionsDisplay.setMap(this.map);
     this.registerListeners();
   }
@@ -69,15 +74,10 @@ class RouteBuilder extends React.Component {
       };
     }
 
-    // console.log(this.clicks);
-    // console.log(this.waypoints);
-    
     this.directionsService.route(request, (response, status) => {
       if (status === 'OK') {
-        // console.log(request);
         console.log(response);
         const lastLeg = response.routes[0].legs[this.waypoints.length - 1];
-        // console.log(lastLeg);
         this.totalDistance += lastLeg.distance.value;
         // setState totalDistance here:
         console.log(this.totalDistance);
@@ -117,9 +117,46 @@ class RouteBuilder extends React.Component {
     
   }
 
+  update(field) {
+    return (e) => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
+
+  recenterMap() {
+    this.geocoder.geocode({ address: this.state.searchQuery }, (result, status) => {
+      if (status === 'OK') {
+        const newCenter = result[0].geometry.location;
+        this.map.setCenter(newCenter);
+        this.setState({ searchQuery: "" });
+      } else {
+        window.alert('Search was unsuccessful due to: ' + status);
+      }
+    });
+  }
+
   render () {
+    
     return (
-      <div id="map-container" ref="map">
+      <div id="route-builder-container">
+        <div id="map-controls">
+          <div id="map-search">
+            <form onSubmit={this.recenterMap}>
+              <input id="search-bar" type="text" onChange={this.update('searchQuery')} value={this.state.searchQuery} placeholder="Search a City, Address, or Place" />
+              <button id="recenter-button" onClick={this.recenterMap}><i className="fas fa-search"></i></button>
+            </form>
+          </div>
+          <div id="route-controls">
+            <button><i className="fas fa-undo">undo</i></button>
+            <button></button>
+            <button></button>
+          </div>
+        </div>
+        <div id="map-container" ref="map">
+        </div>
+        <div id="route-stats-bar">
+          Distance
+        </div>
       </div>
     );
   }

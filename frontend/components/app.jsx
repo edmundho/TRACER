@@ -9,7 +9,7 @@ import Splash from './splash';
 // import NoSessionBackground from './no_session_background';
 // import DashboardContainer from './dashboard_container';
 import Dashboard from './dashboard';
-import RouteBuilder from './route_builder';
+import RouteBuilder from './route_builder/route_builder';
 
 const App = () => (
   <div className="app">
@@ -20,7 +20,7 @@ const App = () => (
       {/* <NoSessionBackground /> */}
     <section className="session-main">
       <Switch>
-        <Route exact path="/" component={Splash} />
+        <AuthRoute exact path="/" component={Splash} />
         <AuthRoute path='/login/:demo' component={LoginFormContainer} />
         <AuthRoute exact path='/login/' component={LoginFormContainer} />
         <AuthRoute path='/signup' component={SignupFormContainer} />
@@ -29,7 +29,6 @@ const App = () => (
         <ProtectedRoute path="/dashboard" component={Dashboard} />
         <Redirect to="/dashboard"/>
       </Switch>
-      
     </section>
   </div>
 );

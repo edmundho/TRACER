@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { loginUser, logoutUser, signupUser } from './actions/session_actions';
 import configureStore from './store/store';
 import Root from './components/root';
+import { getAllRoutes, postNewRoute } from './actions/route_actions';
 import { fetchRoutes, postRoute } from './util/routes_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,7 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.logoutUser = logoutUser;
   window.signupUser = signupUser;
   window.fetchRoutes = fetchRoutes;
-  window.postRoute = postRoute;
+  window.getAllRoutes = getAllRoutes;
+  window.postNewRoute = postNewRoute;
   
 
   ReactDOM.render(<Root store={store} />, root);
