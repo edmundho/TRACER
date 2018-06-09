@@ -13,11 +13,7 @@ import RouteBuilder from './route_builder/route_builder';
 
 const App = () => (
   <div className="app">
-    <header className="nav-bar">
-      <Link to="/dashboard"><h1>TRACER</h1></Link>
       <GreetingContainer />
-    </header>
-      {/* <NoSessionBackground /> */}
     <section className="session-main">
       <Switch>
         <AuthRoute exact path="/" component={Splash} />
