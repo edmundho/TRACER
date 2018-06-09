@@ -14,7 +14,6 @@ import RouteBuilder from './route_builder/route_builder';
 const App = () => (
   <div className="app">
       <GreetingContainer />
-    <section className="session-main">
       <Switch>
         <AuthRoute exact path="/" component={Splash} />
         <AuthRoute path='/login/:demo' component={LoginFormContainer} />
@@ -25,7 +24,6 @@ const App = () => (
         <ProtectedRoute path="/dashboard" component={Dashboard} />
         <Redirect to="/dashboard"/>
       </Switch>
-    </section>
   </div>
 );
 

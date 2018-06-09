@@ -5,6 +5,7 @@ export const mapOptions = {
     lng: -122.42
   },
   zoom: 14,
+  streetViewControl: false,
   mapTypeId: google.maps.MapTypeId.ROADMAP,
   styles: [{
       "featureType": "poi.place_of_worship",

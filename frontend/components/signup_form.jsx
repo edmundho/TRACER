@@ -64,48 +64,50 @@ class SignupForm extends React.Component {
     this.highlightIncorrectInputs(errors);
     
     return (
-      <div>
-        <h3>{this.props.formType}</h3>
+      <div className="session-main">
+        <div>
+          <h3>{this.props.formType}</h3>
 
-        <form id="signup-form" onSubmit={this.handleSubmit}>
-          <p id="username-p"></p>
-          <input
-            name="username"
-            type="text"
-            onChange={this.update('username')}
-            value={this.state.username}
-            placeholder="Username" />   
-          <p id="password-p"></p>
-          <input
-            name="password"
-            type="password"
-            onChange={this.update('password')}
-            value={this.state.password}
-            placeholder="Password" />    
-          <p id="first-name-p"></p>
-          <input
-            name="first-name"
-            type="text"
-            onChange={this.update('firstName')}
-            value={this.state.firstName}
-            placeholder="First Name" />
-          <p id="last-name-p"></p>
-          <input
-            name="last-name"
-            type="text"
-            onChange={this.update('lastName')}
-            value={this.state.lastName}
-            placeholder="Last Name" />
-          <label>Date of Birth:
+          <form id="signup-form" onSubmit={this.handleSubmit}>
+            <p id="username-p"></p>
             <input
-              type="date"
-              onChange={this.update('birthDate')}
-              value={this.state.birthDate} />
-          </label>
-          <input id="submit-input" type="submit" value={this.props.formType} />
-        </form>
+              name="username"
+              type="text"
+              onChange={this.update('username')}
+              value={this.state.username}
+              placeholder="Username" />   
+            <p id="password-p"></p>
+            <input
+              name="password"
+              type="password"
+              onChange={this.update('password')}
+              value={this.state.password}
+              placeholder="Password" />    
+            <p id="first-name-p"></p>
+            <input
+              name="first-name"
+              type="text"
+              onChange={this.update('firstName')}
+              value={this.state.firstName}
+              placeholder="First Name" />
+            <p id="last-name-p"></p>
+            <input
+              name="last-name"
+              type="text"
+              onChange={this.update('lastName')}
+              value={this.state.lastName}
+              placeholder="Last Name" />
+            <label>Date of Birth:
+              <input
+                type="date"
+                onChange={this.update('birthDate')}
+                value={this.state.birthDate} />
+            </label>
+            <input id="submit-input" type="submit" value={this.props.formType} />
+          </form>
 
-        <Link id="demo-redirect" to="/login/demo">Demo Login</Link>
+          <Link id="demo-redirect" to="/login/demo">Demo Login</Link>
+        </div>
       </div>
     );
   }

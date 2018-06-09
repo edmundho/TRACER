@@ -3,9 +3,9 @@
 #map-container {
   display: block;
   width: inherit;
-  height: 100vh;
+  height: 100%;
   background: lightgoldenrodyellow;
-  position: relative;
+  position: absolute;
 }
 
 #map-controls {
@@ -13,6 +13,9 @@
   height: 50px;
   background: whitesmoke;
   display: flex;
+  position: absolute;
+  top: 60px;
+  z-index: 99;
 }
 
 #map-search {
