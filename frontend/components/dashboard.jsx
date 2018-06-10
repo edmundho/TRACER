@@ -8,7 +8,7 @@ class Dashboard extends React.Component {
     return (
       <Link to="/routebuilder">
         <div className="dashboard">
-          map attack!!!
+          build dat route fam
         </div>        
       </Link>
     );

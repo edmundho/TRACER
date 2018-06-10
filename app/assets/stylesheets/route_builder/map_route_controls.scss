@@ -1,45 +1,3 @@
-
-#route-builder-container {
-}
-
-#map-container {
-  display: block;
-  width: inherit;
-  height: calc(100% - 110px);
-  background: lightgoldenrodyellow;
-  position: absolute;
-  margin-top: 110px;
-  z-index: 90;
-}
-
-#route-builder-header {
-  position: absolute;
-  z-index: 99;
-  display: flex;
-  background: white;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
-  border-radius: 1px;
-  position: absolute;
-  width: 100%;
-  color: gray;
-}
-
-#route-builder-header p {
-  margin: 10px;
-  font-size: 14px;
-}
-
-#route-builder-header h1 {
-  padding: 15px;
-  font-family: Avenir Next;
-  font-size: 40px;
-  font-weight: 700;
-  color: orangered;
-  letter-spacing: 2px;
-}
-
 #map-controls {
   width: 100%;
   height: 50px;
@@ -56,7 +14,8 @@
   display: flex;
   background: whitesmoke;
   align-items: center;
-  margin: 0
+  margin: 0;
+  font-family: Helvetica Neue;
 }
 
 #map-search form {
@@ -68,7 +27,7 @@
 }
 
 #search-bar {
-  width: 225px;
+  width: 220px;
   margin: 0;
   height: 40px;
   background: white;
@@ -93,14 +52,6 @@
   color: whitesmoke;
 }
 
-#route-builder-container {
-  width: 100%;
-  height: inherit;
-  margin: 0;
-  padding: 0;
-
-}
-
 #route-controls {
   margin: 0 50px;
   display: flex;
@@ -122,7 +73,7 @@
 
 #map-controls button:hover {
   background: gray;
-  color: whitesmoke; 
+  color: whitesmoke;
 }
 
 #route-sport {
@@ -130,30 +81,8 @@
   align-items: center;
 }
 
-
 #route-sport p {
   font-size: 12px;
-}
-
-#route-stats-bar {
-  position: absolute;
-  height: 50px;
-  width: 90%;
-  bottom: 30px;
-  left: 2%;
-  z-index: 99;
-  background: whitesmoke;
-  box-shadow: 1px 1px 1px lightgray; 
-  display: flex;
-  align-items: center;
-}
-
-#route-stats-bar ul {
-  display: flex;
-}
-
-#route-stats-bar li {
-  padding: 10px;
 }
 
 #route-save-button {

@@ -1,0 +1,46 @@
+#route-builder-container {
+  width: 100%;
+  height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+#map-container {
+  display: block;
+  width: inherit;
+  height: calc(100% - 110px);
+  background: lightgoldenrodyellow;
+  position: absolute;
+  margin-top: 110px;
+  z-index: 90;
+}
+
+#route-builder-header {
+  position: absolute;
+  z-index: 99;
+  display: flex;
+  background: white;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  border-radius: 1px;
+  position: absolute;
+  width: 100%;
+  color: gray;
+}
+
+#route-builder-header p {
+  margin: 10px;
+  font-size: 14px;
+}
+
+#route-builder-header h1 {
+  padding: 15px;
+  font-family: Avenir Next;
+  font-size: 40px;
+  font-weight: 700;
+  color: orangered;
+  letter-spacing: 2px;
+}
+
+

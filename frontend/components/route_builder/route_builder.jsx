@@ -26,19 +26,24 @@ class RouteBuilder extends React.Component {
       searchQuery: "",
       totalDistance: 0,
       elevationGain: 0,
+      sport: "Ride",
     };
 
     this.recenterMap = this.recenterMap.bind(this);
     this.clearRoute = this.clearRoute.bind(this);
     this.undoRouteLeg = this.undoRouteLeg.bind(this);
     this.redoRouteLeg = this.redoRouteLeg.bind(this);
+    this.setRide = this.setRide.bind(this);
+    this.setRun = this.setRun.bind(this);
   }
   
   componentDidMount () {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, mapOptions);
     this.directionsService = new google.maps.DirectionsService;
-    this.directionsDisplay = new google.maps.DirectionsRenderer;
+    this.directionsDisplay = new google.maps.DirectionsRenderer({
+      suppressBicyclingLayer: true
+    });
     this.geocoder = new google.maps.Geocoder;
     this.elevator = new google.maps.ElevationService;
     this.directionsDisplay.setMap(this.map);
@@ -72,19 +77,26 @@ class RouteBuilder extends React.Component {
   }
 
   calculateRoute (start, end, setState = true) {
+    let travelMode = 'WALKING';
+    // if (this.state.sport === 'Ride') {
+    //   travelMode = 'BICYCLING';
+    // } else if (this.state.sport === 'Run') {
+    //   travelMode = 'WALKING';
+    // }
+
     let request;
     if (this.waypoints.length < 2) {
       request = {
         origin: this.origin,
         destination: end,
-        travelMode: 'WALKING'
+        travelMode: travelMode
       };
     } else {
       request = {
         origin: this.origin,
         destination: end,
         waypoints: this.waypoints.slice(0, this.waypoints.length - 1),
-        travelMode: 'WALKING'
+        travelMode: travelMode
       };
     }
 
@@ -203,9 +215,17 @@ class RouteBuilder extends React.Component {
     this.directionsDisplay.set('directions', null);
   }
 
+  setRun () {
+    this.setState({ sport: "Run" });
+  }
+
+  setRide () {
+    this.setState({ sport: "Ride" });
+  }
+
   render () {
     const distance = Number((this.state.totalDistance * 0.0006).toFixed(2));
-    const elevation = Number((this.state.elevationGain * 3.28).toFixed(2));
+    const elevation = Number((this.state.elevationGain * 3.28).toFixed());
     
     return (
       <div id="route-builder-container">
@@ -226,8 +246,8 @@ class RouteBuilder extends React.Component {
             <button onClick={this.clearRoute}><p>clear</p><i className="fas fa-times"></i></button>
           </div>
           <div id="route-sport">
-            <button><p>Ride</p><i className="fas fa-bicycle"></i></button>
-            <button><p>Run</p><i className="fas fa-walking"></i></button>
+            <button onClick={this.setRide}><p>Ride</p><i className="fas fa-bicycle"></i></button>
+            <button onClick={this.setRun}><p>Run</p><i className="fas fa-walking"></i></button>
           </div>
           <div>
             <button id="route-save-button">Save</button>
@@ -238,10 +258,22 @@ class RouteBuilder extends React.Component {
         <div id="route-stats-bar">
           <ul>
             <li>
-              Distance: {distance} miles
+              <p>
+                {this.state.sport}
+              </p>
+              Route Type
             </li>
             <li>
-              Elevation: {elevation} feet
+              <p>
+                {distance} mi
+              </p>
+              Distance
+            </li>
+            <li>
+              <p>
+                {elevation} ft
+              </p>
+              Elevation Gain
             </li>
           </ul>
         </div>

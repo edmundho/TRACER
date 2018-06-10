@@ -1,0 +1,32 @@
+#route-stats-bar {
+  font-family: Helvetica Neue;
+}
+
+#route-stats-bar li {
+  font-size: 10px;
+  color: gray;
+  padding: 10px;
+  margin: 0 15px;
+}
+
+#route-stats-bar p {
+  font-size: 24px;
+  color: darkslategray;
+}
+
+#route-stats-bar {
+  position: absolute;
+  height: 50px;
+  width: 96%;
+  bottom: 30px;
+  left: 2%;
+  z-index: 99;
+  background: whitesmoke;
+  box-shadow: 1px 1px 1px lightgray;
+  display: flex;
+  align-items: center;
+}
+
+#route-stats-bar ul {
+  display: flex;
+}

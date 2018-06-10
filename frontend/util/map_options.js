@@ -5,6 +5,10 @@ export const mapOptions = {
     lng: -122.42
   },
   zoom: 14,
+  zoomControl: true,
+  zoomControlOptions: {
+    position: google.maps.ControlPosition.LEFT_TOP
+  },
   streetViewControl: false,
   mapTypeId: google.maps.MapTypeId.ROADMAP,
   styles: [{
