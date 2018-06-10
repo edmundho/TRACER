@@ -18,7 +18,7 @@ class RouteBuilder extends React.Component {
     this.markersArray = [];
     this.ignoreClicks = false;
     this.distanceDelta = 0;
-    this.elevationDelta = 0;
+    this.elevationGain = 0;
     this.undoneClicks = [];
     this.undoneWaypoints = [];
     this.state = {
@@ -43,24 +43,26 @@ class RouteBuilder extends React.Component {
     this.registerListeners();
   }
 
-  calculateElevation (path, numLegs, setState = true) {
+  calculateElevation (path, setState = true) {
     const elevator = new google.maps.ElevationService;
     elevator.getElevationAlongPath({
       'path': path,
-      'samples': 9*numLegs
+      'samples': 9
     }, (elevations, status) => {
-      let elevationGain = 0;
+      let elevationDelta = 0;
+      this.elevationGain = 0;
       if (status === 'OK') {
         for (let i = 0; i < elevations.length - 1; i++) {
           if (elevations[i + 1].elevation > elevations[i].elevation) {
-            this.elevationDelta = (elevations[i + 1].elevation - elevations[i].elevation);
-            elevationGain += this.elevationDelta;
+            elevationDelta = (elevations[i + 1].elevation - elevations[i].elevation);
+            this.elevationGain += elevationDelta;
           }
         }
         if (setState) {
-          this.setState({ elevationGain: elevationGain });
+          this.setState({ 
+            elevationGain: this.state.elevationGain + this.elevationGain 
+          });
         }
-        return elevationGain;
       } else {
         this.ignoreClicks = true;
         window.alert('An elevation request error returned due to ' + status);
@@ -87,15 +89,16 @@ class RouteBuilder extends React.Component {
 
     this.directionsService.route(request, (response, status) => {
       if (status === 'OK') {
-        // console.log(response);
+        console.log(response);
         const lastLeg = response.routes[0].legs[this.waypoints.length - 1];
+        const lastLegPath = [lastLeg.start_location, lastLeg.end_location];
         this.distanceDelta = lastLeg.distance.value;
+        this.calculateElevation(lastLegPath, setState);
         if (setState) {
           this.setState({ 
-            totalDistance: this.state.totalDistance += lastLeg.distance.value 
+            totalDistance: this.state.totalDistance += lastLeg.distance.value
           });
         }
-        const elevationGain = this.calculateElevation(this.clicks, this.waypoints.length, setState);
         this.directionsDisplay.setDirections(response);
       } else {
         this.ignoreClicks = true;
@@ -155,9 +158,8 @@ class RouteBuilder extends React.Component {
     if (this.clicks.length > 2) {
       this.undoneClicks.push(this.clicks.pop());
       this.undoneWaypoints.push(this.waypoints.pop());
-      console.log(this.clicks);
       const newDistance = this.state.totalDistance - this.distanceDelta;
-      const newElevation = this.state.elevationGain - this.elevationDelta;
+      const newElevation = this.state.elevationGain - this.elevationGain;
       
       this.calculateRoute(this.origin, this.clicks[this.clicks.length - 1], false);
   
@@ -168,11 +170,10 @@ class RouteBuilder extends React.Component {
     } else if (this.clicks.length === 2) {
       this.undoneClicks.push(this.clicks.pop());
       this.undoneWaypoints.push(this.waypoints.pop());
-      console.log(this.clicks);
       this.setState({
         totalDistance: 0,
         elevationGain: 0
-      })
+      });
       this.directionsDisplay.set('directions', null);
     } 
   }
