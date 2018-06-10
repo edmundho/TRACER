@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch, Redirect, Link } from 'react-router-dom';
-import LoginFormContainer from './login_form_container';
-import SignupFormContainer from './signup_form_container';
+import LoginFormContainer from './session_components/login_form_container';
+import SignupFormContainer from './session_components/signup_form_container';
 import GreetingContainer from './greeting_container';
-import DemoFormContainer from './demo_form_container';
+import DemoFormContainer from './session_components/demo_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from './splash';
 // import NoSessionBackground from './no_session_background';

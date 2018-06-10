@@ -140,6 +140,18 @@ class RouteBuilder extends React.Component {
     });
   }
 
+  undoRouteLeg (event) {
+    console.log(event);
+  }
+
+  redoRouteLeg (event) {
+    console.log(event);
+  }
+
+  clearRoute(event) {
+    console.log(event);
+  }
+
   render () {
     const distance = Number((this.state.totalDistance * 0.0006).toFixed(2));
     const elevation = Number((this.state.elevationGain * 3.28).toFixed(2));
@@ -158,15 +170,17 @@ class RouteBuilder extends React.Component {
             </form>
           </div>
           <div id="route-controls">
-            <button><p>undo</p><i className="fas fa-undo"></i></button>
-            <button><p>redo</p><i className="fas fa-redo"></i></button>
-            <button><p>clear</p><i className="fas fa-times"></i></button>
+            <button onClick={this.undoRouteLeg}><p>undo</p><i className="fas fa-undo"></i></button>
+            <button onClick={this.redoRouteLeg}><p>redo</p><i className="fas fa-redo"></i></button>
+            <button onClick={this.clearRoute}><p>clear</p><i className="fas fa-times"></i></button>
           </div>
           <div id="route-sport">
             <button><p>Ride</p><i className="fas fa-bicycle"></i></button>
             <button><p>Run</p><i className="fas fa-walking"></i></button>
           </div>
-          <button id="route-save-button">Save</button>
+          <div>
+            <button id="route-save-button">Save</button>
+          </div>
         </div>
         <div id="map-container" ref="map">
         </div>
