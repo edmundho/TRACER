@@ -21,6 +21,7 @@ class RouteBuilder extends React.Component {
     this.elevationGain = 0;
     this.undoneClicks = [];
     this.undoneWaypoints = [];
+
     this.state = {
       searchQuery: "",
       totalDistance: 0,
@@ -39,13 +40,13 @@ class RouteBuilder extends React.Component {
     this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer;
     this.geocoder = new google.maps.Geocoder;
+    this.elevator = new google.maps.ElevationService;
     this.directionsDisplay.setMap(this.map);
     this.registerListeners();
   }
 
   calculateElevation (path, setState = true) {
-    const elevator = new google.maps.ElevationService;
-    elevator.getElevationAlongPath({
+    this.elevator.getElevationAlongPath({
       'path': path,
       'samples': 9
     }, (elevations, status) => {
@@ -190,6 +191,9 @@ class RouteBuilder extends React.Component {
   clearRoute() {
     this.clicks = [];
     this.waypoints = [];
+    for (let i = 0; i < this.markersArray.length; i++) {
+      this.markersArray[i].setMap(null);
+    }
     this.markersArray = [];
     this.origin = undefined;
     this.setState({
