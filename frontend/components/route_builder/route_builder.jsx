@@ -19,6 +19,8 @@ class RouteBuilder extends React.Component {
     this.ignoreClicks = false;
     this.distanceDelta = 0;
     this.elevationDelta = 0;
+    this.undoneClicks = [];
+    this.undoneWaypoints = [];
     this.state = {
       searchQuery: "",
       totalDistance: 0,
@@ -148,27 +150,43 @@ class RouteBuilder extends React.Component {
     });
   }
 
-  undoRouteLeg (event) {
-    this.undoneClicks = [];
-    this.undoneWaypoints = [];
-    this.undoneClicks.push(this.clicks.pop());
-    this.undoneWaypoints.push(this.waypoints.pop());
-    const newDistance = this.state.totalDistance - this.distanceDelta;
-    const newElevation = this.state.elevationGain - this.elevationDelta;
+  undoRouteLeg () {
     
-    this.calculateRoute(this.origin, this.clicks[this.clicks.length - 1], false);
-
-    this.setState({
-      totalDistance: newDistance,
-      elevationGain: newElevation
-    });
+    if (this.clicks.length > 2) {
+      this.undoneClicks.push(this.clicks.pop());
+      this.undoneWaypoints.push(this.waypoints.pop());
+      console.log(this.clicks);
+      const newDistance = this.state.totalDistance - this.distanceDelta;
+      const newElevation = this.state.elevationGain - this.elevationDelta;
+      
+      this.calculateRoute(this.origin, this.clicks[this.clicks.length - 1], false);
+  
+      this.setState({
+        totalDistance: newDistance,
+        elevationGain: newElevation
+      });
+    } else if (this.clicks.length === 2) {
+      this.undoneClicks.push(this.clicks.pop());
+      this.undoneWaypoints.push(this.waypoints.pop());
+      console.log(this.clicks);
+      this.setState({
+        totalDistance: 0,
+        elevationGain: 0
+      })
+      this.directionsDisplay.set('directions', null);
+    } 
   }
 
-  redoRouteLeg (event) {
-    console.log(event);
+  redoRouteLeg () {
+    if (this.undoneClicks.length > 0) {
+      this.clicks.push(this.undoneClicks.pop());
+      this.waypoints.push(this.undoneWaypoints.pop());
+
+      this.calculateRoute(this.origin, this.clicks[this.clicks.length - 1]);
+    }
   }
 
-  clearRoute(event) {
+  clearRoute() {
     this.clicks = [];
     this.waypoints = [];
     this.markersArray = [];
