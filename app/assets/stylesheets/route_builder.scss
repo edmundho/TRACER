@@ -1,11 +1,43 @@
 
+#route-builder-container {
+}
 
 #map-container {
   display: block;
   width: inherit;
-  height: 100%;
+  height: calc(100% - 110px);
   background: lightgoldenrodyellow;
   position: absolute;
+  margin-top: 110px;
+  z-index: 90;
+}
+
+#route-builder-header {
+  position: absolute;
+  z-index: 99;
+  display: flex;
+  background: white;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  border-radius: 1px;
+  position: absolute;
+  width: 100%;
+  color: gray;
+}
+
+#route-builder-header p {
+  margin: 10px;
+  font-size: 14px;
+}
+
+#route-builder-header h1 {
+  padding: 15px;
+  font-family: Avenir Next;
+  font-size: 40px;
+  font-weight: 700;
+  color: orangered;
+  letter-spacing: 2px;
 }
 
 #map-controls {
@@ -16,6 +48,8 @@
   position: absolute;
   top: 60px;
   z-index: 99;
+  box-shadow: 2px 1px 2px lightgray;
+  align-items: center;
 }
 
 #map-search {
@@ -39,7 +73,9 @@
   height: 40px;
   background: white;
   color: black;
-
+  font-size: 14px;
+  text-align: left;
+  padding: 0 0 0 5px;
 }
 
 #recenter-button {
@@ -49,6 +85,7 @@
   font-size: 24px;
   background: lightgray;
   color: gray;
+  text-align: center;
 }
 
 #recenter-button:hover {
@@ -66,23 +103,62 @@
 
 #route-controls {
   margin: 0 50px;
+  display: flex;
+  align-items: center;
 }
 
-#route-controls button {
+#map-controls button {
   margin: 0;
   width: 65px;
   height: 40px;
-  font-size: 24px;
-  background: lightgray;
   color: gray;
+  font-size: 20px;
+  text-align: center;
+}
+
+#route-controls p {
+  font-size: 12px;
+}
+
+#map-controls button:hover {
+  background: gray;
+  color: whitesmoke; 
+}
+
+#route-sport {
+  display: flex;
+  align-items: center;
+}
+
+
+#route-sport p {
+  font-size: 12px;
 }
 
 #route-stats-bar {
   position: absolute;
   height: 50px;
   width: 90%;
-  bottom: -10px;
+  bottom: 30px;
+  left: 2%;
   z-index: 99;
   background: whitesmoke;
   box-shadow: 1px 1px 1px lightgray; 
+  display: flex;
+  align-items: center;
+}
+
+#route-stats-bar ul {
+  display: flex;
+}
+
+#route-stats-bar li {
+  padding: 10px;
+}
+
+#route-save-button {
+  background: orangered;
+  color: whitesmoke !important;
+  font-size: 14px !important;
+  font-weight: 700;
 }

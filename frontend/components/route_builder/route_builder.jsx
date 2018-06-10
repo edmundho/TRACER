@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { mapOptions } from '../../util/map_options';
 
 const getCoordsObj = latLng => ({
@@ -14,11 +15,13 @@ class RouteBuilder extends React.Component {
     this.clicks = [];
     this.route = undefined;
     this.origin = undefined;
-    this.totalDistance = 0;
+    // this.totalDistance = 0;
     this.markersArray = [];
     this.ignoreClicks = false;
     this.state = {
-      searchQuery: ""
+      searchQuery: "",
+      totalDistance: 0,
+      elevationGain: 0,
     };
 
     this.recenterMap = this.recenterMap.bind(this);
@@ -49,6 +52,7 @@ class RouteBuilder extends React.Component {
         }
         console.log(elevationGain);
         // setState elevationGain here:
+        this.setState({ elevationGain: elevationGain });
         return elevationGain;
       } else {
         this.ignoreClicks = true;
@@ -78,9 +82,10 @@ class RouteBuilder extends React.Component {
       if (status === 'OK') {
         console.log(response);
         const lastLeg = response.routes[0].legs[this.waypoints.length - 1];
-        this.totalDistance += lastLeg.distance.value;
+        this.setState({ totalDistance: this.state.totalDistance += lastLeg.distance.value });
+        // this.totalDistance += lastLeg.distance.value;
         // setState totalDistance here:
-        console.log(this.totalDistance);
+        // console.log(this.totalDistance);
         const elevationGain = this.calculateElevation(this.clicks, this.waypoints.length);
         this.directionsDisplay.setDirections(response);
       } else {
@@ -136,9 +141,15 @@ class RouteBuilder extends React.Component {
   }
 
   render () {
+    const distance = Number((this.state.totalDistance * 0.0006).toFixed(2));
+    const elevation = Number((this.state.elevationGain * 3.28).toFixed(2));
     
     return (
       <div id="route-builder-container">
+        <div id="route-builder-header">
+          <Link to="/dashboard"><h1>TRACER</h1></Link>
+          <Link to="/dashboard"><p>Exit Route Builder</p></Link>
+        </div>
         <div id="map-controls">
           <div id="map-search">
             <form onSubmit={this.recenterMap}>
@@ -147,15 +158,27 @@ class RouteBuilder extends React.Component {
             </form>
           </div>
           <div id="route-controls">
-            <button><i className="fas fa-undo">undo</i></button>
-            <button></button>
-            <button></button>
+            <button><p>undo</p><i className="fas fa-undo"></i></button>
+            <button><p>redo</p><i className="fas fa-redo"></i></button>
+            <button><p>clear</p><i className="fas fa-times"></i></button>
           </div>
+          <div id="route-sport">
+            <button><p>Ride</p><i className="fas fa-bicycle"></i></button>
+            <button><p>Run</p><i className="fas fa-walking"></i></button>
+          </div>
+          <button id="route-save-button">Save</button>
         </div>
         <div id="map-container" ref="map">
         </div>
         <div id="route-stats-bar">
-          Distance
+          <ul>
+            <li>
+              Distance: {distance} miles
+            </li>
+            <li>
+              Elevation: {elevation} feet
+            </li>
+          </ul>
         </div>
       </div>
     );
