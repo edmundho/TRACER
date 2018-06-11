@@ -1,16 +1,18 @@
 #route-stats-bar {
   font-family: Helvetica Neue;
+  font-weight: 300;
 }
 
 #route-stats-bar li {
-  font-size: 10px;
-  color: gray;
+  font-size: 11px;
+  color: lightslategray;
   padding: 10px;
-  margin: 0 15px;
+  margin: 0 35px;
+  letter-spacing: 1px;
 }
 
 #route-stats-bar p {
-  font-size: 24px;
+  font-size: 25px;
   color: darkslategray;
 }
 

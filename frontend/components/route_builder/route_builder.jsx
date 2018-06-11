@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { mapOptions } from '../../util/map_options';
+import RouteFormModal from './route_form_modal';
 
 const getCoordsObj = latLng => ({
   lat: latLng.lat(),
@@ -24,9 +25,12 @@ class RouteBuilder extends React.Component {
 
     this.state = {
       searchQuery: "",
+      routeName: "",
       totalDistance: 0,
       elevationGain: 0,
       sport: "Ride",
+      showModal: false,
+      description: "",
     };
 
     this.recenterMap = this.recenterMap.bind(this);
@@ -35,6 +39,7 @@ class RouteBuilder extends React.Component {
     this.redoRouteLeg = this.redoRouteLeg.bind(this);
     this.setRide = this.setRide.bind(this);
     this.setRun = this.setRun.bind(this);
+    this.openRouteForm = this.openRouteForm.bind(this);
   }
   
   componentDidMount () {
@@ -223,6 +228,24 @@ class RouteBuilder extends React.Component {
     this.setState({ sport: "Ride" });
   }
 
+  openRouteForm () {
+    if (this.clicks.length >= 2) {
+      const closedModalEl = document.getElementById('route-form-modal-hidden');
+      closedModalEl.id = "route-form-modal";
+      this.setState({
+        showModal: true
+      });
+    }
+  }
+
+  closeRouteForm () {
+    const openModalEl = document.getElementById('route-form-modal');
+    openModalEl.id = "route-form-modal-hidden";
+    this.setState({
+      showModal: false
+    });
+  }
+
   render () {
     const distance = Number((this.state.totalDistance * 0.0006).toFixed(2));
     const elevation = Number((this.state.elevationGain * 3.28).toFixed());
@@ -231,12 +254,17 @@ class RouteBuilder extends React.Component {
       <div id="route-builder-container">
         <div id="route-builder-header">
           <Link to="/dashboard"><h1>TRACER</h1></Link>
-          <Link to="/dashboard"><p>Exit Route Builder</p></Link>
+          <Link to="/dashboard" id="exit-builder"><p>Exit Builder</p></Link>
         </div>
         <div id="map-controls">
           <div id="map-search">
             <form onSubmit={this.recenterMap}>
-              <input id="search-bar" type="text" onChange={this.update('searchQuery')} value={this.state.searchQuery} placeholder="Search a City, Address, or Place" />
+              <input 
+                id="search-bar" 
+                type="text" 
+                onChange={this.update('searchQuery')} 
+                value={this.state.searchQuery} 
+                placeholder="Search a City, Address, or Place" />
               <button id="recenter-button" onClick={this.recenterMap}><i className="fas fa-search"></i></button>
             </form>
           </div>
@@ -250,32 +278,40 @@ class RouteBuilder extends React.Component {
             <button onClick={this.setRun}><p>Run</p><i className="fas fa-walking"></i></button>
           </div>
           <div>
-            <button id="route-save-button">Save</button>
+            <button id="route-save-button" onClick={this.openRouteForm}>Save</button>
           </div>
         </div>
         <div id="map-container" ref="map">
         </div>
         <div id="route-stats-bar">
           <ul>
-            <li>
-              <p>
-                {this.state.sport}
-              </p>
-              Route Type
-            </li>
-            <li>
-              <p>
-                {distance} mi
-              </p>
-              Distance
-            </li>
-            <li>
-              <p>
-                {elevation} ft
-              </p>
-              Elevation Gain
-            </li>
+            <li><p>{this.state.sport}</p>Route Type</li>
+            <li><p>{distance} mi</p>Distance</li>
+            <li><p>{elevation} ft</p>Elevation Gain</li>
           </ul>
+        </div>
+        <div id="route-form-modal-hidden">
+          <div id="route-form">
+            <h1>Save</h1>
+            <p>Enter a name and description for your route below. On the next page, you'll be able to </p>
+            <form action="">
+              <label>
+                <h3>Route Name (required)</h3>
+                <input 
+                  type="text" 
+                  onChange={this.update('routeName')} 
+                  value={this.state.routeName} />
+              </label>
+              <label>
+                <h3>Description</h3>
+                <textarea onChange={this.update('description')} value={this.state.description} cols="30" rows="10"></textarea>
+              </label>
+            </form>
+            <div id="route-form-buttons">
+              <button id="route-form-cancel" onClick={this.closeRouteForm}>Cancel</button>
+              <button id="route-form-save">Save</button>
+            </div>
+          </div>
         </div>
       </div>
     );

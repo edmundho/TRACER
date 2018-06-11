@@ -26,7 +26,12 @@
   border-radius: 1px;
   position: absolute;
   width: 100%;
-  color: gray;
+  color: lightslategray;
+}
+
+#exit-builder:hover {
+  text-decoration: underline;
+  color: darkslategray;
 }
 
 #route-builder-header p {

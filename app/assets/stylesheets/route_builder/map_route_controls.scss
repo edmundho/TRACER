@@ -59,6 +59,7 @@
 }
 
 #map-controls button {
+  border-radius: 2px;
   margin: 0;
   width: 65px;
   height: 40px;
@@ -86,8 +87,10 @@
 }
 
 #route-save-button {
+  border-radius: 2px;
   background: orangered;
   color: whitesmoke !important;
   font-size: 14px !important;
-  font-weight: 700;
+  font-weight: 400;
+  font-family: Helvetica Neue;
 }
