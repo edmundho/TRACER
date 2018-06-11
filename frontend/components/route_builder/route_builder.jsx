@@ -14,7 +14,7 @@ class RouteBuilder extends React.Component {
     super(props);
     this.waypoints = [];
     this.clicks = [];
-    this.route = undefined;
+    this.routePolyline = undefined;
     this.origin = undefined;
     this.markersArray = [];
     this.ignoreClicks = false;
@@ -40,6 +40,7 @@ class RouteBuilder extends React.Component {
     this.setRide = this.setRide.bind(this);
     this.setRun = this.setRun.bind(this);
     this.openRouteForm = this.openRouteForm.bind(this);
+    this.closeRouteForm = this.closeRouteForm.bind(this);
   }
   
   componentDidMount () {
@@ -107,7 +108,7 @@ class RouteBuilder extends React.Component {
 
     this.directionsService.route(request, (response, status) => {
       if (status === 'OK') {
-        console.log(response);
+        console.log(response.routes[0].overview_polyline);
         const lastLeg = response.routes[0].legs[this.waypoints.length - 1];
         const lastLegPath = [lastLeg.start_location, lastLeg.end_location];
         this.distanceDelta = lastLeg.distance.value;
@@ -149,6 +150,7 @@ class RouteBuilder extends React.Component {
         this.markersArray[0].setMap(null);
         this.calculateRoute(this.origin, coords);
       }
+
     });
     
   }
@@ -230,12 +232,14 @@ class RouteBuilder extends React.Component {
 
   openRouteForm () {
     if (this.clicks.length >= 2) {
+      this.routePolyline = this.directionsDisplay.directions.routes[0].overview_polyline;
       const closedModalEl = document.getElementById('route-form-modal-hidden');
       closedModalEl.id = "route-form-modal";
       this.setState({
         showModal: true
       });
     }
+    console.log(this.routePolyline);
   }
 
   closeRouteForm () {
