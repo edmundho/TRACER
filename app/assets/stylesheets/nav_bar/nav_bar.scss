@@ -3,6 +3,7 @@
   position: absolute;
   width: 100%;
   background: white;
+  box-shadow: 0 1px 1px darkgray;  
 }
 
 .nav-bar {
@@ -13,8 +14,8 @@
   height: 60px;
   border-radius: 1px;
   position: absolute;
-  width: 90%;
-  left: 5%;
+  width: 80%;
+  left: 10%;
   margin: 0 auto;
   // z-index: 99;
   font-family: Geneva;

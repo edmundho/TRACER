@@ -24,6 +24,7 @@
   width: 100%;
   height: 100vh;
   position: relative;
+  background: whitesmoke;
 }
 
 .session-main h1 {

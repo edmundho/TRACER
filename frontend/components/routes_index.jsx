@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class RoutesIndex extends React.Component {
   constructor (props) {
@@ -12,7 +13,10 @@ class RoutesIndex extends React.Component {
   render () {
     return (
       <div id="routes-index">
-        <h1>index</h1>
+        <header>
+          <h1>My Routes</h1>
+          <Link to="/routebuilder">Create New Route</Link>
+        </header>
       </div>
     );
   }

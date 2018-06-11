@@ -1,15 +1,37 @@
 
 #routes-index {
-  background: lightslategray;
   height: 100%;
-
+  width: 80%;
+  margin: 0 auto;
 }
 
 
 #routes-index h1 {
-  position: absolute;
-  top: 200px;
-  left: 200px;
-  color: whitesmoke;
+  color: slateblue;
+  font-size: 30px;
+  font-family: Helvetica Neue;
+  font-weight: 300;
+  padding: 20px;
 }
 
+#routes-index header {
+  padding: 100px 0 0 0;
+  display: block;
+  height: 180px;
+  border-bottom: 1px darkgray solid;
+}
+
+#routes-index a {
+  font-family: Geneva;
+  display: inline-block;
+  margin: 20px;
+  padding: 10px;
+  background: orangered;
+  color: white;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+#routes-index a:hover {
+  background: #BB4720;
+}

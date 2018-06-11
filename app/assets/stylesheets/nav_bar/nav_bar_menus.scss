@@ -26,11 +26,18 @@
   position: absolute;
   right: 50px;
   top: 60px;
+  border-right: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+}
+
+#user-menu-dropdown ul {
+  box-shadow: 1px 1px 1px lightgray;
 }
 
 #user-menu-dropdown li {
   text-align: center;
   background: whitesmoke;
+  border-bottom: 1px solid lightgray;
 }
 
 #user-menu-dropdown li:hover {
@@ -50,17 +57,19 @@
 }
 
 .activity-menu-dropdown {
-  height: 100%;
   width: 175px;
   background: whitesmoke;
   position: absolute;
   top: 60px;
   right: 0px;
-
 }
 
 #new-activity-menu:hover {
-  color: orange;
+  color: #BB4720;
+}
+
+.activity-menu-dropdown ul {
+  box-shadow: 1px 1px 0.5px lightgray;
 }
 
 #activity-menu-list li {
@@ -70,6 +79,8 @@
   border-bottom: 1px solid lightgray;
   text-align: center;
   background: whitesmoke;
+  border-right: 1px solid lightgray;
+  border-left: 1px solid lightgray;
 }
 
 #activity-menu-list li:hover {
@@ -80,6 +91,5 @@
   font-family: Geneva;
   font-size: 13px;
   padding: 10px;
-  border-bottom: 1px solid lightgray;
   text-align: center;
 }
