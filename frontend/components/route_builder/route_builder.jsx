@@ -253,6 +253,8 @@ class RouteBuilder extends React.Component {
       });
     }
     console.log(this.routePolyline);
+    // const decodedLine = google.maps.geometry.encoding.decodePath(this.routePolyline);
+    // console.log(decodedLine);
   }
 
   closeRouteForm () {
