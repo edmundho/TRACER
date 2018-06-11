@@ -87,16 +87,6 @@
   font-size: 12px;
 }
 
-#route-save-button {
-  border-radius: 2px;
-  background: orangered;
-  color: whitesmoke !important;
-  font-size: 14px !important;
-  font-weight: 400;
-  font-family: Helvetica Neue;
-  box-shadow: 0px 1px 1px lightgray;
-}
-
 #ride-mode {
   background: gray;
   color: whitesmoke !important;
@@ -115,4 +105,21 @@
 #run-mode:hover {
   background: gray !important;
   color: whitesmoke !important;
+}
+
+#route-controls-save {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+#route-save-button {
+  border-radius: 2px;
+  background: orangered;
+  color: whitesmoke !important;
+  font-size: 14px !important;
+  font-weight: 400;
+  font-family: Helvetica Neue;
+  box-shadow: 0px 1px 1px lightgray;
+  margin: 0 10px !important;
 }

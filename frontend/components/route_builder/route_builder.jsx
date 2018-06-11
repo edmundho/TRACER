@@ -313,7 +313,7 @@ class RouteBuilder extends React.Component {
             <button id="ride-mode" className="ride-mode" onClick={this.setRide}><p>Ride</p><i className="fas fa-bicycle"></i></button>
             <button className="run-mode" onClick={this.setRun}><p>Run</p><i className="fas fa-walking"></i></button>
           </div>
-          <div>
+          <div id="route-controls-save">
             <button id="route-save-button" onClick={this.openRouteForm}>Save</button>
           </div>
         </div>
