@@ -1,6 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { mapOptions } from '../../util/map_options';
+import { StyleSheet, css } from 'aphrodite';
+import { fadeIn, fadeOut } from 'react-animations';
+
+const styles = StyleSheet.create({
+  fadeIn: {
+    animationName: fadeIn,
+    animationDuration: '0.5s'
+  },
+  fadeOut: {
+    animationName: fadeOut,
+    animationDuration: '1s'
+  }
+});
 
 const getCoordsObj = latLng => ({
   lat: latLng.lat(),
@@ -299,11 +312,11 @@ class RouteBuilder extends React.Component {
             <li><p>{elevation} ft</p>Elevation Gain</li>
           </ul>
         </div>
-        <div id="route-form-modal-hidden">
+        <div id="route-form-modal-hidden" className={css(styles.fadeIn)}>
           <div id="route-form">
             <h1>Save</h1>
             <p>Enter a name and description for your route below. On the next page, you'll be able to </p>
-            <form action="">
+            <form>
               <label>
                 <h3>Route Name (required)</h3>
                 <input 
