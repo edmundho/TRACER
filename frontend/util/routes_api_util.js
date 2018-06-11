@@ -21,6 +21,7 @@ export const postRoute = route => (
         elevation: route.elevation,
         map_image: route.mapImage,
         polyline_string: route.polylineString,
+        description: route.description
       }
     }
   })

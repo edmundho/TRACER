@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { mapOptions } from '../../util/map_options';
-import RouteFormModal from './route_form_modal';
 
 const getCoordsObj = latLng => ({
   lat: latLng.lat(),
@@ -41,6 +40,7 @@ class RouteBuilder extends React.Component {
     this.setRun = this.setRun.bind(this);
     this.openRouteForm = this.openRouteForm.bind(this);
     this.closeRouteForm = this.closeRouteForm.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
   componentDidMount () {
@@ -250,6 +250,11 @@ class RouteBuilder extends React.Component {
     });
   }
 
+  handleSubmit (e) {
+    e.preventDefault();
+
+  }
+
   render () {
     const distance = Number((this.state.totalDistance * 0.0006).toFixed(2));
     const elevation = Number((this.state.elevationGain * 3.28).toFixed());
@@ -313,7 +318,7 @@ class RouteBuilder extends React.Component {
             </form>
             <div id="route-form-buttons">
               <button id="route-form-cancel" onClick={this.closeRouteForm}>Cancel</button>
-              <button id="route-form-save">Save</button>
+              <button id="route-form-save" onClick={this.handleSubmit}>Save</button>
             </div>
           </div>
         </div>
