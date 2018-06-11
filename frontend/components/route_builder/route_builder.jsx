@@ -270,6 +270,9 @@ class RouteBuilder extends React.Component {
   closeRouteForm () {
     const openModalEl = document.getElementById('route-form-modal');
     openModalEl.id = "route-form-modal-hidden";
+    this.props.clearRouteErrors();
+    document.getElementById('route-name-input').className = "";
+    document.getElementById('route-name-required').innerText = "";
     this.setState({
       showModal: false
     });
@@ -293,7 +296,10 @@ class RouteBuilder extends React.Component {
       polylineString: this.routePolyline
     };
 
-    this.props.postNewRoute(route);
+    this.props.postNewRoute(route)
+      .then(() => this.props.history.push("/dashboard"),
+      errors => console.log(errors)
+    );
   }
 
   componentWillUnmount () {
@@ -304,7 +310,7 @@ class RouteBuilder extends React.Component {
     const routeNameEl = document.getElementById('route-name-required');
     if (errors.includes("Title can't be blank")) {
       const routeNameInputEl = document.getElementById('route-name-input');
-      routeNameInputEl.id = 'route-name-input-with-errors';
+      routeNameInputEl.className = 'route-name-input-with-errors';
       routeNameEl.innerText = "Required";
     }
   }
