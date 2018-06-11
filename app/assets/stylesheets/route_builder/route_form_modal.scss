@@ -17,7 +17,7 @@
   top: 15%;
   left: calc(50% - 250px);
   background: whitesmoke;
-
+  border-radius: 1px;
 }
 
 #route-form h1 {
@@ -39,12 +39,20 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 10px 0;
+  padding: 10px 0 0 0;
+}
+
+#route-name-required {
+  height: 10px;
+  padding: 0 0 15px 10px !important;
+  font-size: 9px;
+  color: red;
 }
 
 #route-form label {
   display: flex;
   flex-direction: column;
+  // padding: 0 0 15px 0;
 }
 
 #route-form h3 {
@@ -68,11 +76,17 @@
   border: 1px solid #317EB1;
 }
 
+#route-name-input-with-errors {
+  border: 1px solid red !important; 
+  height: 13px !important;
+  width: 378px !important;
+}
+
 #route-form textarea {
   background: white;
   border: 1px solid lightgray;
   width: 380px;
-  height: 60px;
+  height: 55px;
   padding: 10px;
   margin: 5px;
 }
@@ -86,7 +100,7 @@
   justify-content: flex-end;
   height: calc(400px - 169px - 60px - 66px - 40px - 20px);
   align-items: flex-end;
-  padding: 20px;
+  padding: 15px 20px 15px 20px;
 }
 
 #route-form-cancel {

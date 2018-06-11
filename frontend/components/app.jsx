@@ -10,7 +10,6 @@ import Splash from './session_components/splash';
 // import DashboardContainer from './dashboard_container';
 import Dashboard from './dashboard';
 import RouteBuilderContainer from './route_builder/route_builder_container';
-// import RouteBuilder from './route_builder/route_builder';
 
 const App = () => (
   <div className="app">

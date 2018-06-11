@@ -121,7 +121,7 @@ class RouteBuilder extends React.Component {
 
     this.directionsService.route(request, (response, status) => {
       if (status === 'OK') {
-        console.log(response.routes[0]);
+        // console.log(response.routes[0]);
         const lastLeg = response.routes[0].legs[this.waypoints.length - 1];
         const lastLegPath = [lastLeg.start_location, lastLeg.end_location];
         this.distanceDelta = lastLeg.distance.value;
@@ -277,12 +277,41 @@ class RouteBuilder extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    const route = {
+    let routeSport;
+    if (this.state.sport === 'Ride') {
+      routeSport = 'bike';
+    } else if (this.state.sport === 'Run') {
+      routeSport = 'run';
+    }
 
+    const route = {
+      title: this.state.routeName,
+      description: this.state.description,
+      sport: routeSport,
+      elevation: this.state.elevationGain,
+      distance: this.state.totalDistance,
+      polylineString: this.routePolyline
+    };
+
+    this.props.postNewRoute(route);
+  }
+
+  componentWillUnmount () {
+    this.props.clearRouteErrors();
+  }
+
+  highlightIncorrectInputs (errors) {
+    const routeNameEl = document.getElementById('route-name-required');
+    if (errors.includes("Title can't be blank")) {
+      const routeNameInputEl = document.getElementById('route-name-input');
+      routeNameInputEl.id = 'route-name-input-with-errors';
+      routeNameEl.innerText = "Required";
     }
   }
 
   render () {
+    const errors = this.props.errors;
+    this.highlightIncorrectInputs(errors);
     const distance = Number((this.state.totalDistance * 0.0006).toFixed(2));
     const elevation = Number((this.state.elevationGain * 3.28).toFixed());
     
@@ -334,9 +363,11 @@ class RouteBuilder extends React.Component {
               <label>
                 <h3>Route Name (required)</h3>
                 <input 
+                  id="route-name-input"
                   type="text" 
                   onChange={this.update('routeName')} 
                   value={this.state.routeName} />
+                <p id="route-name-required"></p>
               </label>
               <label>
                 <h3>Description</h3>

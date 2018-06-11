@@ -2,7 +2,7 @@ import { fetchRoutes, postRoute } from '../util/routes_api_util';
 
 export const RECEIVE_ROUTES = "RECEIVE_ROUTES";
 export const POST_ROUTE = "POST_ROUTE";
-export const RECEIVE_ROUTES_ERRORS = "RECEIVE_ROUTES_ERRORS";
+export const RECEIVE_ROUTE_ERRORS = "RECEIVE_ROUTE_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 const receiveAllRoutes = routes => ({
@@ -16,11 +16,11 @@ const submitRoute = route => ({
 });
 
 const receiveErrors = errors => ({
-  type: RECEIVE_ROUTES_ERRORS,
+  type: RECEIVE_ROUTE_ERRORS,
   errors
 });
 
-export const clearRoutesErrors = () => ({
+export const clearRouteErrors = () => ({
   type: CLEAR_ERRORS
 });
 

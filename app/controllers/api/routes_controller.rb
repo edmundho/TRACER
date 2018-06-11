@@ -8,7 +8,6 @@ class Api::RoutesController < ApplicationController
     @route.user_id = current_user.id
 
     if @route.save
-  
       render json: @route
     else
       render json: @route.errors.full_messages, status: 422
