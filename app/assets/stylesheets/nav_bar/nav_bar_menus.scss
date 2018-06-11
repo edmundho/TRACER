@@ -1,0 +1,85 @@
+
+#user-menu {
+  width: 70px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: darkgray;
+  cursor: pointer;
+}
+
+.fa-caret-down {
+  font-size: 14px;
+  margin: 0;
+  color: orangered;
+}
+
+#avatar {
+
+}
+
+#user-menu-dropdown {
+  width: 100px;
+  background: whitesmoke;
+  position: absolute;
+  right: 50px;
+  top: 60px;
+}
+
+#user-menu-dropdown li {
+  text-align: center;
+  background: whitesmoke;
+}
+
+#user-menu-dropdown li:hover {
+  background: lightgray;
+}
+
+.hidden {
+  display: none;
+}
+
+#new-activity-menu {
+  margin: 10px;
+  font-size: 20px;
+  padding: 10px 0 10px 5px;
+  color: orangered;
+  cursor: pointer;
+}
+
+.activity-menu-dropdown {
+  height: 100%;
+  width: 175px;
+  background: whitesmoke;
+  position: absolute;
+  top: 60px;
+  right: 0px;
+
+}
+
+#new-activity-menu:hover {
+  color: orange;
+}
+
+#activity-menu-list li {
+  font-family: Geneva;
+  font-size: 13px;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  text-align: center;
+  background: whitesmoke;
+}
+
+#activity-menu-list li:hover {
+  background: lightgray;
+}
+
+#logout-button {
+  font-family: Geneva;
+  font-size: 13px;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  text-align: center;
+}

@@ -61,7 +61,8 @@ class RouteBuilder extends React.Component {
     this.map = new google.maps.Map(map, mapOptions);
     this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer({
-      suppressBicyclingLayer: true
+      suppressBicyclingLayer: true,
+      // draggable: true
     });
     this.geocoder = new google.maps.Geocoder;
     this.elevator = new google.maps.ElevationService;

@@ -9,7 +9,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount () {
-    this.props.getAllRoutes();
+    // this.props.getAllRoutes();
   }
  
   render () {

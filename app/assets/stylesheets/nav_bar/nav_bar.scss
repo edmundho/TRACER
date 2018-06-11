@@ -1,3 +1,9 @@
+#nav-bar-container {
+  height: 60px;
+  position: absolute;
+  width: 100%;
+  background: white;
+}
 
 .nav-bar {
   display: flex;
@@ -7,7 +13,9 @@
   height: 60px;
   border-radius: 1px;
   position: absolute;
-  width: 100%;
+  width: 90%;
+  left: 5%;
+  margin: 0 auto;
   // z-index: 99;
   font-family: Geneva;
 }
@@ -59,38 +67,37 @@
   font-size: 14px;
 }
 
-.session-logged-in button {
-  display: block;
-  margin: 10px;
-  padding: 10px;
-  background: orangered;
-  color: white;
-  border: none;
-  border-radius: 1px;
-  cursor: pointer;
-  font-size: 12px;
-}
+// .session-logged-in button {
+//   display: block;
+//   margin: 10px;
+//   padding: 10px;
+//   background: orangered;
+//   color: white;
+//   border: none;
+//   border-radius: 1px;
+//   cursor: pointer;
+//   font-size: 12px;
+// }
 
-.session-logged-in button:hover {
-  background: darkorange;
-}
+// .session-logged-in button:hover {
+//   background: darkorange;
+// }
 
 .active {
   border-bottom: 5px orangered solid;  
 }
 
-@media all and (max-width: 500px) {
-  .nav-bar {
-    height: 134px;
-    display: block;
-    text-align: center;
-  }
+// @media all and (max-width: 500px) {
+//   .nav-bar {
+//     height: 134px;
+//     display: block;
+//     text-align: center;
+//   }
 
-  .session-buttons {
-    justify-content: center;
-  }
-}
-
+//   .session-buttons {
+//     justify-content: center;
+//   }
+// }
 
 #nav-buttons-logged-in {
   height: 60px;
@@ -108,13 +115,18 @@
 }
 
 #nav-buttons-logged-in li {
-  margin: 10px;
+  margin: 15px;
 }
 
-#nav-buttons-logged-in a {
-  padding: 16px 10px;  
+#nav-bar-buttons {
+  padding: 16px 5px;  
 }
 
 #nav-buttons-logged-in h1 {
-  padding: 0 5px;
+  padding: 0 15px;
 }
+
+#nav-bar-buttons:hover {
+  border-bottom: 5px orangered solid;  
+}
+
