@@ -328,7 +328,7 @@ class RouteBuilder extends React.Component {
       <div id="route-builder-container">
         <div id="route-builder-header">
           <Link to="/dashboard"><h1>TRACER</h1></Link>
-          <Link to="/dashboard" id="exit-builder"><p>Exit Builder</p></Link>
+          <Link to="/routes" id="exit-builder"><p>Exit Builder</p></Link>
         </div>
         <div id="map-controls">
           <div id="map-search">

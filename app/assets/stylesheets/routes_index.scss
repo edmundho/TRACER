@@ -17,7 +17,7 @@
 #routes-index header {
   padding: 100px 0 0 0;
   display: block;
-  height: 180px;
+  height: 175px;
   border-bottom: 1px darkgray solid;
 }
 
@@ -25,7 +25,7 @@
   font-family: Geneva;
   display: inline-block;
   margin: 20px;
-  padding: 10px;
+  padding: 12px;
   background: orangered;
   color: white;
   border-radius: 2px;
@@ -34,4 +34,43 @@
 
 #routes-index a:hover {
   background: #BB4720;
+}
+
+#routes-index div {
+  margin: 30px 20px;
+}
+
+#routes-index button {
+  padding: 12px 15px;
+  width: 50px;
+  border: 1px solid darkgray;
+  border-radius: 2px;
+  font-size: 14px;
+  text-align: center;
+}
+
+#routes-index button:hover {
+  background: white;
+}
+
+.cycling-routes-only {
+  background: gray;
+  color: white;
+  text-shadow: 1px 0px 1px black;
+  border-right: none !important;
+}
+
+.cycling-routes-only:hover {
+  background: gray !important;
+}
+
+.running-routes-only {
+  background: gray;
+  color: white;
+  text-shadow: 1px 0px 1px black;
+  border-left: none !important;
+}
+
+.running-routes-only:hover {
+  background: gray !important;
 }
