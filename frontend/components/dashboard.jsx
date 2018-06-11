@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 
 
 class Dashboard extends React.Component {
+  componentDidMount () {
+    
+  }
  
   render () {
     return (

@@ -8,6 +8,7 @@
   background-repeat: no-repeat;
   background-position: center;
   height: 100%;
+  overflow: auto;
 }
 
 .session-main > div {
@@ -145,4 +146,11 @@
   font-size: 11px;
   color: red;
   height: 15px;
+}
+
+@media all and (max-height: 700px) {
+  html {
+    height: 100%;
+    background-repeat: repeat-y;
+  }
 }

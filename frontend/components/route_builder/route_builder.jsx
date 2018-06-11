@@ -143,6 +143,7 @@ class RouteBuilder extends React.Component {
     google.maps.event.addListener(this.map, 'click', (event) => {
       const coords = getCoordsObj(event.latLng);
       this.clicks.push(coords);
+      document.getElementsByClassName("route-save-button")[0].id = "route-save-button-inactive";
       
       if (this.origin === undefined) {
         this.directionsDisplay.setMap(this.map);
@@ -161,6 +162,7 @@ class RouteBuilder extends React.Component {
       if (this.clicks.length > 1) {
         this.waypoints.push({ location: coords });
         this.markersArray[0].setMap(null);
+        document.getElementsByClassName("route-save-button")[0].id = "route-save-button";
         this.calculateRoute(this.origin, coords);
       }
 
@@ -203,6 +205,7 @@ class RouteBuilder extends React.Component {
     } else if (this.clicks.length === 2) {
       this.undoneClicks.push(this.clicks.pop());
       this.undoneWaypoints.push(this.waypoints.pop());
+      document.getElementsByClassName("route-save-button")[0].id = "route-save-button-inactive";
       this.setState({
         totalDistance: 0,
         elevationGain: 0
@@ -223,6 +226,7 @@ class RouteBuilder extends React.Component {
   clearRoute() {
     this.clicks = [];
     this.waypoints = [];
+    document.getElementsByClassName("route-save-button")[0].id = "route-save-button-inactive";
     for (let i = 0; i < this.markersArray.length; i++) {
       this.markersArray[i].setMap(null);
     }
@@ -263,8 +267,6 @@ class RouteBuilder extends React.Component {
       });
     }
     console.log(this.routePolyline);
-    // const decodedLine = google.maps.geometry.encoding.decodePath(this.routePolyline);
-    // console.log(decodedLine);
   }
 
   closeRouteForm () {
@@ -349,7 +351,10 @@ class RouteBuilder extends React.Component {
             <button className="run-mode" onClick={this.setRun}><p>Run</p><i className="fas fa-walking"></i></button>
           </div>
           <div id="route-controls-save">
-            <button id="route-save-button" onClick={this.openRouteForm}>Save</button>
+            <button 
+              id="route-save-button-inactive" 
+              className="route-save-button" 
+              onClick={this.openRouteForm}>Save</button>
           </div>
         </div>
         <div id="map-container" ref="map">
