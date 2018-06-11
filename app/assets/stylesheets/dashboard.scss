@@ -1,13 +1,15 @@
+#dashboard {
+  background: lightslategray;
+  height: 100%;
+}
 
-
-
-.dashboard:hover {
+.route-builder-link:hover {
   cursor: pointer;
   background: rgba(240, 233, 233, 0.65);
   color: orangered;
 }
 
-.dashboard {
+.route-builder-link {
   background: rgba(52, 28, 26, 0.65);
   color: whitesmoke;
   height: 50px;

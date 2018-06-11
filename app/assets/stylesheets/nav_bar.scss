@@ -90,3 +90,31 @@
     justify-content: center;
   }
 }
+
+
+#nav-buttons-logged-in {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+#nav-buttons-logged-in ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-family: Geneva;
+  font-size: 14px;
+  align-items: center;
+}
+
+#nav-buttons-logged-in li {
+  margin: 10px;
+}
+
+#nav-buttons-logged-in a {
+  padding: 16px 10px;  
+}
+
+#nav-buttons-logged-in h1 {
+  padding: 0 5px;
+}

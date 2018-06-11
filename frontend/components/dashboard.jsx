@@ -3,17 +3,24 @@ import { Link } from 'react-router-dom';
 
 
 class Dashboard extends React.Component {
+  constructor (props) {
+    super(props);
+
+  }
+
   componentDidMount () {
-    
+    this.props.getAllRoutes();
   }
  
   render () {
     return (
-      <Link to="/routebuilder">
-        <div className="dashboard">
-          build dat route fam
-        </div>        
-      </Link>
+      <div id="dashboard">
+        <Link to="/routebuilder">
+          <div className="route-builder-link">
+            build dat route fam
+          </div>        
+        </Link>
+      </div>
     );
   }
 }

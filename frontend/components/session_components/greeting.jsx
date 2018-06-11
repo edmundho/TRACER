@@ -22,7 +22,13 @@ class Greeting extends React.Component {
 
     return (
       <div className="nav-bar">
-        <Link to="/dashboard"><h1>TRACER</h1></Link>
+        <div id="nav-buttons-logged-in">
+          <ul>
+            <Link to="/dashboard"><h1>TRACER</h1></Link>
+            <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+            <li><NavLink to="/routes">My Routes</NavLink></li>
+          </ul>
+        </div>
         <div className="session-logged-in">
           <p>Welcome, {currentUser.name}</p>
           <button onClick={this.props.logout}>Log Out</button>

@@ -7,8 +7,8 @@ import DemoFormContainer from './session_components/demo_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from './session_components/splash';
 // import NoSessionBackground from './no_session_background';
-// import DashboardContainer from './dashboard_container';
-import Dashboard from './dashboard';
+import DashboardContainer from './dashboard_container';
+// import Dashboard from './dashboard';
 import RouteBuilderContainer from './route_builder/route_builder_container';
 
 const App = () => (
@@ -21,7 +21,7 @@ const App = () => (
         <AuthRoute path='/signup' component={SignupFormContainer} />
         <AuthRoute path='/demologin' component={DemoFormContainer} />
         <ProtectedRoute path="/routebuilder" component={RouteBuilderContainer} />
-        <ProtectedRoute path="/dashboard" component={Dashboard} />
+        <ProtectedRoute path="/dashboard" component={DashboardContainer} />
         <Redirect to="/dashboard"/>
       </Switch>
   </div>
