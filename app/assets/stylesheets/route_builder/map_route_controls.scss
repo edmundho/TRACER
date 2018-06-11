@@ -74,8 +74,8 @@
 }
 
 #map-controls button:hover {
-  background: gray;
-  color: whitesmoke;
+  background: lightgray;
+  color: darkslategray;
 }
 
 #route-sport {
@@ -95,5 +95,24 @@
   font-weight: 400;
   font-family: Helvetica Neue;
   box-shadow: 0px 1px 1px lightgray;
-  
+}
+
+#ride-mode {
+  background: gray;
+  color: whitesmoke !important;
+}
+
+#ride-mode:hover {
+  background: gray !important;
+  color: whitesmoke !important;
+}
+
+#run-mode {
+  background: gray;
+  color: whitesmoke !important;
+}
+
+#run-mode:hover {
+  background: gray !important;
+  color: whitesmoke !important;
 }

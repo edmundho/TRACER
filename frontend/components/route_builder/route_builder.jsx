@@ -96,12 +96,12 @@ class RouteBuilder extends React.Component {
   }
 
   calculateRoute (start, end, setState = true) {
-    let travelMode = 'WALKING';
-    // if (this.state.sport === 'Ride') {
-    //   travelMode = 'BICYCLING';
-    // } else if (this.state.sport === 'Run') {
-    //   travelMode = 'WALKING';
-    // }
+    let travelMode;
+    if (this.state.sport === 'Ride') {
+      travelMode = 'BICYCLING';
+    } else if (this.state.sport === 'Run') {
+      travelMode = 'WALKING';
+    }
 
     let request;
     if (this.waypoints.length < 2) {
@@ -121,7 +121,7 @@ class RouteBuilder extends React.Component {
 
     this.directionsService.route(request, (response, status) => {
       if (status === 'OK') {
-        console.log(response.routes[0].overview_polyline);
+        console.log(response.routes[0]);
         const lastLeg = response.routes[0].legs[this.waypoints.length - 1];
         const lastLegPath = [lastLeg.start_location, lastLeg.end_location];
         this.distanceDelta = lastLeg.distance.value;
@@ -236,10 +236,20 @@ class RouteBuilder extends React.Component {
   }
 
   setRun () {
-    this.setState({ sport: "Run" });
+    const runEl = document.getElementsByClassName('run-mode');
+    const rideEl = document.getElementsByClassName('ride-mode');
+    runEl[0].id = "run-mode";
+    rideEl[0].id = "";
+    this.setState({ 
+      sport: "Run" 
+    });
   }
 
   setRide () {
+    const runEl = document.getElementsByClassName('run-mode');
+    const rideEl = document.getElementsByClassName('ride-mode');
+    runEl[0].id = "";
+    rideEl[0].id = "ride-mode";
     this.setState({ sport: "Ride" });
   }
 
@@ -267,7 +277,9 @@ class RouteBuilder extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
+    const route = {
 
+    }
   }
 
   render () {
@@ -298,8 +310,8 @@ class RouteBuilder extends React.Component {
             <button onClick={this.clearRoute}><p>clear</p><i className="fas fa-times"></i></button>
           </div>
           <div id="route-sport">
-            <button onClick={this.setRide}><p>Ride</p><i className="fas fa-bicycle"></i></button>
-            <button onClick={this.setRun}><p>Run</p><i className="fas fa-walking"></i></button>
+            <button id="ride-mode" className="ride-mode" onClick={this.setRide}><p>Ride</p><i className="fas fa-bicycle"></i></button>
+            <button className="run-mode" onClick={this.setRun}><p>Run</p><i className="fas fa-walking"></i></button>
           </div>
           <div>
             <button id="route-save-button" onClick={this.openRouteForm}>Save</button>

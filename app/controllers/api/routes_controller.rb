@@ -16,6 +16,6 @@ class Api::RoutesController < ApplicationController
   end
 
   def route_params
-    params.require(:route).permit(:title, :sport, :date, :start_time, :end_time, :distance, :elevation, :map_image, :polyline_string, :description)
+    params.require(:route).permit(:title, :sport, :distance, :elevation, :polyline_string, :description)
   end
 end
