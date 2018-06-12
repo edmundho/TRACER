@@ -88,17 +88,25 @@
   border-bottom: 5px orangered solid;  
 }
 
-// @media all and (max-width: 500px) {
-//   .nav-bar {
-//     height: 134px;
-//     display: block;
-//     text-align: center;
-//   }
+@media all and (max-width: 500px) {
+  .nav-bar {
+    height: 134px;
+    display: block;
+    text-align: center;
+  }
 
-//   .session-buttons {
-//     justify-content: center;
-//   }
-// }
+  #nav-bar-container {
+    height: 134px;
+    display: block;
+    text-align: center;
+  }
+
+  .session-buttons {
+    justify-content: center;
+  }
+
+  
+}
 
 #nav-buttons-logged-in {
   height: 60px;

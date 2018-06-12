@@ -8,6 +8,7 @@ class User < ApplicationRecord
   before_validation :ensure_token
 
   has_many :routes
+  has_many :activities
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

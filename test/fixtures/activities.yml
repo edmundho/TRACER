@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  title: MyString
+  sport: 1
+  date: 2018-06-11 22:50:34
+  duration: 1
+  distance: 1.5
+  elevation: 1.5
+  route_id: 1
+
+two:
+  user_id: 1
+  title: MyString
+  sport: 1
+  date: 2018-06-11 22:50:34
+  duration: 1
+  distance: 1.5
+  elevation: 1.5
+  route_id: 1

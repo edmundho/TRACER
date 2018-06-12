@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
             build dat route fam
           </div>        
         </Link>
-        {/* <img src="https://media.giphy.com/media/3DnDRfZe2ubQc/giphy.gif" alt="" /> */}
+        <img src="https://media.giphy.com/media/3DnDRfZe2ubQc/giphy.gif" alt="" />
       </div>
     );
   }
