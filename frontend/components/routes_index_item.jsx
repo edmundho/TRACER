@@ -9,7 +9,7 @@ class RoutesIndexItem extends React.Component {
   }
 
   imageUrlBuilder () {
-    const url = `https://maps.googleapis.com/maps/api/staticmap?size=300x200&scale=2&maptype=roadmap&`;
+    const url = `http://maps.googleapis.com/maps/api/staticmap?size=300x200&scale=2&maptype=roadmap&`;
     const polyline = this.props.route.polylineString;
     const mapStyle = "style=feature:administrative.land_parcel|visibility:off&style=feature:administrative.neighborhood|visibility:off&&style=feature:poi|element:labels.text|visibility:on&style=feature:poi.attraction|visibility:off&style=feature:poi.business|visibility:off&style=feature:poi.government|visibility:off&style=feature:poi.medical|visibility:off&style=feature:poi.place_of_worship|visibility:off&style=feature:poi.school|visibility:off&style=feature:poi.sports_complex|visibility:off&style=feature:road|element:labels|visibility:on&style=feature:road.arterial|element:labels|visibility:on&style=feature:road.local|element:labels|visibility:on&style=feature:transit|visibility:off&style=feature:water&";
     const path = `path=color:0xff0000ff%7Cweight:2%7Cenc:${polyline}`;
