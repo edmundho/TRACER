@@ -73,7 +73,6 @@ class RoutesIndex extends React.Component {
         <header>
           <h1>My Routes</h1>
           <Link to="/routebuilder">Create New Route</Link>
-          <img src="https://media.giphy.com/media/3DnDRfZe2ubQc/giphy.gif" alt="" />
         </header>
         <main>
           <div id="index-buttons-div">
