@@ -27,13 +27,15 @@ class RouteBuilder extends React.Component {
     this.waypoints = [];
     this.clicks = [];
     this.routePolyline = undefined;
-    this.origin = undefined;
     this.markersArray = [];
     this.ignoreClicks = false;
     this.distanceDelta = 0;
     this.elevationGain = 0;
     this.undoneClicks = [];
     this.undoneWaypoints = [];
+    
+    this.origin = undefined;
+    this.destination = undefined;
 
     this.state = {
       searchQuery: "",
@@ -261,6 +263,13 @@ class RouteBuilder extends React.Component {
   openRouteForm () {
     if (this.clicks.length >= 2) {
       this.routePolyline = this.directionsDisplay.directions.routes[0].overview_polyline;
+      this.destination = this.clicks[this.clicks.length - 1];
+      console.log(this.origin);
+      console.log(this.destination);
+      // this.setState({
+      //   origin: this.origin,
+      //   destination: this.destination
+      // });
       const closedModalEl = document.getElementById('route-form-modal-hidden');
       closedModalEl.id = "route-form-modal";
       this.setState({
@@ -289,13 +298,18 @@ class RouteBuilder extends React.Component {
       routeSport = 'run';
     }
 
+    const origin = `${this.origin.lat},${this.origin.lng}`;
+    const destination = `${this.destination.lat},${this.destination.lng}`;
+
     const route = {
       title: this.state.routeName,
       description: this.state.description,
       sport: routeSport,
       elevation: this.state.elevationGain,
       distance: this.state.totalDistance,
-      polylineString: this.routePolyline
+      polylineString: this.routePolyline,
+      origin: origin,
+      destination: destination,
     };
 
     this.props.postNewRoute(route)

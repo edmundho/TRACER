@@ -9,10 +9,16 @@ class RoutesIndexItem extends React.Component {
   }
 
   imageUrlBuilder () {
-    const url = `https://maps.googleapis.com/maps/api/staticmap?size=300x200&scale=2&`;
+    const url = `https://maps.googleapis.com/maps/api/staticmap?size=300x200&scale=2&maptype=roadmap&`;
     const polyline = this.props.route.polylineString;
-    const path = `path=color:red%7Cenc:${polyline}`;
-    return (url + path);
+    const mapStyle = "style=feature:administrative.land_parcel|visibility:off&style=feature:administrative.neighborhood|visibility:off&&style=feature:poi|element:labels.text|visibility:on&style=feature:poi.attraction|visibility:off&style=feature:poi.business|visibility:off&style=feature:poi.government|visibility:off&style=feature:poi.medical|visibility:off&style=feature:poi.place_of_worship|visibility:off&style=feature:poi.school|visibility:off&style=feature:poi.sports_complex|visibility:off&style=feature:road|element:labels|visibility:on&style=feature:road.arterial|element:labels|visibility:on&style=feature:road.local|element:labels|visibility:on&style=feature:transit|visibility:off&style=feature:water&";
+    const path = `path=color:0xff0000ff%7Cweight:2%7Cenc:${polyline}`;
+    const start = this.props.route.origin;
+    const end = this.props.route.destination;
+    const startMark = `markers=anchor:center%7Cicon:https://i.imgur.com/tumjuoO.png|${start}&`;
+    const endMark = `markers=anchor:center%7Cicon:https://i.imgur.com/T22mUpd.png|${end}&`;
+
+    return (url + mapStyle + startMark + endMark + path);
   }
 
   render () {
@@ -22,6 +28,7 @@ class RoutesIndexItem extends React.Component {
     if (this.props.route.description) {
       description = this.props.route.description;
     } 
+    console.log(this.imageUrlBuilder());
     const dateCreated = new Date(this.props.route.createdAt).toDateString();
 
     return (

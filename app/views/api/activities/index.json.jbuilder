@@ -9,5 +9,6 @@
     json.distance activity.distance
     json.elevation activity.elevation
     json.routeId activity.route_id
+    json.description activity.description
   end
 end

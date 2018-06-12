@@ -9,6 +9,8 @@
     json.polylineString route.polyline_string
     json.description route.description
     json.createdAt route.created_at
+    json.origin route.origin
+    json.destination route.destination
   end
 
   if route.sport == 'bike'
@@ -22,6 +24,8 @@
         json.polylineString route.polyline_string
         json.description route.description
         json.createdAt route.created_at
+        json.origin route.origin
+        json.destination route.destination
       end
     end
   elsif route.sport == 'run'
@@ -35,6 +39,8 @@
         json.polylineString route.polyline_string
         json.description route.description
         json.createdAt route.created_at
+        json.origin route.origin
+        json.destination route.destination
       end
     end
   end
