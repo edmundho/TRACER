@@ -1,6 +1,5 @@
 #route-builder-container {
   width: 100%;
-  height: inherit;
   margin: 0;
   padding: 0;
 }
@@ -8,7 +7,7 @@
 #map-container {
   display: block;
   width: inherit;
-  height: calc(100% - 110px);
+  height: calc(100vh - 110px);
   background: lightgoldenrodyellow;
   position: absolute;
   margin-top: 110px;

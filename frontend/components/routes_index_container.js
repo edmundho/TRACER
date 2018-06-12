@@ -7,7 +7,7 @@ import {
 import RoutesIndex from './routes_index';
 
 const mapStateToProps = (state = {}, ownProps) => ({
-  currentUser: state.entities.users[state.session.id],
+  // currentUser: state.entities.users[state.session.id],
   // routes: state.entities.routes
   // routes: Object.keys(state.entities.routes).map(routeId => {
   //   return state.entities.routes[routeId];

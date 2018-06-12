@@ -31,7 +31,6 @@ class RoutesIndex extends React.Component {
     document.getElementById("running-routes-only").className = "";
     document.getElementById("cycling-routes-only").className = "cycling-routes-only";
     this.setState({ sport: "bike" });
-    console.log(this.props.routes.cycling);
   }
 
   showRunningRoutes () {
@@ -43,8 +42,8 @@ class RoutesIndex extends React.Component {
   render () {
     let displayRoutes;
     if (this.state.routes) {
-      console.log(this.state.cyclingRoutes);
-      console.log(this.state.runningRoutes);
+      // console.log(this.state.cyclingRoutes);
+      // console.log(this.state.runningRoutes);
       const cyclingRoutes = this.state.cyclingRoutes.map(routeId => {
         let route = this.state.routes[routeId];
         return (<RoutesIndexItem key={route.id} route={route} />);
@@ -67,6 +66,7 @@ class RoutesIndex extends React.Component {
         <header>
           <h1>My Routes</h1>
           <Link to="/routebuilder">Create New Route</Link>
+          <img src="https://media.giphy.com/media/3DnDRfZe2ubQc/giphy.gif" alt="" />
         </header>
         <main>
           <div>
@@ -78,7 +78,7 @@ class RoutesIndex extends React.Component {
               id="running-routes-only" 
               onClick={this.showRunningRoutes}>Running</button>
           </div>
-          <ul>
+          <ul id="routes-index-items-list">
             {displayRoutes}
           </ul>
         </main>

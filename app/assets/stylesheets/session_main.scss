@@ -7,7 +7,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100%;
+  height: 100vh;
   overflow: auto;
 }
 
@@ -149,8 +149,7 @@
 }
 
 @media all and (max-height: 700px) {
-  html {
-    height: 100%;
-    background-repeat: repeat-y;
+  .session-main {
+    height: 800px;
   }
 }
