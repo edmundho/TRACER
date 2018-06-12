@@ -1,7 +1,3 @@
-#route-stats-bar {
-  font-family: Helvetica Neue;
-  font-weight: 300;
-}
 
 #route-stats-bar li {
   font-size: 11px;
@@ -18,7 +14,7 @@
 
 #route-stats-bar {
   position: absolute;
-  height: 50px;
+  height: 50px !important;
   width: 96%;
   bottom: 30px;
   left: 2%;
@@ -26,6 +22,8 @@
   background: whitesmoke;
   box-shadow: 1px 1px 1px lightgray;
   display: flex;
+  font-family: Helvetica Neue;
+  font-weight: 300;
   align-items: center;
 }
 

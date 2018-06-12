@@ -50,7 +50,7 @@ class Greeting extends React.Component {
 
     return (
       <div id="nav-bar-container">  
-        <div className="nav-bar">
+        <div className="nav-bar" >
           <div id="nav-buttons-logged-in">
             <ul>
               <Link to="/dashboard"><h1>TRACER</h1></Link>
@@ -72,8 +72,8 @@ class Greeting extends React.Component {
             <div id="new-activity-menu" onMouseEnter={this.revealActivityMenu}>
               <i className="fas fa-plus-circle"></i>
             </div>
-            <div onMouseLeave={this.hideActivityMenu} id="activity-menu-dropdown" className="activity-menu-dropdown hidden">
-              <ul id="activity-menu-list">              
+            <div id="activity-menu-dropdown" className="activity-menu-dropdown hidden">
+              <ul onMouseLeave={this.hideActivityMenu} id="activity-menu-list">
                 <Link id="create-route-link" to="/routebuilder"><li>Create New Route</li></Link>
                 <Link id="new-activity-link" to="/activity/new"><li>Manual Activity Entry</li></Link>
               </ul>

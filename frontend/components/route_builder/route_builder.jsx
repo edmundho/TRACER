@@ -267,7 +267,6 @@ class RouteBuilder extends React.Component {
         showModal: true
       });
     }
-    // console.log(this.routePolyline);
   }
 
   closeRouteForm () {
