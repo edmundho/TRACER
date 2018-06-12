@@ -76,7 +76,7 @@ class RoutesIndex extends React.Component {
           <img src="https://media.giphy.com/media/3DnDRfZe2ubQc/giphy.gif" alt="" />
         </header>
         <main>
-          <div>
+          <div id="index-buttons-div">
             <button 
               className="cycling-routes-only" 
               id="cycling-routes-only" 
