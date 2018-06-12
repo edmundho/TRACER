@@ -56,27 +56,32 @@ class Greeting extends React.Component {
               <Link to="/dashboard"><h1>TRACER</h1></Link>
               <li><NavLink id="nav-bar-buttons" to="/dashboard">Dashboard</NavLink></li>
               <li><NavLink id="nav-bar-buttons" to="/routes">My Routes</NavLink></li>
+              <li><NavLink id="nav-bar-buttons" to="/activities">Activity Log</NavLink></li>
             </ul>
           </div>
           <div className="session-logged-in">
             <p>Hi, {currentUser.name}</p>
-            <div id="user-menu" onMouseEnter={this.revealUserDropdown}>
-              <i id="avatar" className="fas fa-user"></i>
-              <i className="fas fa-caret-down"></i>
+            <div id="user-menu-hover">
+              <div id="user-menu">
+                <i id="avatar" className="fas fa-user"></i>
+                <i className="fas fa-caret-down"></i>
+              </div>
+              <div id="user-menu-dropdown" className="user-menu-dropdown">
+                <ul>
+                  <li><button id="logout-button" onClick={this.props.logout}>Log Out</button></li>
+                </ul>
+              </div>
             </div>
-            <div id="user-menu-dropdown" className="user-menu-dropdown hidden" onMouseLeave={this.hideUserDropdown}>
-              <ul>
-                <li><button id="logout-button" onClick={this.props.logout}>Log Out</button></li>
-              </ul>
-            </div>
-            <div id="new-activity-menu" onMouseEnter={this.revealActivityMenu}>
-              <i className="fas fa-plus-circle"></i>
-            </div>
-            <div id="activity-menu-dropdown" className="activity-menu-dropdown hidden">
-              <ul onMouseLeave={this.hideActivityMenu} id="activity-menu-list">
-                <Link id="create-route-link" to="/routebuilder"><li>Create New Route</li></Link>
-                <Link id="new-activity-link" to="/activity/new"><li>Manual Activity Entry</li></Link>
-              </ul>
+            <div id="new-activity-hover">
+              <div id="new-activity-menu">
+                <i className="fas fa-plus-circle"></i>
+              </div>
+              <div id="activity-menu-dropdown" className="activity-menu-dropdown">
+                <ul id="activity-menu-list">
+                  <Link id="create-route-link" to="/routebuilder"><li>Create New Route</li></Link>
+                  <Link id="new-activity-link" to="/activity/new"><li>Manual Activity Entry</li></Link>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

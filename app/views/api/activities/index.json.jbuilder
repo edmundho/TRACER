@@ -1,6 +1,7 @@
 
 @activities.each do |activity|
   json.set! activity.id do
+    json.id activity.id
     json.userId activity.user_id
     json.title activity.title
     json.sport activity.sport

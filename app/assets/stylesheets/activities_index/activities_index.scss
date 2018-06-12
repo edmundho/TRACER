@@ -1,0 +1,54 @@
+
+#activities-index h1 {
+  color: slateblue;
+  font-size: 30px;
+  font-family: Helvetica Neue;
+  font-weight: 300;
+  padding: 20px;
+}
+
+#activities-index {
+  height: 100%;
+  width: 80%;
+  font-family: Helvetica Neue;
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+#activities-index header {
+  padding: 100px 0 0 0;
+  display: block;
+  height: 100px;
+  border-bottom: 1px darkgray solid;
+}
+
+#activities-list {
+  padding: 0 40px;
+}
+
+#activity-item {
+  background: lightslategray;
+  color: whitesmoke;
+}
+
+#activity-item ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+#activity-item li {
+  padding: 10px;
+}
+
+#activities-list-columns {
+  display: flex;
+  background: lightgray;
+  margin: 40px 40px 0 40px;
+  justify-content: space-around;
+  border-radius: 1px;
+  color: darkslategray;
+}
+
+#activities-list-columns li {
+  padding: 10px;
+}

@@ -26,6 +26,7 @@
   position: absolute;
   right: 50px;
   top: 60px;
+  display: none;
   border-right: 1px solid lightgray;
   border-left: 1px solid lightgray;
 }
@@ -62,6 +63,7 @@
   position: absolute;
   top: 60px;
   right: 0px;
+  display: none;
 }
 
 #new-activity-menu:hover {
@@ -92,4 +94,12 @@
   font-size: 13px;
   padding: 10px;
   text-align: center;
+}
+
+#user-menu-hover:hover .user-menu-dropdown  {
+  display: block;
+}
+
+#new-activity-hover:hover #activity-menu-dropdown {
+  display: block;
 }

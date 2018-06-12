@@ -7,9 +7,9 @@ class RoutesIndex extends React.Component {
     super(props);
 
     this.state = {
-      routes: undefined,
-      cyclingRoutes: undefined,
-      runningRoutes: undefined,
+      // routes: undefined,
+      // cyclingRoutes: undefined,
+      // runningRoutes: undefined,
       sport: "bike"
     };
 
@@ -18,21 +18,24 @@ class RoutesIndex extends React.Component {
   }
 
   componentDidMount () {
-    this.props.getAllRoutes().then(response => {
-      let cyclingRoutes, runningRoutes;
-      if (response.routes.cycling === undefined) {
-        cyclingRoutes = [];
-      } else { cyclingRoutes = Object.keys(response.routes.cycling); }
-      if (response.routes.running === undefined) {
-        runningRoutes = [];
-      } else { runningRoutes = Object.keys(response.routes.running); }
-      this.setState({
-        routes: response.routes,
-        cyclingRoutes: cyclingRoutes,
-        runningRoutes: runningRoutes,
-      });
-    });
+    this.props.getAllRoutes();
+    // .then(response => {
+    //   let cyclingRoutes, runningRoutes;
+    //   if (response.routes.cycling === undefined) {
+    //     cyclingRoutes = [];
+    //   } else { cyclingRoutes = Object.keys(response.routes.cycling); }
+    //   if (response.routes.running === undefined) {
+    //     runningRoutes = [];
+    //   } else { runningRoutes = Object.keys(response.routes.running); }
+    //   this.setState({
+    //     routes: response.routes,
+    //     cyclingRoutes: cyclingRoutes,
+    //     runningRoutes: runningRoutes,
+    //   });
+    // });
+    // }
   }
+
 
   showCyclingRoutes () {
     document.getElementById("running-routes-only").className = "";
@@ -47,26 +50,29 @@ class RoutesIndex extends React.Component {
   }
   
   render () {
+    // console.log(this.props.cyclingRoutes);
     let displayRoutes;
-    if (this.state.routes) {
+    // if (this.props.routes) {
       // console.log(this.state.cyclingRoutes);
       // console.log(this.state.runningRoutes);
-      const cyclingRoutes = this.state.cyclingRoutes.map(routeId => {
-        let route = this.state.routes[routeId];
-        return (<RoutesIndexItem key={route.id} route={route} />);
-      });
-      const runningRoutes = this.state.runningRoutes.map(routeId => {
-        let route = this.state.routes[routeId];
-        return (<RoutesIndexItem key={route.id} route={route} />);
-      });
-      if (this.state.sport === 'bike') {
-        displayRoutes = cyclingRoutes;
-      } else if (this.state.sport === 'run') {
-        displayRoutes = runningRoutes;
-      }
-    } else {
-      displayRoutes = <li>loading routes...</li>;
+    const cyclingRoutes = this.props.cyclingRoutes.map(route => {
+      // let route = this.state.routes[routeId];
+      return (<RoutesIndexItem key={route.id} route={route} />);
+    });
+    const runningRoutes = this.props.runningRoutes.map(route => {
+      // let route = this.state.routes[routeId];
+      return (<RoutesIndexItem key={route.id} route={route} />);
+    });
+    if (this.state.sport === 'bike') {
+      displayRoutes = cyclingRoutes;
+    } else if (this.state.sport === 'run') {
+      displayRoutes = runningRoutes;
     }
+    // } else {
+    //   displayRoutes = <li>loading routes...</li>;
+    // }
+
+
     
     return (
       <div id="routes-index">

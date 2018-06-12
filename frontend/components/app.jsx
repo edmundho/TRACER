@@ -10,6 +10,7 @@ import Splash from './session_components/splash';
 import DashboardContainer from './dashboard_container';
 import RoutesIndexContainer from './routes_index_container';
 import RouteBuilderContainer from './route_builder/route_builder_container';
+import ActivitiesIndexContainer from './activities_components/activities_index_container';
 
 const App = () => (
   <div className="app">
@@ -23,6 +24,7 @@ const App = () => (
         <ProtectedRoute path="/routebuilder" component={RouteBuilderContainer} />
         <ProtectedRoute path="/routes" component={RoutesIndexContainer} />
         <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+        <ProtectedRoute path="/activities" component={ActivitiesIndexContainer} />
         <Redirect to="/dashboard"/>
       </Switch>
   </div>
