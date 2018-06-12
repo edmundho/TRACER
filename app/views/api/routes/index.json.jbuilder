@@ -7,6 +7,8 @@
     json.distance route.distance
     json.elevation route.elevation
     json.polylineString route.polyline_string
+    json.description route.description
+    json.createdAt route.created_at
   end
 
   if route.sport == 'bike'
@@ -18,6 +20,8 @@
         json.distance route.distance
         json.elevation route.elevation
         json.polylineString route.polyline_string
+        json.description route.description
+        json.createdAt route.created_at
       end
     end
   elsif route.sport == 'run'
@@ -29,6 +33,8 @@
         json.distance route.distance
         json.elevation route.elevation
         json.polylineString route.polyline_string
+        json.description route.description
+        json.createdAt route.created_at
       end
     end
   end

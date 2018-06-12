@@ -18,13 +18,20 @@ class RoutesIndex extends React.Component {
   }
 
   componentDidMount () {
-    const importRoutes = this.props.getAllRoutes().then(
-      response => this.setState({ 
+    this.props.getAllRoutes().then(response => {
+      let cyclingRoutes, runningRoutes;
+      if (response.routes.cycling === undefined) {
+        cyclingRoutes = [];
+      } else { cyclingRoutes = Object.keys(response.routes.cycling); }
+      if (response.routes.running === undefined) {
+        runningRoutes = [];
+      } else { runningRoutes = Object.keys(response.routes.running); }
+      this.setState({
         routes: response.routes,
-        cyclingRoutes: Object.keys(response.routes.cycling), 
-        runningRoutes: Object.keys(response.routes.running),
-      })
-    );
+        cyclingRoutes: cyclingRoutes,
+        runningRoutes: runningRoutes,
+      });
+    });
   }
 
   showCyclingRoutes () {
