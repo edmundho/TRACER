@@ -28,7 +28,6 @@ class RoutesIndexItem extends React.Component {
     if (this.props.route.description) {
       description = this.props.route.description;
     } 
-    console.log(this.imageUrlBuilder());
     const dateCreated = new Date(this.props.route.createdAt).toDateString();
 
     return (
