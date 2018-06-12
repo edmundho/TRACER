@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
       <div id="dashboard">
         <Link to="/routebuilder">
           <div className="route-builder-link">
-            build dat route fam
+            build your route!
           </div>        
         </Link>
         <img src="https://media.giphy.com/media/3DnDRfZe2ubQc/giphy.gif" alt="" />
