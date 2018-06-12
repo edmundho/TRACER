@@ -78,9 +78,11 @@ class RoutesIndex extends React.Component {
               id="running-routes-only" 
               onClick={this.showRunningRoutes}>Running</button>
           </div>
-          <ul id="routes-index-items-list">
-            {displayRoutes}
-          </ul>
+          <div id="routes-index-div">
+            <ul id="routes-index-items-list">
+              {displayRoutes}
+            </ul>
+          </div>
         </main>
       </div>
     );

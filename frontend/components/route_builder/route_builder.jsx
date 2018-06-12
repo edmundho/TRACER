@@ -299,7 +299,7 @@ class RouteBuilder extends React.Component {
     };
 
     this.props.postNewRoute(route)
-      .then(() => this.props.history.push("/dashboard"),
+      .then(() => this.props.history.push("/routes"),
       errors => console.log(errors)
     );
   }

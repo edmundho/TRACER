@@ -1,3 +1,6 @@
+#routes-index-div {
+  display: flex;
+}
 
 #routes-index {
   height: 100%;
@@ -5,9 +8,6 @@
   margin: 0 auto;
 }
 
-#routes-index main {
-  align-content: center;
-}
 
 #routes-index h1 {
   color: slateblue;
@@ -87,9 +87,9 @@
 }
 
 #routes-index-items-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  // justify-content: flex-start;
+  
   width: 100%;
   height: 100%;
+  margin: 0 auto;
 }

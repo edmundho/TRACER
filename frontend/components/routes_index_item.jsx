@@ -9,7 +9,7 @@ class RoutesIndexItem extends React.Component {
   }
 
   imageUrlBuilder () {
-    const url = `https://maps.googleapis.com/maps/api/staticmap?size=300x200&`;
+    const url = `https://maps.googleapis.com/maps/api/staticmap?size=300x200&scale=2&`;
     const polyline = this.props.route.polylineString;
     const path = `path=color:red%7Cenc:${polyline}`;
     return (url + path);
