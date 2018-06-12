@@ -185,9 +185,10 @@ class RouteBuilder extends React.Component {
         const newCenter = result[0].geometry.location;
         this.map.setCenter(newCenter);
         this.setState({ searchQuery: "" });
-      } else {
-        window.alert('Search was unsuccessful due to: ' + status);
-      }
+      } 
+      // else {
+      //   window.alert('Search was unsuccessful due to: ' + status);
+      // }
     });
   }
 
@@ -264,12 +265,6 @@ class RouteBuilder extends React.Component {
     if (this.clicks.length >= 2) {
       this.routePolyline = this.directionsDisplay.directions.routes[0].overview_polyline;
       this.destination = this.clicks[this.clicks.length - 1];
-      console.log(this.origin);
-      console.log(this.destination);
-      // this.setState({
-      //   origin: this.origin,
-      //   destination: this.destination
-      // });
       const closedModalEl = document.getElementById('route-form-modal-hidden');
       closedModalEl.id = "route-form-modal";
       this.setState({

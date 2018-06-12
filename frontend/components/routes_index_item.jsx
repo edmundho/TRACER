@@ -15,8 +15,8 @@ class RoutesIndexItem extends React.Component {
     const path = `path=color:0xff0000ff%7Cweight:2%7Cenc:${polyline}`;
     const start = this.props.route.origin;
     const end = this.props.route.destination;
-    const startMark = `markers=anchor:center%7Cicon:https://i.imgur.com/tumjuoO.png|${start}&`;
-    const endMark = `markers=anchor:center%7Cicon:https://i.imgur.com/T22mUpd.png|${end}&`;
+    const startMark = `markers=anchor:center%7Cicon:http://i.imgur.com/tumjuoO.png|${start}&`;
+    const endMark = `markers=anchor:center%7Cicon:http://i.imgur.com/T22mUpd.png|${end}&`;
 
     return (url + mapStyle + startMark + endMark + path);
   }

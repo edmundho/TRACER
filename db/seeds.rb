@@ -76,3 +76,130 @@ Route.create(
   origin: "37.786689,-122.492760",
   destination: "37.702011,-122.482469",
 )
+
+Route.create(
+  user_id: demo.id,
+  title: "Financial District to Inner Richmond",
+  distance: 6109,
+  elevation: 114.332946777344,
+  polyline_string:
+   "geteFjbbjV?MLAjDa@fEg@hDe@RlCv@jMj@nIDnA`@bGr@dKL|BP|B~Bj^zBz]t@bLzAzTfB~X@PLAdAMhBSLCVjDHbAN|CEp@RxAr@~KBn@Df@b@`BRx@NjBd@fIj@nIThEHNBXJtAx@tMD`AAb@Et@@|@ZnF@RATl@tJ`@tGPbCWBiMxADdETtLRlL?PE?oFNRvLNvJ",
+  sport: "run",
+  description: "Fun Run",
+  origin: "37.79173502633403,-122.40437881469728",
+  destination: "37.784865255178666,-122.46327002274433"
+)
+
+Route.create(
+  user_id: demo.id,
+  title: "Financial District to Marina",
+  distance: 4658,
+  elevation: 75.2727379798889,
+  polyline_string: "wcteFvvajVbBQzDi@RfDnB`ZpBf[f@hIrArSrAlSuJjAyJlAkOfBcI`AiJfAgLtAqJjAZ~EDxADl@nArRh@fIsJjAh@fIMBcDb@Bf@b@hGJbBZtEB`@XC",
+  sport: "bike",
+  description: "",
+  origin: "37.791463717289886,-122.40266220092775",
+  destination: "37.80273099007377,-122.43492767211916"
+)
+
+Route.create(
+  user_id: demo.id,
+  title: "Nob Hill to USF",
+  distance: 3426,
+  elevation: 58.9039344787598,
+  polyline_string: "{}seFnzcjV`AhO\\zFzDe@xDc@ZtETtDz@xMP`CpAdSv@|Kh@nIZdF|@bN|@xNzDe@@Zd@lHrAlStA|SjA~QtDg@|@ODEAQ",
+  sport: "run",
+  description: "Rushed to school",
+  origin: "37.790242814262946,-122.41330520629884",
+  destination: "37.78230645287412,-122.44566337585451"
+)
+
+Route.create(
+  user_id: demo.id,
+  title: "Ferry Building to Castro",
+  distance: 3697,
+  elevation: 11.5080275535583,
+  polyline_string: "mpteFt~_jVsDzEIT?Lx@nAnEbGxGdJnMlQlA`Bh@p@h@t@rCzDbGhI`FzGxGfJfJdMzEtGv\\td@tC~DCVBN^f@t@Q_AuAfFgHbAvAhAlAj@hA`AjAr@Ic@WOO",
+  sport: "run",
+  description: "",
+  origin: "37.79363416174872,-122.39339248657228",
+  destination: "37.77301236527693,-122.41836921691896"
+)
+
+
+Route.create(
+  user_id: demo.id,
+  title: "Russian Hill to Fillmore",
+  distance: 3676,
+  elevation: 69.9546661376953,
+  polyline_string: "uaveFj~ejVI{AUgDtDe@tH{@xFs@zDe@`Eg@bUkCpKuAll@cHnM{AdBUTxDP|Cd@zH`BjW^|Fd@hGZpFFhAyDd@MsB",
+  sport: "run",
+  description: "",
+  origin: "37.801569306558314,-122.4242486190796",
+  destination: "37.77966080968367,-122.42957012176515"
+)
+
+Route.create(
+  user_id: demo.id,
+  title: "GGB to Stonestown",
+  distance: 12558,
+  elevation: 298.540764808655,
+  polyline_string:
+    "a{veFvsnjVpBq@z@a@`BeA\\[l@o@T^ZZf@c@fCyBHC~G\\hEXlA?^JXPPXL^Dh@AVSfAAh@F\\RTx@l@`@R\\Bb@A^GPIRUL]NaAVgBFMPWLGJA^D^XnBhB\\d@bAxBJHVB^KXKf@ERBXNTZTWZe@F_@Ci@Qc@_@e@Ye@Ok@A]Y}AK]OWy@w@_@a@Sg@Oo@Ac@@y@FgAL_@PYnBqBf@Wx@i@NWH_@h@cEH]HMJIr@[l@UZOdAgApAeADE@GAUFAHCNILKZa@Xm@N_AB_AF_AXcAl@gBNUPKp@@bAHr@Bn@GxAe@`@ANDNLFLXhARl@JLrUy@`M]|BG?RFjEpJYZ?EoEAUhBEdGQjGQ~AIt@AfGSbAA?b@@v@BdCDxBHtEh@v[@Z~DMlFQbACb@@AW`@?AR@~@\\DZAbBOZK^Gd@GDRDd@XEL?NFXTvCrE`A~ADV?d@O`@NR@C`@NFJLLJh@HHXLBKH]La@Z{@nBkEx@{AZ[b@Oz@MtAMdBGjA@PhLP?IwEGqEO{J?o@zBIjFOpCIp]eA|Qm@tA?DHVBnCd@f@Dt@Cd@Mj@Wd@Yx@q@j@o@b@u@^i@xAyAjAuAv@y@d@]l@[vCqA\\QdC}BvD}D`@_@^Md@BRPh@f@^b@PL\\d@T\\rBvCfEzFbHpJGLCN@NDPHHJDL?JCHIDMBK|AF~APp@JjA^pAv@r@p@v@j@jAh@~A^zAT\\bA|@lBl@~@bAhAlBtB~@nAfA|AdAbBrIxKdBhBPXNLRJ`DNvO\\Wp@CX_CvG}@rCwAdEG^@zAzHUlB@pA@P?AF",
+  sport: "bike",
+  description: "",
+  origin: "37.8054626449897,-122.46861723480276",
+  destination: "37.73008231764921,-122.47601720850383"
+)
+
+Route.create(
+  user_id: demo.id,
+  title: "Millbrae BART to SFSU",
+  distance: 18744,
+  elevation: 99.4013433456421,
+  polyline_string:
+    "kpndFzr~iVkBpBAPTr@r@xAcAfAyCnDcEdF}EjGuDnF_BxCwAhCgE`GcD|E}CnEu@`A{AzAy@|@oE_HgB`C\\f@BD?`@ADaBx@_Ap@qBpB}DlDgCzB{AyDcGbEmFvDyCtB_DnB_G|DmClBwAx@y@n@s@VaAl@gCjB_C~AuBbByAz@mM~FgB|@}OzHmB~@EFCPPz@{@@Ac@?KGUQMMAIDSXIFKBQEEAu@\\gEnBcBz@{@b@IHAPgBz@iKzEEwACKQMKE_RLkOJyCBlAvEzChLy@\\uFpCHZe@VmBjAw@`@wBhAm@`@gAx@wCfC}FrEoC|BSZKN`@d@[d@o@d@uErDcBfByArAwAdAcBfAeBz@gAf@cAl@kA|@iAjAcCrCQRYPILOj@M`@yAjCS^?XXb@?Jg@dA[r@]`@MZ_@|Aa@fAiA`CcAxAa@`@YR[LMHIXMn@Op@Yv@U`@_@f@_@PMAeAeC_AwAoA{AiAwASUOEY_@e@c@UOkBe@}D}@sD_AsBm@eDaA{IwBkBc@aB]cFqAs@KkEgA}Bk@gAzGUfA{@`CcCnFiA~Bk@v@y@~@q@v@U^oDzHoD|HcBfEi@xAAJq@|AoHlPoIlReG|M}GhOiGfNeDzH}DrImDdISZeAhAgAjAoAlAs@z@qArAeBfBq@v@i@d@oHjEq@XkJrBcBZ_AP{Fl@{MrAmAHiTd@kU`@cKRmAM_Ee@_BLk@Da@JSr@SbBE|@EzWIjBcDE{BKQEE\\E\\?NFNLN~@n@g@nAuDoCMBo@zAwAjB[TaCDyH@aH?A_@?AUAE@IxACBE?Ge@GYMGSECVW|BIdB@rHEt@YrAQ?QFk@x@WLkANqBPUBI?MKm@e@?MCKGIIAI@GFCH?H?FuCtFC?A?G@E@CB_@]GCGBaBNqKdAWJYTIJAH?JLtBgDZCCKAMBQTCR?N@LEHEBKBcAAq@CKB",
+  sport: "bike",
+  description: "",
+  origin: "37.598910993577896,-122.38659338791194",
+  destination: "37.72081533934614,-122.47612097589752"
+)
+
+Route.create(
+  user_id: demo.id,
+  title: "Bay to Columbus to Kearny Coit Tower and Back",
+  distance: 3962,
+  elevation: 105.14267873764,
+  polyline_string:
+    "w`weF~kbjVMJQFEJJnAR|CrBr[nAhSp@bLHz@h@c@?E?KIe@BC`@q@hAkB~AiCvAyB^q@J_@~AiCt@mA\\k@LG\\i@j@_AvC{ElI}M^u@@Kd@q@xAcCfBsCxAcCvBkDb@{@NUUDe@DiD^AMMBw@LaAJm@F?B?HE@AIMBiCXo@HyDd@cD^Ci@Eg@AMEMMYUS[G]HsA|@[\\QHEL?D@BAC?E@EJKHEP@NMAP@l@B`AGv@HD@FKn@JzAJvAaAPkBPyDd@uDd@IgAGEE?E?EGAWD]GSOcBGq@DA",
+  sport: "run",
+  description: "",
+  origin: "37.806180793921484,-122.40609542846681",
+  destination: "37.80549286949131,-122.40695471954348"
+)
+
+Route.create(
+  user_id: demo.id,
+  title: "Ferry Building to Palace of Fine Arts",
+  distance: 5672,
+  elevation: 66.6309201717377,
+  polyline_string:
+    "{fteFbh`jVoD|Eg@l@MLHLIJEESY}BVuH|@UB@^ADIL]TCd@]ZGR[`AAN?DI@LxALdBb@dHl@~IVnEi@r@uAxBg@|@uB`Dc@z@wBjDyAbCaEvGe@p@AJ_@t@kDvFyH`MHt@NlCMB{ATkAPAKAIKP}@vAa@p@K^_@p@wAxBkEfHi@x@KJDl@d@dHzAvTbA|OLABf@JtAVjErAlS\\hEN~Ah@|HlAtQNb@KH?PW~@e@dAUj@zAzANPJLpApBp@vA`@bATp@h@hCTpALjAp@dKrAtSJnBKNmArBmAJYNc@@?P",
+  sport: "run",
+  description: "",
+  origin: "37.79200633438197,-122.39502326965334",
+  destination: "37.801578333258746,-122.44784115183717">
+)
+
+Route.create(
+  user_id: demo.id,
+  title: "Lap around Potrero Hill",
+  distance: 7043,
+  elevation: 31.0103724002838,
+  polyline_string:
+    "yqmeFb}~iVkFXaDJeCJoFZwGHiFP}CLiCNw@@cCFY@DV?TJ~DRtIVnKNtD@|@En@DrBFrBDdBVlJb@xQTtK`@zOJfE@P@?|AGrCM|FW~FW`Os@tAE|ESJDv@?vBKfKe@fFUbNm@zAIPCp@WR@lAg@pCkAPGDSAI@HAPBBHP\\|CDPC@C@AC?ACAOHKH?@@@\\Sd@g@PU^SBA@Di@T@gATuB@KYSIKIKQUKOGc@E{@AmAGi@Ia@@e@@K@EMECEAGEg@IG@oACQ?W?u@SwI[eOUkJWqJDQEsBAs@QuDKsDDyDAyAMsGMcDYFQ?gFBkDPaBJ_ABsDJw@FmFV",
+  sport: "run",
+  description: "Dogpatch to 16th & Potrero to Cesar Chavez and back",
+  origin: "37.75788316818406,-122.38822612535273",
+  destination: "37.75555906587538,-122.38806196289067"
+)
