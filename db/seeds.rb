@@ -188,7 +188,7 @@ Route.create(
   sport: "run",
   description: "",
   origin: "37.79200633438197,-122.39502326965334",
-  destination: "37.801578333258746,-122.44784115183717">
+  destination: "37.801578333258746,-122.44784115183717"
 )
 
 Route.create(
