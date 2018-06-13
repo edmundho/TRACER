@@ -16,12 +16,15 @@ class ActivityShow extends React.Component {
     });
   }
 
-  componentWillUnmount () {
-    
-  }
 
+  
   render () {
     const activity = this.props.activity;
+    console.log(this.props.route);
+    if (this.props.route.length > 0) {
+      console.log(this.props.route[0].polylineString);
+
+    }
 
     if (this.props.activity === undefined) {
       return <div id="activity-show-page">loading...</div>;
@@ -29,9 +32,10 @@ class ActivityShow extends React.Component {
       return (
         <div id="activity-show-page">
           <Link to="/activities">Back</Link>
-          {this.props.activityId}
+          <header>
+            <h1>{activity.title}</h1>
+          </header>
           <ul>
-            <li>{activity.title}</li>
             <li>{activity.description}</li>
             <li>{activity.sport}</li>
             <li>{activity.time}</li>
