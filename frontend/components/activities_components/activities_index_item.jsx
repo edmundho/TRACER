@@ -8,13 +8,14 @@ class ActivitiesIndexItem extends React.Component {
 
   render () {
     const activity = this.props.activity;
-    const date = new Date(this.props.activity.date);
+    // const date = new Date(this.props.activity.date);
+    // console.log(date.toDateString());
     
     return (
       <div id="activity-item">
         <ul>
           <li>{activity.sport}</li>
-          <li>{date.toDateString()}</li>
+          <li>{activity.date.slice(0,10)}</li>
           <li>{activity.title}</li>
           {/* <li>{activity.description ? activity.description : " "}</li> */}
           <li>{activity.duration ? activity.duration : " "}</li>

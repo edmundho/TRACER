@@ -1,12 +1,17 @@
 
 #new-activity-form {
-  padding: 40px 15px;
+  padding: 40px 15px 0 15px;
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid darkgray;
 }
 
 #activity-form-row-1 {
   display: flex;
+}
+
+#activity-form-row-1 input {
+  text-align: center;
 }
 
 #activity-form-row-2 {
@@ -21,16 +26,26 @@
   width: 250px;
 }
 
+#activity-date-input {
+  text-align: center;
+}
+
 #new-activity-form input {
   border: 1px solid lightgray;
   padding: 5px;
   margin: 5px;
+  height: 25px;
+}
+
+#new-activity-form input:focus {
+  border: 1px solid #317EB1;
 }
 
 #new-activity-form textarea {
   border: 1px solid lightgray;
   padding: 5px;
   margin: 5px;
+  height: 50px;
 }
 
 #new-activity-form select {
@@ -79,7 +94,7 @@
 
 #close-form-buttons {
   padding: 20px;
-  border-top: 1px solid lightgray;
+  // border-top: 1px solid lightgray;
   display: flex;
   align-items: center;
 }
@@ -88,6 +103,56 @@
   text-decoration: underline;
 }
 
-#activity-description {
-  padding-bottom: 20px;
+#activity-description textarea:focus {
+  border: 1px solid #317EB1;
+}
+
+#duration-input {
+  display: flex;
+  border: 1px solid lightgray;
+  height: 25px;
+  margin: 5px;
+  padding: 5px;
+  align-items: center;
+  width: 228px;
+  justify-content: right;
+}
+
+#distance-elevation-divs {
+  display: flex;
+  border: 1px solid lightgray;
+  height: 25px;
+  margin: 5px;
+  padding: 5px;
+  align-items: center;
+  width: 228px;
+  justify-content: right;
+}
+
+#distance-elevation-divs p {
+  color: lightgray;
+}
+
+#distance-elevation-divs input {
+  border: none;
+  text-align: right;
+}
+
+#distance-elevation-divs input:focus {
+  border: none;
+}
+
+#duration-input input {
+  width: 40px;
+  border: none;
+  height: 20px;
+  text-align: right;
+}
+
+#duration-input p {
+  color: lightgray;
+}
+
+#duration-input input:focus {
+  border: none;
 }
