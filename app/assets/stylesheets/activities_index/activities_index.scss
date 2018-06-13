@@ -43,11 +43,11 @@
   display: flex;
   background: lightgray;
   margin: 25px 40px 0 40px;
-  justify-content: space-around;
+  // justify-content: space-around;
   border-radius: 1px;
   color: darkslategray;
 }
 
 #activities-list-columns li {
-  padding: 10px;
+  padding: 10px 40px;
 }

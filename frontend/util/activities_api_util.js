@@ -17,8 +17,9 @@ export const postActivity = activity => (
         distance: activity.distance,
         elevation: activity.elevation,
         date: activity.date,
+        time: activity.time,
         duration: activity.duration,
-        routeId: activity.route_id,
+        route_id: activity.routeId,
         description: activity.description
       }
     }

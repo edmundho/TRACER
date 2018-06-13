@@ -79,7 +79,7 @@ class Greeting extends React.Component {
               <div id="activity-menu-dropdown" className="activity-menu-dropdown">
                 <ul id="activity-menu-list">
                   <Link id="create-route-link" to="/routebuilder"><li>Create New Route</li></Link>
-                  <Link id="new-activity-link" to="/activity/new"><li>Manual Activity Entry</li></Link>
+                  <Link id="new-activity-link" to="/activities"><li>Manual Activity Entry</li></Link>
                 </ul>
               </div>
             </div>

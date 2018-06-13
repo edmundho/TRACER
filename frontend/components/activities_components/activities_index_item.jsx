@@ -3,13 +3,10 @@ import React from 'react';
 class ActivitiesIndexItem extends React.Component {
   constructor (props) {
     super(props);
-
   }
 
   render () {
     const activity = this.props.activity;
-    // const date = new Date(this.props.activity.date);
-    // console.log(date.toDateString());
     
     return (
       <div id="activity-item">
@@ -17,7 +14,6 @@ class ActivitiesIndexItem extends React.Component {
           <li>{activity.sport}</li>
           <li>{activity.date.slice(0,10)}</li>
           <li>{activity.title}</li>
-          {/* <li>{activity.description ? activity.description : " "}</li> */}
           <li>{activity.duration ? activity.duration : " "}</li>
           <li>{activity.distance ? activity.distance : " "} mi.</li>
           <li>{activity.elevation ? activity.elevation : " "} ft.</li>
