@@ -5,3 +5,26 @@
   color: darkslateblue;
   padding: 100px;
 }
+
+#activity-show-page a {
+  display: block;
+  padding: 10px;
+  width: 45px;
+  background: orangered;
+  color: whitesmoke;
+  text-align: center;
+  border-radius: 2px;
+}
+
+#activity-show-page a:hover {
+  background: #bb4720;
+}
+
+#activity-show-page ul {
+  padding: 20px;
+  display: flex;
+}
+
+#activity-show-page li {
+  padding: 15px;
+}

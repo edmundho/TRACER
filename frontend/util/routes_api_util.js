@@ -6,6 +6,13 @@ export const fetchRoutes = () => (
   })
 );
 
+export const fetchRoute = routeId => (
+  $.ajax({
+    method: 'get',
+    url: `/api/routes/${routeId}`
+  })
+);
+
 export const postRoute = route => (
   $.ajax({
     method: 'post',

@@ -3,6 +3,10 @@ class Api::RoutesController < ApplicationController
     @routes = current_user.routes
   end
 
+  def show
+    @route = Route.find(params[:id])
+  end
+
   def create
     @route = Route.new(route_params)
     @route.user_id = current_user.id
