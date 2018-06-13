@@ -1,5 +1,93 @@
 
 #new-activity-form {
-  margin: 20px auto;
+  padding: 40px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+#activity-form-row-1 {
+  display: flex;
+}
+
+#activity-form-row-2 {
+  display: flex;
+}
+
+#new-activity-form label {
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+#new-activity-form input {
   border: 1px solid lightgray;
+  padding: 5px;
+  margin: 5px;
+}
+
+#new-activity-form textarea {
+  border: 1px solid lightgray;
+  padding: 5px;
+  margin: 5px;
+}
+
+#new-activity-form select {
+  margin: 5px;
+  padding: 5px;
+}
+
+#new-activity-button  {
+  font-family: Geneva;
+  display: inline-block;
+  margin: 20px;
+  padding: 12px;
+  background: orangered;
+  color: white;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+#new-activity-button:hover {
+  background: #BB4720;
+}
+
+#activity-submit-button {
+  font-family: Geneva;
+  display: block;
+  background: orangered;
+  border: none !important;
+  color: white;
+  border-radius: 2px;
+  font-size: 12px;
+  width: 55px;
+  text-align: center;
+  height: 30px;
+  border-radius: 2px;
+}
+
+#activity-submit-button:hover {
+  background: #bb4720;
+}
+
+#cancel-new-activity {
+  color: slateblue;
+  margin: 15px;
+  height: 100%;
+}
+
+#close-form-buttons {
+  padding: 20px;
+  border-top: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+}
+
+#cancel-new-activity:hover {
+  text-decoration: underline;
+}
+
+#activity-description {
+  padding-bottom: 20px;
 }

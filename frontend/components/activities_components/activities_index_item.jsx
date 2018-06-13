@@ -18,8 +18,8 @@ class ActivitiesIndexItem extends React.Component {
           <li>{activity.title}</li>
           {/* <li>{activity.description ? activity.description : " "}</li> */}
           <li>{activity.duration ? activity.duration : " "}</li>
-          <li>{activity.distance ? activity.distance : " "}</li>
-          <li>{activity.elevation ? activity.elevation : " "}</li>
+          <li>{activity.distance ? activity.distance : " "} mi.</li>
+          <li>{activity.elevation ? activity.elevation : " "} ft.</li>
           <li>{activity.routeId ? activity.routeId : " "}</li>
         </ul>
       </div>

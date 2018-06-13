@@ -18,12 +18,12 @@
 #activities-index header {
   padding: 100px 0 0 0;
   display: block;
-  height: 100px;
+  height: 175px;
   border-bottom: 1px darkgray solid;
 }
 
 #activities-list {
-  padding: 0 40px;
+  padding: 0 40px 40px 40px;
 }
 
 #activity-item {
@@ -33,7 +33,6 @@
 
 #activity-item ul {
   display: flex;
-  justify-content: space-around;
 }
 
 #activity-item li {

@@ -11,7 +11,7 @@ const activitiesReducer = (state = {}, action) => {
     case RECEIVE_ACTIVITIES:
       return action.activities;
     case POST_ACTIVITY:
-      newState = merge({}, state, action.activity);
+      newState = merge({}, state, {[action.activity.id]: action.activity });
       return newState;
     default:
       return state;
