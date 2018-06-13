@@ -168,6 +168,10 @@
   border: none;
 }
 
+#distance-elevation-divs:focus-within {
+  border: 1px solid #317EB1;
+}
+
 #duration-input input {
   width: 40px;
   border: none;
@@ -181,6 +185,10 @@
 
 #duration-input input:focus {
   border: none;
+}
+
+#duration-input:focus-within {
+  border: 1px solid #317EB1;
 }
 
 #activity-title {

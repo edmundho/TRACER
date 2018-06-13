@@ -13,14 +13,15 @@ class RoutesDropdown extends React.Component {
       return (
         <option key={route.id} 
           value={route.id}>
-          {route.title} (Distance: {distance} mi, Elevation Gain: {elevation} ft)
-          </option>
+            {route.title} (Distance: {distance} mi, Elevation Gain: {elevation} ft)
+        </option>
       );
     });
 
 
     return (
-      <select onChange={this.props.update('routeId')}>
+      <select 
+        onChange={this.props.update('routeId')}>
         <option value="">No Known Route Taken</option>
         {routes}
       </select>

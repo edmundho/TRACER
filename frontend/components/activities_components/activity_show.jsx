@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { imageUrlBuilder } from '../../util/static_map_url';
 
 class ActivityShow extends React.Component {
   constructor (props) {
@@ -13,6 +14,7 @@ class ActivityShow extends React.Component {
       if (routeId) {
         this.props.getRoute(routeId);
       }
+      window.scrollTo(0, 0);
     });
   }
 
@@ -20,29 +22,48 @@ class ActivityShow extends React.Component {
   
   render () {
     const activity = this.props.activity;
-    console.log(this.props.route);
+    let routeImage;
     if (this.props.route.length > 0) {
-      console.log(this.props.route[0].polylineString);
-
+      const polyline = this.props.route[0].polylineString;
+      const origin = this.props.route[0].origin;
+      const destination = this.props.route[0].destination;
+      const imageUrl = imageUrlBuilder(polyline, origin, destination, 'large');
+      routeImage = (<img id="large-route-image" src={imageUrl} alt=""/>);
     }
+
 
     if (this.props.activity === undefined) {
       return <div id="activity-show-page">loading...</div>;
     } else {
       return (
         <div id="activity-show-page">
-          <Link to="/activities">Back</Link>
           <header>
-            <h1>{activity.title}</h1>
+            <div id="show-header-div">
+              <h1>{activity.title}</h1>
+              <h3>{activity.date.slice(0, 10)}</h3>
+            </div>
+            <Link to="/activities">Back</Link>
           </header>
           <ul>
-            <li>{activity.description}</li>
-            <li>{activity.sport}</li>
+            <li>
+              <div>
+                Description:
+              </div>
+              <p>{activity.description}</p>
+            </li>
+            <li>
+              <div>
+                Sport: 
+              </div>
+              <p>{activity.sport}</p>
+            </li>
             <li>{activity.time}</li>
-            <li>{activity.date.slice(0, 10)}</li>
-            <li>{activity.distance}</li>
             <li>{activity.duration}</li>
-            <li>{activity.elevation}</li>
+            <div>
+              <li>{activity.distance}</li>
+              <li>{activity.elevation}</li>
+            </div>
+            <li>{routeImage}</li>
           </ul>
         </div>
       );

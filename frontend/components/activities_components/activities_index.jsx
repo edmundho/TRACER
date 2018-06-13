@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
   }
 });
 
+
 const defaultState = {
   title: "",
   sport: "bike",
@@ -22,7 +23,7 @@ const defaultState = {
   description: "",
   hours: 0,
   minutes: 0,
-  seconds: 0
+  seconds: 0,
 };
 
 class ActivitiesIndex extends React.Component {
@@ -52,7 +53,23 @@ class ActivitiesIndex extends React.Component {
   }
 
   update (field) {
-    return (e) => this.setState({ [field]: e.target.value });
+    return (e) => {
+      // this.setState({ [field]: e.target.value });
+      console.log(e.target.value);
+      let matchingRoute = this.dropdownRoutes.find(route => route.id == e.target.value );
+      const distance = matchingRoute && Number((matchingRoute.distance * 0.0006).toFixed(2));
+      const elevation = matchingRoute && Number((matchingRoute.elevation * 3.28).toFixed());
+      if (distance && elevation) {
+        this.setState({
+          [field]: e.target.value,
+          distance: distance,
+          elevation: elevation
+        });
+      } else {
+        this.setState({ [field]: e.target.value });
+      }
+    };
+    
   }
 
   componentDidMount () {
@@ -84,6 +101,9 @@ class ActivitiesIndex extends React.Component {
     };
     
     this.props.postNewActivity(newActivity).then(response => {
+      // console.log(response);
+      const activityId = response.activity.id;
+      this.props.history.push(`/activities/${activityId}`);
       this.setState(defaultState);
     });
   }
@@ -129,18 +149,18 @@ class ActivitiesIndex extends React.Component {
     return (hours * 3600 + minutes * 60 + seconds);
   }
 
-  // componentDidUpdate () {
-  //   if (this.state.routeId.length > 0 && this.route) {
-  //     let route = this.props.routes[this.state.routeId];
-  //     const distance = Number((route.distance * 0.0006).toFixed(2));
-  //     const elevation = Number((route.elevation * 3.28).toFixed());
+  componentDidUpdate () {
+    if (this.state.routeId.length > 0 && this.route) {
+      let route = this.props.routes[this.state.routeId];
+      const distance = Number((route.distance * 0.0006).toFixed(2));
+      const elevation = Number((route.elevation * 3.28).toFixed());
 
-  //     this.setState({
-  //       distance: distance,
-  //       elevation: elevation
-  //     });
-  //   } 
-  // }
+      this.setState({
+        distance: distance,
+        elevation: elevation
+      });
+    } 
+  }
 
   highlightIncorrectInputs (errors) {
     const activityDateEl = document.getElementById("activity-date-input");
@@ -165,8 +185,10 @@ class ActivitiesIndex extends React.Component {
     let dropdownRoutes;
     if (this.state.sport === 'bike') {
       dropdownRoutes = this.props.cyclingRoutes;
+      this.dropdownRoutes = dropdownRoutes;
     } else if (this.state.sport === 'run') {
       dropdownRoutes = this.props.runningRoutes;
+      this.dropdownRoutes = dropdownRoutes;
     }
 
     const activities = Object.values(this.props.activities).map(activity => {

@@ -4,7 +4,7 @@ export const imageUrlBuilder = function (poly, origin, destination, size) {
   if (size === 'small') {
     imageSize = '300x200';
   } else if (size === 'large') {
-    imageSize = '700x400';
+    imageSize = '500x300';
   }
   
   const url = `http://maps.googleapis.com/maps/api/staticmap?size=${imageSize}&scale=2&maptype=roadmap&`;
