@@ -4,13 +4,19 @@ class ActivityShow extends React.Component {
   constructor (props) {
     super(props);
 
-    const id = this.props.match.params.activityId;
+  }
+
+  componentDidMount () {
+    this.props.getActivity(this.props.activityId);
   }
 
   render () {
+    const activity = this.props.activity;
+    console.log(activity);
+    
     return (
       <div id="activity-show-page">
-        SHOWING{this.id}
+        SHOWING{this.props.activityId}
       </div>
     );
   }
