@@ -1,6 +1,15 @@
 import React from 'react';
 import ActivitiesIndexItem from './activities_index_item';
 import RoutesDropdown from './routes_dropdown';
+import { StyleSheet, css } from 'aphrodite';
+import { slideInDown } from 'react-animations';
+
+const styles = StyleSheet.create({
+  slideInDown: {
+    animationName: slideInDown,
+    animationDuration: '0.5s'
+  }
+});
 
 const defaultState = {
   title: "",
@@ -84,6 +93,10 @@ class ActivitiesIndex extends React.Component {
     $('#new-activity-form').addClass('hidden');
     $('#active-new-activity-button').addClass('hidden');
     $('#new-activity-button').removeClass('hidden');
+    document.getElementById("activity-date-input").className = "";document.getElementById("activity-title-input").className = '';
+    document.getElementById("activity-date-input-error").innerText = "";
+    document.getElementById("activity-title-input-error").innerText = "";
+    this.props.clearErrors();
     this.setState(defaultState);
   }
 
@@ -129,8 +142,25 @@ class ActivitiesIndex extends React.Component {
   //   } 
   // }
 
+  highlightIncorrectInputs (errors) {
+    const activityDateEl = document.getElementById("activity-date-input");
+    const activityTitleEl = document.getElementById("activity-title-input");
+    if (errors.includes("Date can't be blank")) {
+      const activityDateErrorEl = document.getElementById("activity-date-input-error");
+      activityDateEl.className = 'activity-date-input-error';
+      activityDateErrorEl.innerText = 'Required';
+    }
+    if (errors.includes("Title can't be blank")) {
+      const activityTitleErrorEl = document.getElementById("activity-title-input-error");
+      activityTitleEl.className = 'activity-title-input-error';
+      activityTitleErrorEl.innerText = 'Required';
+    }
+  }
 
   render () {
+    const errors = this.props.errors;
+    this.highlightIncorrectInputs(errors);
+    
     console.log(this.state);
     let dropdownRoutes;
     if (this.state.sport === 'bike') {
@@ -199,7 +229,9 @@ class ActivitiesIndex extends React.Component {
               <input id="activity-date-input"
                 type="date" 
                 onChange={this.update('date')} 
-                value={this.state.date}/></label>
+                value={this.state.date}/>
+                <p id="activity-date-input-error"></p>
+            </label>
             <label>Time 
               <input id="activity-time-input"
                 type="time" 
@@ -221,9 +253,11 @@ class ActivitiesIndex extends React.Component {
           </div>
           <label id="activity-title">Title
               <input
+                id="activity-title-input"
                 type="text"
                 onChange={this.update('title')}
                 value={this.state.title} /></label>
+                <p id="activity-title-input-error"></p>
           <div id="activity-description">
             <label>Description
               <textarea id="" 

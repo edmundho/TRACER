@@ -6,6 +6,13 @@ export const fetchActivities = () => (
   })
 );
 
+export const fetchActivity = activityId => (
+  $.ajax({
+    method: 'get',
+    url: `/api/activities/${activityId}`
+  })
+);
+
 export const postActivity = activity => (
   $.ajax({
     method: 'post',

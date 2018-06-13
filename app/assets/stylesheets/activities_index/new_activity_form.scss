@@ -179,6 +179,11 @@
   border: none;
 }
 
+#activity-title {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 #activity-title input {
   width: 510px;
 }
@@ -190,3 +195,26 @@
 #duration-label:focus #duration-input {
   border: 1px solid #317EB1
 }
+
+.activity-date-input-error {
+  border: 1px solid red !important;
+}
+
+.activity-title-input-error {
+  border: 1px solid red !important;
+}
+
+#activity-date-input-error {
+  color: red;
+  font-size: 12px;
+  height: 10px;
+  padding: 0px 15px 0 15px !important;
+}
+
+#activity-title-input-error {
+  color: red;
+  font-size: 12px;
+  height: 10px;
+  padding: -0 15px 15px 30px !important;
+}
+
