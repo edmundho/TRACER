@@ -2,11 +2,13 @@ import React from 'react';
 import ActivitiesIndexItem from './activities_index_item';
 import RoutesDropdown from './routes_dropdown';
 
+const currentTime = new Date();
+
 const defaultState = {
   title: "",
   sport: "bike",
   date: "",
-  time: "19:00",
+  time: currentTime.toTimeString().slice(0,5),
   duration: "",
   distance: "",
   elevation: "",
@@ -26,7 +28,7 @@ class ActivitiesIndex extends React.Component {
       title: "",
       sport: "bike",
       date: "",
-      time: "19:00",
+      time: currentTime.toTimeString().slice(0,5),
       hours: 0,
       minutes: 0,
       seconds: 0,

@@ -32,11 +32,13 @@ class ActivityShow extends React.Component {
 
     console.log(activity);
 
-    let sport;
+    let sport, icon;
     if (activity && activity.sport === 'bike') {
       sport = "Ride";
+      icon = <i className="fas fa-bicycle"></i>;
     } else if (activity && activity.sport === 'run') {
       sport = "Run";
+      icon = <i className="fas fa-walking"></i>;
     }
 
     let description;
@@ -61,6 +63,7 @@ class ActivityShow extends React.Component {
     } else {
       duration = <div></div>;
     }
+    
 
     let time;
     if (activity && activity.time) {
@@ -75,6 +78,7 @@ class ActivityShow extends React.Component {
         <div id="activity-show-page">
           <header>
             <div id="show-header-div">
+              {icon}
               <h1>{sport}</h1>
             </div>
             <button onClick={() => this.props.history.goBack()}>Back</button>
