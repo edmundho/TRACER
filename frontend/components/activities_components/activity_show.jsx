@@ -31,6 +31,13 @@ class ActivityShow extends React.Component {
       routeImage = (<img id="large-route-image" src={imageUrl} alt=""/>);
     }
 
+    console.log(activity);
+    // let duration = new Date(null);
+    // if (activity.duration) {
+    //   duration.setHours(0);
+    //   duration.setSeconds(activity.duration);
+    //   duration = duration.toTimeString().slice(0, 8);
+    // }
 
     if (this.props.activity === undefined) {
       return <div id="activity-show-page">loading...</div>;
@@ -57,8 +64,8 @@ class ActivityShow extends React.Component {
               </div>
               <p>{activity.sport}</p>
             </li>
-            <li>{activity.time}</li>
-            <li>{activity.duration}</li>
+            <li>{activity.time.slice(11,19)}</li>
+            {/* <li>{duration}</li> */}
             <div>
               <li>{activity.distance}</li>
               <li>{activity.elevation}</li>

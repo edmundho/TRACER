@@ -11,5 +11,7 @@
     json.elevation activity.elevation
     json.routeId activity.route_id
     json.description activity.description
+    json.time activity.time
   end
+
 end

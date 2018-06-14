@@ -8,6 +8,7 @@ const mapStateToProps = (state = {}, ownProps) => {
   Object.values(state.entities.activities).forEach(activity => {
     activities.push(activity);
   });
+
   const cyclingRoutes = [];
   const runningRoutes = [];
   Object.values(state.entities.routes).forEach(route => {
