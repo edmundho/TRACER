@@ -9,7 +9,6 @@ class Greeting extends React.Component {
 
   render() {
     const { currentUser } = this.props;
-    console.log(currentUser);
     if (currentUser === undefined) {
       return (
         <div id="nav-bar-container">
