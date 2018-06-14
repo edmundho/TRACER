@@ -29,6 +29,11 @@ class ActivitiesIndexItem extends React.Component {
         <td>{activity.distance ? activity.distance : " "} mi.</td>
         <td>{activity.elevation ? activity.elevation : " "} ft.</td>
         <td>{route ? route.title : " "}</td>
+        <td>
+          <button
+            onClick={() => this.props.delete(activity.id)}>
+            Delete</button>
+        </td>
       </tr>
     );
   }

@@ -1,6 +1,6 @@
 class Api::ActivitiesController < ApplicationController
   def index
-    @activities = current_user.activities
+    @activities = current_user.activities.sort_by { |activity| activity.date }
   end
 
   def create
@@ -32,7 +32,7 @@ class Api::ActivitiesController < ApplicationController
     end
   end
   
-  def delete
+  def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy
   end

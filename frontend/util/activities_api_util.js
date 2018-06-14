@@ -32,3 +32,10 @@ export const postActivity = activity => (
     }
   })
 );
+
+export const deleteActivity = activityId => (
+  $.ajax({
+    method: 'delete',
+    url: `/api/activities/${activityId}`
+  })
+);

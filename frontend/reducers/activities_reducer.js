@@ -1,7 +1,8 @@
 import { 
   RECEIVE_ACTIVITIES, 
   RECEIVE_ACTIVITY,
-  POST_ACTIVITY 
+  POST_ACTIVITY,
+  REMOVE_ACTIVITY 
 } from '../actions/activities_actions';
 import merge from 'lodash/merge';
 
@@ -15,6 +16,10 @@ const activitiesReducer = (state = {}, action) => {
       return action.activity;
     case POST_ACTIVITY:
       newState = merge({}, state, {[action.activity.id]: action.activity });
+      return newState;
+    case REMOVE_ACTIVITY:
+      newState = merge({}, state);
+      delete newState[action.activityId];
       return newState;
     default:
       return state;

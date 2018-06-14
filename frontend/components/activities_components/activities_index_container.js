@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getAllActivities, postNewActivity, clearActivityErrors } from '../../actions/activities_actions';
+import { getAllActivities, postNewActivity, clearActivityErrors, destroyActivity } from '../../actions/activities_actions';
 import { getAllRoutes } from '../../actions/route_actions';
 import ActivitiesIndex from './activities_index';
 
@@ -31,7 +31,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   getAllActivities: () => dispatch(getAllActivities()),
   getAllRoutes: () => dispatch(getAllRoutes()),
   postNewActivity: activity => dispatch(postNewActivity(activity)),
-  clearErrors: () => dispatch(clearActivityErrors())
+  clearErrors: () => dispatch(clearActivityErrors()),
+  destroyActivity: activityId => dispatch(destroyActivity(activityId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActivitiesIndex);

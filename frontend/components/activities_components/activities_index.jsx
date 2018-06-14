@@ -194,6 +194,7 @@ class ActivitiesIndex extends React.Component {
         <ActivitiesIndexItem 
           key={activity.id} 
           activity={activity} 
+          delete={this.props.destroyActivity}
           route={this.props.routes[activity.routeId]} />
       );
     });
@@ -304,6 +305,7 @@ class ActivitiesIndex extends React.Component {
               <th>Distance</th>
               <th>Elevation Gain</th>
               <th>Route Taken</th>
+              <th> </th>
             </tr>
             {activities}
           </tbody>

@@ -2,13 +2,15 @@
 import { 
   fetchActivities, 
   postActivity, 
-  fetchActivity } from '../util/activities_api_util';
+  fetchActivity,
+  deleteActivity } from '../util/activities_api_util';
 
 export const RECEIVE_ACTIVITIES = "RECEIVE_ACTIVITIES";
 export const POST_ACTIVITY = "POST_ACTIVITY";
 export const RECEIVE_ACTIVITY_ERRORS = "RECEIVE_ACTIVITY_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const RECEIVE_ACTIVITY = "RECEIVE_ACTIVITY";
+export const REMOVE_ACTIVITY = "REMOVE_ACTIVITY";
 
 const receiveAllActivities = activities => ({
   type: RECEIVE_ACTIVITIES,
@@ -30,6 +32,11 @@ const receiveActivity = activity => ({
   activity
 });
 
+const removeActivity = activityId => ({
+  type: REMOVE_ACTIVITY,
+  activityId
+});
+
 export const clearActivityErrors = () => ({
   type: CLEAR_ERRORS
 });
@@ -44,4 +51,8 @@ export const postNewActivity = activity => dispatch => postActivity(activity)
 
 export const getActivity = activity => dispatch => fetchActivity(activity)
   .then(response => dispatch(receiveActivity(response)),
+    errors => dispatch(receiveErrors(errors.responseJSON)));
+
+export const destroyActivity = activityId => dispatch => deleteActivity(activityId)
+  .then(response => dispatch(removeActivity(activityId)),
     errors => dispatch(receiveErrors(errors.responseJSON)));
