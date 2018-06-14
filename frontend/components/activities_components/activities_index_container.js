@@ -3,11 +3,24 @@ import { getAllActivities, postNewActivity, clearActivityErrors, destroyActivity
 import { getAllRoutes } from '../../actions/route_actions';
 import ActivitiesIndex from './activities_index';
 
+const sort = (property, array) => {
+  array.sort((a, b) => {
+    if (a[property] < b[property]) {
+      return -1;
+    } else if (a[property] > b[property]) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+};
+
 const mapStateToProps = (state = {}, ownProps) => {
   let activities = [];
   Object.values(state.entities.activities).forEach(activity => {
     activities.push(activity);
   });
+  sort('date', activities);
 
   const cyclingRoutes = [];
   const runningRoutes = [];

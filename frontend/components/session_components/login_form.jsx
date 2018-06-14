@@ -1,7 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import { StyleSheet, css } from 'aphrodite';
+import { fadeIn, fadeOut } from 'react-animations';
 
+const styles = StyleSheet.create({
+  fadeIn: {
+    animationName: fadeIn,
+    animationDuration: '0.5s'
+  },
+});
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -54,7 +60,7 @@ class LoginForm extends React.Component {
     
     return (
       <div className="session-main">
-        <div>
+        <div className={css(styles.fadeIn)}>
           <h3>{this.props.formType}</h3>
 
           <ul className="errors-list">{errors}</ul>

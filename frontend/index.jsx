@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.getAllRoutes = getAllRoutes;
   // window.postNewRoute = postNewRoute;
   window.getAllActivities = getAllActivities;
-  window.postNewActivity = postNewActivity;
-  window.getActivity = getActivity;
+  // window.postNewActivity = postNewActivity;
+  // window.getActivity = getActivity;
 
   
 

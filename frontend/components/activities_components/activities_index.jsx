@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
   }
 });
 
-
 const defaultState = {
   title: "",
   sport: "bike",
@@ -147,19 +146,6 @@ class ActivitiesIndex extends React.Component {
     return (hours * 3600 + minutes * 60 + seconds);
   }
 
-  // componentDidUpdate () {
-  //   if (this.state.routeId.length > 0 && this.route) {
-  //     let route = this.props.routes[this.state.routeId];
-  //     const distance = Number((route.distance * 0.0006).toFixed(2));
-  //     const elevation = Number((route.elevation * 3.28).toFixed());
-
-  //     this.setState({
-  //       distance: distance,
-  //       elevation: elevation
-  //     });
-  //   } 
-  // }
-
   highlightIncorrectInputs (errors) {
     const activityDateEl = document.getElementById("activity-date-input");
     const activityTitleEl = document.getElementById("activity-title-input");
@@ -178,8 +164,7 @@ class ActivitiesIndex extends React.Component {
   render () {
     const errors = this.props.errors;
     this.highlightIncorrectInputs(errors);
-    
-    // console.log(this.state);
+
     let dropdownRoutes;
     if (this.state.sport === 'bike') {
       dropdownRoutes = this.props.cyclingRoutes;
@@ -209,6 +194,19 @@ class ActivitiesIndex extends React.Component {
             onClick={this.closeForm} >Log New Activity</button>
         </header>
         <form id="new-activity-form" className="hidden" onSubmit={this.handleSubmit}>
+          <div id="activity-form-row-3">
+            <label>Sport
+            <select onChange={this.update('sport')}>
+                <option value="bike">Ride</option>
+                <option value="run">Run</option>
+              </select>
+            </label>
+            <label>Known Route Taken?
+              <RoutesDropdown
+                update={this.update}
+                routes={dropdownRoutes} />
+            </label>
+          </div>
           <div id="activity-form-row-1">
             <label>Distance 
               <div id="distance-elevation-divs">
@@ -258,19 +256,6 @@ class ActivitiesIndex extends React.Component {
                 type="time" 
                 onChange={this.update('time')} 
                 value={this.state.time}/></label>
-          </div>
-          <div id="activity-form-row-3">
-            <label>Sport
-            <select onChange={this.update('sport')}>
-                <option value="bike">Ride</option>
-                <option value="run">Run</option>
-              </select>
-            </label>
-            <label>Known Route Taken?
-              <RoutesDropdown 
-                update={this.update}
-                routes={dropdownRoutes}/>
-            </label>
           </div>
           <label id="activity-title">Title
               <input

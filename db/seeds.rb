@@ -12,7 +12,7 @@ Activity.destroy_all
 eho = User.create(username: 'eho', password: 'fayefaye', first_name: 'Ed', last_name: 'H', birth_date: '1990-11-28')
 demo = User.create(username: 'demouser', password: 'password', first_name: "demo user", last_name: "demo user", birth_date: '2000-01-01')
 
-Route.create(
+route1 = Route.create(
   user_id: demo.id,
   title: "Sentinel Building to Marina Green",
   distance: 4725,
@@ -23,7 +23,7 @@ Route.create(
   description: "Ride from the Sentinel Building to the Marina Green near Fort Mason."
 )
 
-Route.create(
+route2 = Route.create(
   user_id: demo.id,
   title: "Anza to AT&T Park via Panhandle",
   distance: 11537,
@@ -33,7 +33,7 @@ Route.create(
   polyline_string: "eoqeFfrrjVzUm@hEOjDO@PFxDL?CwAE}BK{GWoOKoFu@wd@gA{p@]ySQmDDOQyCGu@[{Ec@aHiAeQI{@k@yIg@sHAK\\Ex@ItBWxEi@~B]fAOG_@?A^I^ABJ?BPA^EXCFAG@K@OyBQyCKYk@oJcBiW}Eou@K}AAQl@GjC[jDa@zDg@JEAUc@yGYoEOwB{By]i@iIAQG@MyBW{DDAAQ_@yFEs@`@KUWEASQK[PQNQOUOSs@}@sBoC]c@W]QYIUc@m@wC}DKII?E?a@k@s@aAc@m@_AqA{@kAwDeFLGhCeD~A{BtNuRtFyHjFiHDQPI|BaDfAoAIcBB]\\FJAK@]GUOq@q@KCw@kAyCaEgBcCqIkLGMMNk@{@wBuCeAyAWU[a@sBmCsDcFsBqCkBiCCOcAyAyDiFHMc@m@qBmCkBiCiA{AoBuCoFiHjJiMr@aA"
 )
 
-Route.create(
+route3 = Route.create(
   user_id: demo.id,
   title: "Columbus to Montgomery to California to Hyde and Back",
   polyline_string: "eyveFhsdjVjFsIxA_CZe@LWDUPY`A_B`A_Bb@s@LGR[Xe@PWzCaF~AiCfFmI`@q@HS@KrBeDj@{@pCoErCyEf@_ApB}Cd@y@fBsCLKCQCPtAMlAMxAUpDc@|Gy@p@|JvArUjB~XrApSd@vHLAE?oCZKBcALaI~@_MzAaGp@uR~B_X`D}APgD`@?E",
@@ -45,7 +45,7 @@ Route.create(
 )
 
 
-Route.create(
+route4 = Route.create(
   user_id: demo.id,
   title: "J-Town to GGB",
   distance: 5888,
@@ -56,7 +56,7 @@ Route.create(
   destination: "37.805570,-122.468623",
 )
 
-Route.create(
+route5 = Route.create(
   user_id: demo.id,
   title: "Lap of GGP via JFK & MLK Drives",
   distance: 11444,
@@ -67,7 +67,7 @@ Route.create(
   destination: "37.770404,-122.510915",
 )
 
-Route.create(
+route6 = Route.create(
   user_id: demo.id,
   title: "Sea Cliff to Nation's Daly City",
   polyline_string: "ydseFjisjVKXAT?LPv@O@JfATdAb@p@Zd@F[DKBEVAr@?bACVCzAC|AMtAIlBCv@KD?BBFPB@@C@YBEF?jBbAp@\\LNPTHZf@Avb@uAjVq@FtEH~D?TXEBAn@q@jDCRGHGb@e@z@Qd@GdAdAp@v@xAzLRbA`CrK\\Al@G`AOh@OxAi@b@I`@Cb@Dd@XfApAh@d@XNXHXBr@CfACVCJ?K?QmLSoLN@jAChSo@tOc@z\\aA@HAIAgAjEIfDMtJ[rEOlJUnOe@rIWxVu@zUq@b@`AfDGHhEBlADB@@@PDpBDTP\\z@fAbAfAjBnBh@l@LSZA`@Bj@?vAMpEcBjBs@TOXSTYTa@Pg@Lo@Fg@A_AUkBk@qDEo@PCXMHg@La@JONGLAb@Ld@P^ATYDMDg@KqBQaAIWKSq@u@S_@CYEa@Ow@Wk@[g@uCmC_@a@OWOc@Gi@A}@Be@VmAtA}F\\cBFYKGZmBZiAHS\\e@`@]vCwBhBsAXS`@Qp@MDPZ?j@FvIlC~C|@h@H~ADz@BxEBvHA|E?lC?fDCzIJhAHd@RTLVJbBTp@BNCj@k@j@Cv@BVNX`@^d@XJ\\?PEPMd@u@LONGpA@~ABnDFxAAbC]z@Oh@En@H`@R^h@L`@Fb@?r@YfAGVLLj@cB\\_AiAbDMMLLj@cBBI\\M`@UXIt@Kl@DpB@|FAvD@lCC~@@n@Ez@I`AWt@Yt@_@z@i@tBoAmAuGt@W`Bm@FMFC",
@@ -78,7 +78,7 @@ Route.create(
   destination: "37.702011,-122.482469",
 )
 
-Route.create(
+route7 = Route.create(
   user_id: demo.id,
   title: "Financial District to Inner Richmond",
   distance: 6109,
@@ -91,7 +91,7 @@ Route.create(
   destination: "37.784865255178666,-122.46327002274433"
 )
 
-Route.create(
+route8 = Route.create(
   user_id: demo.id,
   title: "Financial District to Marina",
   distance: 4658,
@@ -103,7 +103,7 @@ Route.create(
   destination: "37.80273099007377,-122.43492767211916"
 )
 
-Route.create(
+route9 = Route.create(
   user_id: demo.id,
   title: "Nob Hill to USF",
   distance: 3426,
@@ -115,7 +115,7 @@ Route.create(
   destination: "37.78230645287412,-122.44566337585451"
 )
 
-Route.create(
+route10 = Route.create(
   user_id: demo.id,
   title: "Ferry Building to Castro",
   distance: 3697,
@@ -128,7 +128,7 @@ Route.create(
 )
 
 
-Route.create(
+route11 = Route.create(
   user_id: demo.id,
   title: "Russian Hill to Fillmore",
   distance: 3676,
@@ -140,7 +140,7 @@ Route.create(
   destination: "37.77966080968367,-122.42957012176515"
 )
 
-Route.create(
+route12 = Route.create(
   user_id: demo.id,
   title: "GGB to Stonestown",
   distance: 12558,
@@ -153,7 +153,7 @@ Route.create(
   destination: "37.73008231764921,-122.47601720850383"
 )
 
-Route.create(
+route13 = Route.create(
   user_id: demo.id,
   title: "Millbrae BART to SFSU",
   distance: 18744,
@@ -166,7 +166,7 @@ Route.create(
   destination: "37.72081533934614,-122.47612097589752"
 )
 
-Route.create(
+route14 = Route.create(
   user_id: demo.id,
   title: "Bay to Columbus to Kearny Coit Tower and Back",
   distance: 3962,
@@ -179,7 +179,7 @@ Route.create(
   destination: "37.80549286949131,-122.40695471954348"
 )
 
-Route.create(
+route15 = Route.create(
   user_id: demo.id,
   title: "Ferry Building to Palace of Fine Arts",
   distance: 5672,
@@ -192,7 +192,7 @@ Route.create(
   destination: "37.801578333258746,-122.44784115183717"
 )
 
-Route.create(
+route16 = Route.create(
   user_id: demo.id,
   title: "Lap around Potrero Hill",
   distance: 7043,
@@ -203,4 +203,94 @@ Route.create(
   description: "Dogpatch to 16th & Potrero to Cesar Chavez and back",
   origin: "37.75788316818406,-122.38822612535273",
   destination: "37.75555906587538,-122.38806196289067"
+)
+
+Activity.create(
+  user_id: demo.id,
+  title: "Evening Run",
+  sport: "run",
+  date: Sat, 23 Jun 2018 00:00:00 UTC +00:00,
+  duration: 5640,
+  distance: 4.23,
+  elevation: 102.0,
+  route_id: route16.id,
+  description: "",
+  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+)
+
+Activity.create(
+  user_id: demo.id,
+  title: "Afternoon Ride",
+  sport: "bike",
+  date: Fri, 08 Jun 2018 00:00:00 UTC +00:00,
+  duration: 8400,
+  distance: 3.53,
+  elevation: 145.0,
+  route_id: route4.id,
+  description: "",
+  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+)
+
+Activity.create(
+  user_id: demo.id,
+  title: "Afternoon Ride",
+  sport: "bike",
+  date: Sat, 12 May 2018 00:00:00 UTC +00:00,
+  duration: 14880,
+  distance: 7.53,
+  elevation: 979.0,
+  route_id: route12.id,
+  description: "Tough",
+  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+)
+
+Activity.create(
+  user_id: demo.id,
+  title: "Afternoon Ride Downtown",
+  sport: "bike",
+  date: Sun, 20 May 2018 00:00:00 UTC +00:00,
+  duration: 984033,
+  distance: 7.0,
+  elevation: 300.0,
+  route_id: route2.id,
+  description: "",
+  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+)
+
+Activity.create(
+  user_id: demo.id,
+  title: "Afternoon Ride Daly City",
+  sport: "bike",
+  date: Sat, 19 May 2018 00:00:00 UTC +00:00,
+  duration: 8700,
+  distance: 7.75,
+  elevation: 250.0,
+  route_id: route6.id,
+  description: "",
+  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+)
+
+Activity.create(
+  user_id: demo.id,
+  title: "Afternoon Ride",
+  sport: "bike",
+  date: Sat, 09 Jun 2018 00:00:00 UTC +00:00,
+  duration: 11100,
+  distance: 10.91,
+  elevation: 470.0,
+  description: "",
+  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+)
+
+Activity.create(
+  user_id: demo.id,
+  title: "Afternoon Ride",
+  sport: "bike",
+  date: Thu, 31 May 2018 00:00:00 UTC +00:00,
+  duration: 4860,
+  distance: 2.83,
+  elevation: 150.0,
+  route_id: route1.id,
+  description: "",
+  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
 )
