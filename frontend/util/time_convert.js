@@ -8,6 +8,6 @@ const timeConvert = (time) => {
     time[0] = +time[0] % 12 || 12; // Adjust hours
   }
   return time.join(''); // return adjusted time or original string
-}
+};
 
 export default timeConvert;

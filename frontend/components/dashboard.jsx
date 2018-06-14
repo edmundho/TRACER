@@ -57,10 +57,11 @@ class Dashboard extends React.Component {
             Build a new route
           </div>        
         </Link> */}
-
-        <ul>
-          {activities ? activities : loading}
-        </ul>
+        <div id="activity-feed">
+          <ul>
+            {activities ? activities : loading}
+          </ul>
+        </div>
         {/* <div id="new-user-tooltip" className={css(styles.fadeIn2)}>
           Click above to build a route!
         </div>
