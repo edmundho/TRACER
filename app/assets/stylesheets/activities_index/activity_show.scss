@@ -21,6 +21,13 @@
   width: 60%;
 }
 
+#activity-title {
+  font-size: 20px;
+  padding: 0 10px;
+  display: inline-block !important;
+  width: 150px;
+}
+
 #show-header-div {
   display: flex;
   align-items: center;
@@ -95,6 +102,10 @@
   padding: 0 0 0 9px;
   font-weight: 700;
   color: slategray;
+}
+
+#show-title-div {
+  padding: 0 15px;
 }
 
 #show-title-div h1 {

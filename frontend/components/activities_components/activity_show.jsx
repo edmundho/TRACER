@@ -29,7 +29,7 @@ class ActivityShow extends React.Component {
       routeImage = (<img id="large-route-image" src={imageUrl} alt=""/>);
     }
 
-    // console.log(activity);
+    console.log(activity);
 
     let description;
     if (activity && activity.description.length > 0) {
@@ -74,7 +74,7 @@ class ActivityShow extends React.Component {
                   <div>
                     {time}<h3>{activity.date.slice(0, 10)}</h3>
                   </div>
-                  <h1>{activity.title}</h1>
+                  <div id="activity-title"><p>{activity.title}</p></div>
                 </div>
               </li>
               <li>
