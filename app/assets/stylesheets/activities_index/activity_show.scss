@@ -1,10 +1,15 @@
+#activity-show-block {
+  padding: 15px 0;
+}
+
 #activity-show-page {
-  height: 100vh;
   width: 80%;
-  // background: rgba(245, 245, 245, 0.8);
   color: darkslateblue;
   padding: 100px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #activity-show-page header {
@@ -13,6 +18,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 15px;
+  width: 60%;
 }
 
 #show-header-div {
@@ -50,21 +56,49 @@
 
 #activity-show-page ul {
   padding: 20px;
-  // display: flex;
   background: whitesmoke;
+  margin: 40px auto;
+
 }
 
-#activity-show-page li {
-  padding: 15px;
+#show-top-row-info {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0 !important; 
+  margin: 0 auto !important;
+  background: rgb(240, 240, 240) !important;
+}
+
+#show-stats-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#show-stats-div div {
+  font-size: 22px;
+  font-weight: 300;
+  padding: 0 25px;
+}
+
+#show-stats-div div > p {
+  font-size: 12px;
 }
 
 #activity-show-page li > p, li > div {
   padding: 15px;
 }
 
-#activity-show-page p {
-  border: 1px solid whitesmoke;
+#show-title-div h3 {
+  font-size: 12px;
+  padding: 0 10px;
+  font-weight: 700;
+  color: slategray;
+}
+
+#show-title-div h1 {
+  padding: 0 10px;
 }
 
 #large-route-image {
@@ -72,7 +106,13 @@
   width: 600px;
 }
 
-#activity-show-page ul {
-  padding: 30px;
+.show-bottom-info {
+  padding: 0 0 10px 0 !important;
+  margin: 0 auto !important;
 }
 
+#show-image-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

@@ -3,7 +3,7 @@ import { getAllActivities, postNewActivity, clearActivityErrors, destroyActivity
 import { getAllRoutes } from '../../actions/route_actions';
 import ActivitiesIndex from './activities_index';
 
-// https://stackoverflow.com/questions/5073799/how-to-sort-a-javascript-array-of-objects-by-nested-object-property?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+// sort function referenced from: https://stackoverflow.com/questions/5073799/how-to-sort-a-javascript-array-of-objects-by-nested-object-property?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 const sort = (property, array) => {
   array.sort((a, b) => {
     if (a[property] <= b[property]) {

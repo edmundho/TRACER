@@ -32,12 +32,26 @@ class ActivityShow extends React.Component {
     }
 
     console.log(activity);
-    // let duration = new Date(null);
-    // if (activity.duration) {
-    //   duration.setHours(0);
-    //   duration.setSeconds(activity.duration);
-    //   duration = duration.toTimeString().slice(0, 8);
-    // }
+
+    let description;
+    if (activity && activity.description.length > 0) {
+      description = (
+        <div>
+          <h3>Description:</h3>
+          <p>{activity.description}</p>
+        </div>
+      );
+    } else {
+      description = <div></div>;
+    }
+
+    // console.log(activity);
+    let duration = new Date(null);
+    if (activity && activity.duration) {
+      duration.setHours(0);
+      duration.setSeconds(activity.duration);
+      duration = duration.toTimeString().slice(0, 8);
+    }
 
     if (this.props.activity === undefined) {
       return <div id="activity-show-page">loading...</div>;
@@ -46,32 +60,42 @@ class ActivityShow extends React.Component {
         <div id="activity-show-page">
           <header>
             <div id="show-header-div">
-              <h1>{activity.title}</h1>
-              <h3>{activity.date.slice(0, 10)}</h3>
+              <h1>{activity.sport[0].toUpperCase() + activity.sport.slice(1)}</h1>
             </div>
             <Link to="/activities">Back</Link>
           </header>
-          <ul>
-            <li>
-              <div>
-                Description:
-              </div>
-              <p>{activity.description}</p>
-            </li>
-            <li>
-              <div>
-                Sport: 
-              </div>
-              <p>{activity.sport}</p>
-            </li>
-            <li>{activity.time.slice(11,19)}</li>
+          <div id="activity-show-block">
+            <ul id="show-top-row-info">
+              <li>
+                <div id="show-title-div">
+                  <h3>{activity.time.slice(11, 16)} on {activity.date.slice(0, 10)}</h3>
+                  <h1>{activity.title}</h1>
+                </div>
+              </li>
+              <li>
+                <div id="show-stats-div" >
+                  <div>{activity.distance} mi. <p>Distance</p></div>
+                  <div>{duration}<p>Moving Time</p></div>
+                  <div>{activity.elevation} ft. <p>Elevation Gain</p></div>
+                </div>
+              </li>
+            </ul>
+            <ul className="show-bottom-info">
+              <li>
+                <div>
+
+                  <h3>Route Image:</h3>
+                  <div id="show-image-container">{routeImage}</div>
+                  {description}
+                </div>
+              </li>
+            </ul>
+          </div>
+    
+
             {/* <li>{duration}</li> */}
-            <div>
-              <li>{activity.distance}</li>
-              <li>{activity.elevation}</li>
-            </div>
-            <li>{routeImage}</li>
-          </ul>
+
+
         </div>
       );
     }
