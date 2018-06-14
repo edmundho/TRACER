@@ -1,4 +1,5 @@
 
 
 json.extract! @user, :id, :username
-json.name @user.first_name
+json.firstName @user.first_name
+json.lastName @user.last_name

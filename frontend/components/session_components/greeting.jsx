@@ -5,32 +5,11 @@ class Greeting extends React.Component {
   constructor (props) {
     super(props);
 
-    this.revealActivityMenu = this.revealActivityMenu.bind(this);
-    this.hideActivityMenu = this.hideActivityMenu.bind(this);
-    this.revealUserDropdown = this.revealUserDropdown.bind(this);
-    this.hideUserDropdown = this.hideUserDropdown.bind(this);
-  }
-  
-  revealUserDropdown () {
-    document.getElementById('user-menu-dropdown').className = "user-menu-dropdown";
-    document.getElementById('activity-menu-dropdown').className = "activity-menu-dropdown hidden";
-  }
-
-  hideUserDropdown () {
-    document.getElementById('user-menu-dropdown').className = "user-menu-dropdown hidden";
-  }
-
-  revealActivityMenu () {
-    document.getElementById('activity-menu-dropdown').className = "activity-menu-dropdown";
-    document.getElementById('user-menu-dropdown').className = "user-menu-dropdown hidden";
-  }
-
-  hideActivityMenu () {
-    document.getElementById('activity-menu-dropdown').className = "activity-menu-dropdown hidden";
   }
 
   render() {
     const { currentUser } = this.props;
+    console.log(currentUser);
     if (currentUser === undefined) {
       return (
         <div id="nav-bar-container">
