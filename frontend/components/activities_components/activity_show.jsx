@@ -31,6 +31,13 @@ class ActivityShow extends React.Component {
 
     console.log(activity);
 
+    let sport;
+    if (activity && activity.sport === 'bike') {
+      sport = "Ride";
+    } else if (activity && activity.sport === 'run') {
+      sport = "Run";
+    }
+
     let description;
     if (activity && activity.description.length > 0) {
       description = (
@@ -43,11 +50,15 @@ class ActivityShow extends React.Component {
       description = <div></div>;
     }
 
-    let duration = new Date(null);
+    let duration;
     if (activity && activity.duration) {
+      duration = new Date(null);
       duration.setHours(0);
       duration.setSeconds(activity.duration);
       duration = duration.toTimeString().slice(0, 8);
+      duration = <div>{duration}<p>Moving Time</p></div>;
+    } else {
+      duration = <div></div>;
     }
 
     let time;
@@ -63,7 +74,7 @@ class ActivityShow extends React.Component {
         <div id="activity-show-page">
           <header>
             <div id="show-header-div">
-              <h1>{activity.sport[0].toUpperCase() + activity.sport.slice(1)}</h1>
+              <h1>{sport}</h1>
             </div>
             <Link to="/activities">Back</Link>
           </header>
@@ -80,7 +91,7 @@ class ActivityShow extends React.Component {
               <li>
                 <div id="show-stats-div" >
                   <div>{activity.distance} mi. <p>Distance</p></div>
-                  <div>{duration}<p>Moving Time</p></div>
+                  <div>{duration}</div>
                   <div>{activity.elevation} ft. <p>Elevation Gain</p></div>
                 </div>
               </li>

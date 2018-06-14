@@ -1,15 +1,6 @@
 import React from 'react';
 import ActivitiesIndexItem from './activities_index_item';
 import RoutesDropdown from './routes_dropdown';
-import { StyleSheet, css } from 'aphrodite';
-import { slideInDown } from 'react-animations';
-
-const styles = StyleSheet.create({
-  slideInDown: {
-    animationName: slideInDown,
-    animationDuration: '0.5s'
-  }
-});
 
 const defaultState = {
   title: "",

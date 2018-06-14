@@ -337,7 +337,7 @@ Activity.create(
 Activity.create(
   user_id: demo.id,
   title: "Slow night run",
-  sport: "bike",
+  sport: "run",
   date: "Fri, 01 Jun 2018 00:00:00 UTC +00:00",
   duration: 2700,
   distance: 3.0,
@@ -362,7 +362,7 @@ Activity.create(
 
 Activity.create(
   user_id: demo.id,
-  title: "Morning Ride",
+  title: "Morning Run",
   sport: "run",
   date: "Sun, 27 May 2018 00:00:00 UTC +00:00",
   duration: 246011,
