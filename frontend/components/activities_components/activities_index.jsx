@@ -54,8 +54,6 @@ class ActivitiesIndex extends React.Component {
 
   update (field) {
     return (e) => {
-      // this.setState({ [field]: e.target.value });
-      console.log(e.target.value);
       let matchingRoute = this.dropdownRoutes.find(route => route.id == e.target.value );
       const distance = matchingRoute && Number((matchingRoute.distance * 0.0006).toFixed(2));
       const elevation = matchingRoute && Number((matchingRoute.elevation * 3.28).toFixed());
@@ -74,6 +72,7 @@ class ActivitiesIndex extends React.Component {
 
   componentDidMount () {
     this.props.getAllActivities();
+    this.props.getAllRoutes();
   }
 
   handleSubmit (e) {
@@ -101,7 +100,6 @@ class ActivitiesIndex extends React.Component {
     };
     
     this.props.postNewActivity(newActivity).then(response => {
-      // console.log(response);
       const activityId = response.activity.id;
       this.props.history.push(`/activities/${activityId}`);
       this.setState(defaultState);
@@ -149,18 +147,18 @@ class ActivitiesIndex extends React.Component {
     return (hours * 3600 + minutes * 60 + seconds);
   }
 
-  componentDidUpdate () {
-    if (this.state.routeId.length > 0 && this.route) {
-      let route = this.props.routes[this.state.routeId];
-      const distance = Number((route.distance * 0.0006).toFixed(2));
-      const elevation = Number((route.elevation * 3.28).toFixed());
+  // componentDidUpdate () {
+  //   if (this.state.routeId.length > 0 && this.route) {
+  //     let route = this.props.routes[this.state.routeId];
+  //     const distance = Number((route.distance * 0.0006).toFixed(2));
+  //     const elevation = Number((route.elevation * 3.28).toFixed());
 
-      this.setState({
-        distance: distance,
-        elevation: elevation
-      });
-    } 
-  }
+  //     this.setState({
+  //       distance: distance,
+  //       elevation: elevation
+  //     });
+  //   } 
+  // }
 
   highlightIncorrectInputs (errors) {
     const activityDateEl = document.getElementById("activity-date-input");
@@ -181,7 +179,7 @@ class ActivitiesIndex extends React.Component {
     const errors = this.props.errors;
     this.highlightIncorrectInputs(errors);
     
-    console.log(this.state);
+    // console.log(this.state);
     let dropdownRoutes;
     if (this.state.sport === 'bike') {
       dropdownRoutes = this.props.cyclingRoutes;
@@ -295,18 +293,21 @@ class ActivitiesIndex extends React.Component {
               onClick={this.closeForm}>Cancel</button>
           </div>
         </form>
-        <ul id="activities-list-columns">
-          <li>Sport</li>
-          <li>Date</li>
-          <li>Title</li>
-          <li>Time</li>
-          <li>Duration</li>
-          <li>Distance</li>
-          <li>Elevation</li>
-        </ul>
-        <ul id="activities-list">
-          <li>{activities}</li>
-        </ul>
+        <h2>{activities.length} activities</h2>
+        <table id="activities-list-table" cellSpacing="0" cellPadding="5">
+          <tbody>
+            <tr>
+              <th>Sport</th>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Duration</th>
+              <th>Distance</th>
+              <th>Elevation Gain</th>
+              <th>Route Taken</th>
+            </tr>
+            {activities}
+          </tbody>
+        </table>
       </div>
     );
   }

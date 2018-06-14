@@ -1,0 +1,30 @@
+#activities-list-table {
+  background: whitesmoke;
+  margin: 10px auto 30px auto;
+  border-radius: 1px;
+  color: darkslategray;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#activities-list-table th {
+  padding: 20px 40px;
+}
+
+#activities-list-table tr {
+  border-bottom: 1px solid lightgray;
+}
+
+#activities-table td {
+  height: 30px;
+  padding: 5px 10px;
+}
+
+#activities-list-table tr:nth-of-type(2n) {
+  background: rgb(235, 235, 240);
+}
+
+#activities-table a {
+  color: #317EB1;
+}

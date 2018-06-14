@@ -8,20 +8,22 @@ class ActivitiesIndexItem extends React.Component {
 
   render () {
     const activity = this.props.activity;
-
+    console.log(this.props.route);
+    const route = this.props.route ? this.props.route : null;
+    let sport;
+    if (activity.sport === 'bike') { sport = 'Ride'; }
+    if (activity.sport === 'run') { sport = 'Run'; }
     
     return (
-      <div id="activity-item">
-        <ul>
-          <li>{activity.sport}</li>
-          <li>{activity.date.slice(0,10)}</li>
-          <li><Link to={`/activities/${activity.id}`}>{activity.title}</Link></li>
-          <li>{activity.duration ? activity.duration : " "}</li>
-          <li>{activity.distance ? activity.distance : " "} mi.</li>
-          <li>{activity.elevation ? activity.elevation : " "} ft.</li>
-          <li>{activity.routeId ? activity.routeId : " "}</li>
-        </ul>
-      </div>
+      <tr id="activities-table">
+        <td>{sport}</td>
+        <td>{activity.date.slice(0, 10)}</td>
+        <td><Link to={`/activities/${activity.id}`}>{activity.title}</Link></td>
+        <td>{activity.duration ? activity.duration : " "}</td>
+        <td>{activity.distance ? activity.distance : " "} mi.</td>
+        <td>{activity.elevation ? activity.elevation : " "} ft.</td>
+        <td>{route ? route.title : " "}</td>
+      </tr>
     );
   }
 }

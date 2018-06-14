@@ -39,15 +39,9 @@
   padding: 10px;
 }
 
-#activities-list-columns {
-  display: flex;
-  background: lightgray;
-  margin: 25px 40px 0 40px;
-  // justify-content: space-around;
-  border-radius: 1px;
-  color: darkslategray;
-}
-
-#activities-list-columns li {
-  padding: 10px 40px;
+#activities-index h2 {
+  padding: 25px 0 0 25px;
+  font-size: 26px;
+  font-family: Helvetica Neue;
+  font-weight: 300;
 }
