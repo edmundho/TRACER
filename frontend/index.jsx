@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.postNewActivity = postNewActivity;
   // window.getActivity = getActivity;
 
-  
 
   ReactDOM.render(<Root store={store} />, root);
 });

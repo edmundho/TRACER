@@ -18,8 +18,6 @@ class ActivityShow extends React.Component {
     });
   }
 
-
-  
   render () {
     const activity = this.props.activity;
     let routeImage;
@@ -31,7 +29,7 @@ class ActivityShow extends React.Component {
       routeImage = (<img id="large-route-image" src={imageUrl} alt=""/>);
     }
 
-    console.log(activity);
+    // console.log(activity);
 
     let description;
     if (activity && activity.description.length > 0) {
