@@ -209,88 +209,166 @@ Activity.create(
   user_id: demo.id,
   title: "Evening Run",
   sport: "run",
-  date: Sat, 23 Jun 2018 00:00:00 UTC +00:00,
+  date: "Sat, 23 Jun 2018 00:00:00 UTC +00:00",
   duration: 5640,
   distance: 4.23,
   elevation: 102.0,
   route_id: route16.id,
   description: "",
-  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
 )
 
 Activity.create(
   user_id: demo.id,
   title: "Afternoon Ride",
   sport: "bike",
-  date: Fri, 08 Jun 2018 00:00:00 UTC +00:00,
+  date: "Fri, 08 Jun 2018 00:00:00 UTC +00:00",
   duration: 8400,
   distance: 3.53,
   elevation: 145.0,
   route_id: route4.id,
   description: "",
-  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
 )
 
 Activity.create(
   user_id: demo.id,
   title: "Afternoon Ride",
   sport: "bike",
-  date: Sat, 12 May 2018 00:00:00 UTC +00:00,
+  date: "Sat, 12 May 2018 00:00:00 UTC +00:00",
   duration: 14880,
   distance: 7.53,
   elevation: 979.0,
   route_id: route12.id,
   description: "Tough",
-  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
 )
 
 Activity.create(
   user_id: demo.id,
   title: "Afternoon Ride Downtown",
   sport: "bike",
-  date: Sun, 20 May 2018 00:00:00 UTC +00:00,
+  date: "Sun, 20 May 2018 00:00:00 UTC +00:00",
   duration: 984033,
   distance: 7.0,
   elevation: 300.0,
   route_id: route2.id,
   description: "",
-  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
 )
 
 Activity.create(
   user_id: demo.id,
   title: "Afternoon Ride Daly City",
   sport: "bike",
-  date: Sat, 19 May 2018 00:00:00 UTC +00:00,
+  date: "Sat, 19 May 2018 00:00:00 UTC +00:00",
   duration: 8700,
   distance: 7.75,
   elevation: 250.0,
   route_id: route6.id,
   description: "",
-  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
 )
 
 Activity.create(
   user_id: demo.id,
   title: "Afternoon Ride",
   sport: "bike",
-  date: Sat, 09 Jun 2018 00:00:00 UTC +00:00,
+  date: "Sat, 09 Jun 2018 00:00:00 UTC +00:00",
   duration: 11100,
   distance: 10.91,
   elevation: 470.0,
   description: "",
-  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
 )
 
 Activity.create(
   user_id: demo.id,
   title: "Afternoon Ride",
   sport: "bike",
-  date: Thu, 31 May 2018 00:00:00 UTC +00:00,
+  date: "Thu, 31 May 2018 00:00:00 UTC +00:00",
   duration: 4860,
   distance: 2.83,
   elevation: 150.0,
   route_id: route1.id,
   description: "",
-  time: Sat, 01 Jan 2000 19:00:00 UTC +00:00
+  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
+)
+
+Activity.create(
+  user_id: demo.id,
+  title: "Evening Run",
+  sport: "run",
+  date: "Thu, 14 Jun 2018 00:00:00 UTC +00:00",
+  duration: 150019,
+  distance: 2.22,
+  elevation: 38.0,
+  route_id: route10.id,
+  description: "More traffic than usual",
+  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
+)
+
+Activity.create(
+  user_id: 32,
+  title: "Sunday Afternoon Run",
+  sport: "run",
+  date: "Sun, 03 Jun 2018 00:00:00 UTC +00:00",
+  duration: 1500,
+  distance: 2.22,
+  elevation: 40.0,
+  route_id: nil,
+  description: "",
+  time: nil
+)
+
+Activity.create(
+  user_id: demo.id,
+  title: "Afternoon Ride",
+  sport: "bike",
+  date: "Sat, 09 Jun 2018 00:00:00 UTC +00:00",
+  duration: 15300,
+  distance: 11.0,
+  elevation: 326.0,
+  route_id: nil,
+  description: "Weather was a perfect 70 degrees. Very windy towards Marina District.",
+  time: nil
+)
+
+Activity.create(
+  user_id: demo.id,
+  title: "Slow night run",
+  sport: "bike",
+  date: "Fri, 01 Jun 2018 00:00:00 UTC +00:00",
+  duration: 2700,
+  distance: 3.0,
+  elevation: 39.0,
+  route_id: nil,
+  description: "",
+  time: nil
+)
+
+Activity.create(
+  user_id: demo.id,
+  title: "Morning Run",
+  sport: "run",
+  date: "Sun, 10 Jun 2018 00:00:00 UTC +00:00",
+  duration: 228025,
+  distance: 3.01,
+  elevation: 439.0,
+  route_id: route3.id,
+  description: "",
+  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
+)
+
+Activity.create(
+  user_id: demo.id,
+  title: "Morning Ride",
+  sport: "run",
+  date: "Sun, 27 May 2018 00:00:00 UTC +00:00",
+  duration: 246011,
+  distance: 2.21,
+  elevation: 229.0,
+  route_id: route11.id,
+  description: "",
+  time: "Sat, 01 Jan 2000 08:00:00 UTC +00:00"
 )

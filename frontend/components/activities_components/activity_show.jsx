@@ -58,7 +58,6 @@ class ActivityShow extends React.Component {
     }
 
 
-
     if (this.props.activity === undefined) {
       return <div id="activity-show-page">loading...</div>;
     } else {
@@ -74,7 +73,9 @@ class ActivityShow extends React.Component {
             <ul id="show-top-row-info">
               <li>
                 <div id="show-title-div">
-                  <h3>{time}{activity.date.slice(0, 10)}</h3>
+                  <div>
+                    {time}<h3>{activity.date.slice(0, 10)}</h3>
+                  </div>
                   <h1>{activity.title}</h1>
                 </div>
               </li>
