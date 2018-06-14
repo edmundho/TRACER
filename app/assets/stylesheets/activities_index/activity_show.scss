@@ -33,7 +33,7 @@
 }
 
 #activity-show-page h3 {
-  font-size: 18px;
+  font-size: 16px;
   padding: 10px;
   font-weight: 300;
   margin: 0;
@@ -111,8 +111,21 @@
   margin: 0 auto !important;
 }
 
+
 #show-image-container {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+#activity-description-div h3 {
+  padding-top: 10px;
+  border-top: 1px solid lightgray;
+  margin-top: 10px
+}
+
+#activity-description-div p {
+  font-size: 14px;
+  font-weight: 300;
+  padding: 10px;
 }
