@@ -5,7 +5,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 // import { getAllRoutes, postNewRoute } from './actions/route_actions';
 // import { fetchRoutes, postRoute } from './util/routes_api_util';
-import { getAllActivities, postNewActivity, getActivity } from './actions/activities_actions';
+// import { getAllActivities, postNewActivity, getActivity } from './actions/activities_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.fetchRoutes = fetchRoutes;
   // window.getAllRoutes = getAllRoutes;
   // window.postNewRoute = postNewRoute;
-  window.getAllActivities = getAllActivities;
+  // window.getAllActivities = getAllActivities;
   // window.postNewActivity = postNewActivity;
   // window.getActivity = getActivity;
 
