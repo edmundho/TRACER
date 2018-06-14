@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { imageUrlBuilder } from '../../util/static_map_url';
+import timeConvert from '../../util/time_convert';
 
 class ActivityShow extends React.Component {
   constructor (props) {
@@ -63,7 +64,7 @@ class ActivityShow extends React.Component {
 
     let time;
     if (activity && activity.time) {
-      time = <h3>{activity.time.slice(11,16)} on</h3>;
+      time = <h3>{timeConvert(activity.time.slice(11,16))} on</h3>;
     }
 
 
@@ -76,14 +77,14 @@ class ActivityShow extends React.Component {
             <div id="show-header-div">
               <h1>{sport}</h1>
             </div>
-            <Link to="/activities">Back</Link>
+            <button onClick={() => this.props.history.goBack()}>Back</button>
           </header>
           <div id="activity-show-block">
             <ul id="show-top-row-info">
               <li>
                 <div id="show-title-div">
                   <div>
-                    {time}<h3>{activity.date.slice(0, 10)}</h3>
+                    {time}<h3>&nbsp;{activity.date.slice(0, 10)}</h3>
                   </div>
                   <div id="activity-title"><p>{activity.title}</p></div>
                 </div>
@@ -91,8 +92,8 @@ class ActivityShow extends React.Component {
               <li>
                 <div id="show-stats-div" >
                   <div>{activity.distance} mi. <p>Distance</p></div>
-                  <div>{duration}</div>
                   <div>{activity.elevation} ft. <p>Elevation Gain</p></div>
+                  <div>{duration}</div>
                 </div>
               </li>
             </ul>

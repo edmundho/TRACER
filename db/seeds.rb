@@ -10,7 +10,7 @@ Route.destroy_all
 Activity.destroy_all
 
 eho = User.create(username: 'eho', password: 'fayefaye', first_name: 'Ed', last_name: 'H', birth_date: '1990-11-28')
-demo = User.create(username: 'demouser', password: 'password', first_name: "demo user", last_name: "demo user", birth_date: '2000-01-01')
+demo = User.create(username: 'demouser', password: 'password', first_name: "Klay", last_name: "Thompson", birth_date: '2000-01-01')
 
 route1 = Route.create(
   user_id: demo.id,
@@ -214,7 +214,7 @@ Activity.create(
   distance: 4.23,
   elevation: 102.0,
   route_id: route16.id,
-  description: "",
+  description: "Note to self: do not run hungry!",
   time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
 )
 
@@ -228,7 +228,7 @@ Activity.create(
   elevation: 145.0,
   route_id: route4.id,
   description: "",
-  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
+  time: "Sat, 01 Jan 2000 16:00:00 UTC +00:00"
 )
 
 Activity.create(
@@ -240,8 +240,8 @@ Activity.create(
   distance: 7.53,
   elevation: 979.0,
   route_id: route12.id,
-  description: "Tough",
-  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
+  description: "Tough ride",
+  time: "Sat, 01 Jan 2000 15:00:00 UTC +00:00"
 )
 
 Activity.create(
@@ -253,8 +253,8 @@ Activity.create(
   distance: 7.0,
   elevation: 300.0,
   route_id: route2.id,
-  description: "",
-  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
+  description: "Tons of traffic downtown.",
+  time: "Sat, 01 Jan 2000 14:00:00 UTC +00:00"
 )
 
 Activity.create(
@@ -266,8 +266,8 @@ Activity.create(
   distance: 7.75,
   elevation: 250.0,
   route_id: route6.id,
-  description: "",
-  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
+  description: "The pie made this worth it.",
+  time: "Sat, 01 Jan 2000 14:00:00 UTC +00:00"
 )
 
 Activity.create(
@@ -279,7 +279,7 @@ Activity.create(
   distance: 10.91,
   elevation: 470.0,
   description: "",
-  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
+  time: "Sat, 01 Jan 2000 14:00:00 UTC +00:00"
 )
 
 Activity.create(
@@ -292,7 +292,7 @@ Activity.create(
   elevation: 150.0,
   route_id: route1.id,
   description: "",
-  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
+  time: "Sat, 01 Jan 2000 13:00:00 UTC +00:00"
 )
 
 Activity.create(
@@ -317,7 +317,7 @@ Activity.create(
   distance: 2.22,
   elevation: 40.0,
   route_id: nil,
-  description: "",
+  description: "Must... improve... pace",
   time: nil
 )
 
@@ -357,7 +357,7 @@ Activity.create(
   elevation: 439.0,
   route_id: route3.id,
   description: "",
-  time: "Sat, 01 Jan 2000 19:00:00 UTC +00:00"
+  time: "Sat, 01 Jan 2000 09:00:00 UTC +00:00"
 )
 
 Activity.create(
@@ -369,6 +369,6 @@ Activity.create(
   distance: 2.21,
   elevation: 229.0,
   route_id: route11.id,
-  description: "",
+  description: "Nothing like an early morning sweat",
   time: "Sat, 01 Jan 2000 08:00:00 UTC +00:00"
 )

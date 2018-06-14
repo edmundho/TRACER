@@ -1,6 +1,8 @@
 #dashboard {
   background: whitesmoke;
   height: 100%;
+  padding-top: 75px;
+  // overflow: hidden;
 }
 
 .route-builder-link:hover {
@@ -18,15 +20,105 @@
   align-items: center;
   justify-content: center;
   border-radius: 3px;
-  position: absolute;
-  top: 100px;
-  left: 100px;
+  margin: 0 auto;
 }
 
-#dashboard img {
-  height: 150px;
-  width: 200px;
+
+#feed-item-div {
+  width: 650px;
+  color: darkslateblue;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 1px;
+}
+
+#feed-item-top {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto !important;
+  width: 650px;
+  padding-left: 10px;
+}
+
+#feed-item-div h3 {
+  margin: 0;
+}
+
+#feed-item-div #show-image-container {
+  padding: 0;
+}
+
+#feed-stats-div {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+#feed-stats-div div {
+  font-size: 22px;
+  font-weight: 300;
+  padding: 0 20px;
+  width: 100px;
+}
+
+#feed-stats-div div>p {
+  font-size: 12px;
+}
+
+#feed-user-name {
+  display: block;
+  padding: 5px 15px 0 15px;
+  color: darkslategray;
+  font-size: 16px;
+}
+
+#feed-user-name p {
+  display: inline;
+  padding: 5px 15px;
+}
+
+#feed-timestamp {
+  display: flex;
+  font-size: 11px;
+  font-weight: 300;
+  padding: 5px 15px;
+}
+
+#user-div {
+  padding-top: 5px;
+  width: 600px;
+  display: flex;
+  align-items: center;
+}
+
+#user-div > i {
+  font-size: 30px;
+  padding: 5px;
+  color: lightslategray;
+}
+
+#new-user-tooltip {
   position: absolute;
-  top: 100px;
-  left: 500px;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.75);
+  color: whitesmoke;
+  right: 70px;
+  top: 70px;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+#close-dashboard-tooltip-x {
+  position: absolute;
+  z-index: 99;
+  right: 80px;
+  color: whitesmoke;
+  font-size: 20px;
+  top: 75px;
 }

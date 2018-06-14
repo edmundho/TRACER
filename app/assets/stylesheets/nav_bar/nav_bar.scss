@@ -17,7 +17,6 @@
   width: 80%;
   left: 10%;
   margin: 0 auto;
-  // z-index: 99;
   font-family: Geneva;
 }
 
@@ -67,22 +66,6 @@
   font-weight: 700;
   font-size: 14px;
 }
-
-// .session-logged-in button {
-//   display: block;
-//   margin: 10px;
-//   padding: 10px;
-//   background: orangered;
-//   color: white;
-//   border: none;
-//   border-radius: 1px;
-//   cursor: pointer;
-//   font-size: 12px;
-// }
-
-// .session-logged-in button:hover {
-//   background: darkorange;
-// }
 
 .active {
   border-bottom: 5px orangered solid;  

@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
   fadeIn2: {
     animationName: fadeIn,
-    animationDuration: '6s'
+    animationDuration: '3s'
   }
 });
 

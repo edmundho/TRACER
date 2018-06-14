@@ -60,7 +60,7 @@ class Greeting extends React.Component {
             </ul>
           </div>
           <div className="session-logged-in">
-            <p>Hi, {currentUser.name}</p>
+            <p>Hi, {currentUser.firstName}</p>
             <div id="user-menu-hover">
               <div id="user-menu">
                 <i id="avatar" className="fas fa-user"></i>

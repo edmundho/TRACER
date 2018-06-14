@@ -18,7 +18,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 15px;
-  width: 60%;
+  width: 650px;
 }
 
 #activity-title {
@@ -46,7 +46,7 @@
   margin: 0;
 }
 
-#activity-show-page a {
+#activity-show-page button {
   display: block;
   padding: 10px;
   margin: 0 20px;
@@ -57,7 +57,7 @@
   border-radius: 2px;
 }
 
-#activity-show-page a:hover {
+#activity-show-page button:hover {
   background: #bb4720;
 }
 
@@ -72,14 +72,14 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 10px 0 !important; 
+  padding: 10px 0 0 15px !important; 
   margin: 0 auto !important;
   background: rgb(240, 240, 240) !important;
+
 }
 
 #show-stats-div {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -99,9 +99,13 @@
 
 #show-title-div h3 {
   font-size: 12px;
-  padding: 0 0 0 9px;
+  padding: 0;
   font-weight: 700;
   color: slategray;
+}
+
+#show-title-div > div {
+  padding-left: 10px;
 }
 
 #show-title-div {
