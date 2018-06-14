@@ -48,4 +48,23 @@
   letter-spacing: 2px;
 }
 
+#route-builder-tooltip {
+  position: absolute; 
+  z-index: 99;
+  background: rgba(240, 240, 240, 0.9);
+  right: 70px;
+  top: 150px;
+  // height: 70px;
+  // width: 150px;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+}
 
+#close-tooltip-x {
+  position: absolute;
+  z-index: 99;
+  right: 80px;
+  font-size: 20px;
+  top: 155px;
+}

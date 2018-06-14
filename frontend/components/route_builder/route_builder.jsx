@@ -9,9 +9,9 @@ const styles = StyleSheet.create({
     animationName: fadeIn,
     animationDuration: '0.5s'
   },
-  fadeOut: {
-    animationName: fadeOut,
-    animationDuration: '1s'
+  fadeIn2: {
+    animationName: fadeIn,
+    animationDuration: '6s'
   }
 });
 
@@ -151,6 +151,7 @@ class RouteBuilder extends React.Component {
       if (this.origin === undefined) {
         this.directionsDisplay.setMap(this.map);
         this.origin = coords;
+        this.closeTooltip();
       }
 
       if (this.clicks.length === 1) {
@@ -326,6 +327,11 @@ class RouteBuilder extends React.Component {
     }
   }
 
+  closeTooltip (e) {
+    $('#route-builder-tooltip').addClass('hidden');
+    $('#close-tooltip-x').addClass('hidden');
+  }
+
   render () {
     const errors = this.props.errors;
     this.highlightIncorrectInputs(errors);
@@ -400,6 +406,12 @@ class RouteBuilder extends React.Component {
             </div>
           </div>
         </div>
+        <div id="route-builder-tooltip" className={css(styles.fadeIn2)}>
+          Click on the map to start your route!
+        </div>
+        <button id="close-tooltip-x" 
+          className={css(styles.fadeIn2)} 
+          onClick={this.closeTooltip}>&times;</button>
       </div>
     );
   }
