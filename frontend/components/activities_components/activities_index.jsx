@@ -63,6 +63,11 @@ class ActivitiesIndex extends React.Component {
   componentDidMount () {
     this.props.getAllActivities();
     this.props.getAllRoutes();
+    if (this.props.showForm) {
+      $('#new-activity-form').removeClass('hidden');
+      $('#active-new-activity-button').removeClass('hidden');
+      $('#new-activity-button').addClass('hidden');
+    } 
   }
 
   handleSubmit (e) {
@@ -150,6 +155,10 @@ class ActivitiesIndex extends React.Component {
       activityTitleEl.className = 'activity-title-input-error';
       activityTitleErrorEl.innerText = 'Required';
     }
+  }
+
+  componentWillUnmount () {
+    this.props.hideActivityForm();
   }
 
   render () {
