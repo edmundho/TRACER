@@ -1,7 +1,7 @@
 
 // #activity-feed {
 //   width: 650px;
-//   margin: 0 35%;
+//   margin: 0 50%;
 // }
 
 #dashboard {
@@ -47,8 +47,7 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 auto !important;
-  width: 650px;
-  padding-left: 10px;
+  width: 550px;
 }
 
 #feed-item-div h3 {
@@ -63,12 +62,14 @@
   display: flex;
   justify-content: right;
   align-items: center;
+  width: 600px;
+  padding: 15px 0;
 }
 
 #feed-stats-div div {
   font-size: 22px;
   font-weight: 300;
-  padding: 0 20px;
+  padding: 0 15px;
   width: 100px;
 }
 
@@ -127,4 +128,13 @@
   color: whitesmoke;
   font-size: 20px;
   top: 75px;
+}
+
+#feed-activity-icon {
+  display: flex;
+  align-items: center;
+}
+
+#feed-activity-icon > i {
+  // padding: 0 0 0 15px;
 }

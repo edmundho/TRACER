@@ -24,11 +24,13 @@ class FeedItem extends React.Component {
     let title = (<Link to={`/activities/${activity.id}`}>{activity.title}</Link>);
 
 
-    let sport;
+    let sport, icon;
     if (activity && activity.sport === 'bike') {
       sport = "Ride";
+      icon = <i className="fas fa-bicycle"></i>;
     } else if (activity && activity.sport === 'run') {
       sport = "Run";
+      icon = <i className="fas fa-walking"></i>;
     }
 
     let duration;
@@ -41,6 +43,7 @@ class FeedItem extends React.Component {
     } else {
       duration = <div></div>;
     }
+
 
     let time;
     if (activity && activity.time) {
@@ -62,20 +65,25 @@ class FeedItem extends React.Component {
               <div id="feed-timestamp">{date}&nbsp;{time}</div>
             </div>
           </div>
-          <ul id="feed-item-top">
-            <li>
-              <div id="show-title-div">
-                <div id="activity-title"><p>{title}</p></div>
-              </div>
-            </li>
-            <li>
-              <div id="feed-stats-div" >
-                <div>{activity.distance} mi. <p>Distance</p></div>
-                <div>{activity.elevation} ft. <p>Elevation Gain</p></div>
-                {duration}
-              </div>
-            </li>
-          </ul>
+          <div id="feed-activity-icon">
+            {icon}
+
+            <ul id="feed-item-top">
+              <li>
+                <div id="show-title-div">
+                  <div id="activity-title"><p>{title}</p></div>
+                </div>
+              </li>
+              <li>
+                <div id="feed-stats-div" >
+                  <div>{activity.distance} mi. <p>Distance</p></div>
+                  <div>{activity.elevation} ft. <p>Elevation Gain</p></div>
+                  {duration}
+                </div>
+              </li>
+            </ul>
+          </div>
+          
           <ul className="show-bottom-info">
             <li><div id="show-image-container">{routeImage}</div></li>
           </ul>
