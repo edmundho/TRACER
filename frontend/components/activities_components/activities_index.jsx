@@ -65,11 +65,27 @@ class ActivitiesIndex extends React.Component {
   componentDidMount () {
     this.props.getAllActivities();
     this.props.getAllRoutes();
+
     if (this.props.showForm) {
       $('#new-activity-form').removeClass('hidden');
       $('#active-new-activity-button').removeClass('hidden');
       $('#new-activity-button').addClass('hidden');
     } 
+
+    let timeOfDay;
+    let hourNow = new Date().getHours();
+    if (hourNow < 12) {
+      timeOfDay = 'Morning';
+    } else if (hourNow < 17) {
+      timeOfDay = 'Afternoon';
+    } else { timeOfDay = 'Evening'; }
+
+    if (this.state.sport === 'bike') {
+      this.setState({ title: `${timeOfDay} Ride` });
+    } else if (this.state.sport === 'run') {
+      this.setState({ title: `${timeOfDay} Run` });
+    }
+
   }
 
   handleSubmit (e) {
@@ -117,19 +133,6 @@ class ActivitiesIndex extends React.Component {
 
   showForm () {
     this.props.getAllRoutes();
-    let timeOfDay;
-    let hourNow = new Date().getHours();
-    if (hourNow < 12) {
-      timeOfDay = 'Morning';
-    } else if (hourNow < 17) {
-      timeOfDay = 'Afternoon';
-    } else { timeOfDay = 'Evening'; }
-
-    if (this.state.sport === 'bike') {
-      this.setState({ title: `${timeOfDay} Ride` });
-    } else if (this.state.sport === 'run') {
-      this.setState({ title: `${timeOfDay} Run` });
-    }
 
     $('#new-activity-form').removeClass('hidden');
     $('#active-new-activity-button').removeClass('hidden');
