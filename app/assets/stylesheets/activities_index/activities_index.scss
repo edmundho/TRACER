@@ -45,3 +45,34 @@
   font-family: Helvetica Neue;
   font-weight: 300;
 }
+
+#activity-index-buttons {
+  display: flex;
+  align-items: center;
+}
+
+#activity-button-container {
+  display: flex;
+}
+
+#activity-index-buttons h2 {
+  padding: 10px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+#activity-index-buttons a {
+  font-family: Geneva;
+  display: inline-block;
+  margin: 20px;
+  padding: 12px;
+  background: orangered;
+  color: white;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+#activity-index-buttons a:hover {
+  background: #BB4720;
+}

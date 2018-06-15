@@ -1,6 +1,7 @@
 import React from 'react';
 import ActivitiesIndexItem from './activities_index_item';
 import RoutesDropdown from './routes_dropdown';
+import { Link } from 'react-router-dom';
 
 const currentTime = new Date();
 
@@ -193,10 +194,17 @@ class ActivitiesIndex extends React.Component {
       <div id="activities-index">
         <header>
           <h1>My Activities</h1>
-          <button id="new-activity-button" onClick={this.showForm} >Log New Activity</button>
-          <button id="active-new-activity-button" 
-            className="hidden"
-            onClick={this.closeForm} >Log New Activity</button>
+          <div id="activity-button-container" >
+            <button id="new-activity-button" onClick={this.showForm} >Log New Activity</button>
+            <button id="active-new-activity-button" 
+              className="hidden"
+              onClick={this.closeForm} >Log New Activity</button>
+            <div id="activity-index-buttons">
+              <h2>- OR -</h2>
+              <Link to="/routebuilder">Create New Route</Link>
+            </div>
+          </div>
+
         </header>
         <form id="new-activity-form" className="hidden" onSubmit={this.handleSubmit}>
           <div id="activity-form-row-3">
