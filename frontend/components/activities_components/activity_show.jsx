@@ -30,7 +30,7 @@ class ActivityShow extends React.Component {
       routeImage = (<img id="large-route-image" src={imageUrl} alt=""/>);
     }
 
-    console.log(activity);
+    // console.log(activity);
 
     let sport, icon;
     if (activity && activity.sport === 'bike') {

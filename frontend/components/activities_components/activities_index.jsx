@@ -113,7 +113,7 @@ class ActivitiesIndex extends React.Component {
       routeId: this.state.routeId
     };
 
-    console.log(newActivity.date);
+    // console.log(newActivity.date);
     
     this.props.postNewActivity(newActivity).then(response => {
       const activityId = response.activity.id;
