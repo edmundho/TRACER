@@ -1,16 +1,11 @@
-#stats-sidebar {
-  // position: fixed;
-  // left: 15vw;
-}
+
 
 #left-sidebar {
   width: 250px;
   background: white;
   padding: 50px 10px 10px 10px;
   margin: 10px 15px 10px 0;
-  // height: 300px;
   position: relative;
-  // left: 18vw;
   font-family: Helvetica Neue;
   font-weight: 300;
   text-align: center;
@@ -90,7 +85,6 @@
   padding: 10px;
   background: white;
   margin: 10px 15px 10px 0;
-  // height: 400px;
   box-shadow: 2px 2px 5px rgb(230, 230, 230);
 }
 
@@ -148,4 +142,24 @@
   font-size: 17px;
   font-weight: 300;
   color: mediumseagreen;
+}
+
+#creator-footer {
+  padding: 10px;
+  background: white;
+  margin: 10px 15px 10px 0;
+  box-shadow: 2px 2px 5px rgb(230, 230, 230);
+  text-align: center;
+  font-size: 12px;
+  font-family: Helvetica Neue;
+  color: slategray;
+}
+
+#creator-footer a {
+  color: steelblue;
+}
+
+#creator-footer a:hover {
+  color: slategray;
+  text-decoration: underline;
 }

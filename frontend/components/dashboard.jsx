@@ -72,6 +72,12 @@ class Dashboard extends React.Component {
           <div id="periodic-stats">
             <PastWeekStats activities={this.props.activities} />
           </div>
+          <div id="creator-footer">
+            Visit my&nbsp;
+            <a href="https://www.linkedin.com/in/edmundho9/" target="_blank">LinkedIn&nbsp;<i className="fab fa-linkedin"></i></a>
+            &nbsp;|&nbsp;
+            <a href="https://github.com/edmundho" target="_blank">Github&nbsp;<i className="fab fa-github"></i></a>&nbsp;!
+          </div>
         </div>
         <div id="activity-feed">
           <ul>
