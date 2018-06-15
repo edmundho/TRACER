@@ -33,7 +33,7 @@ class Api::ActivitiesController < ApplicationController
   end
   
   def destroy
-    @activity = Activity.find(params[:id])
+    @activity = current_user.activities.find(params[:id])
     @activity.destroy
   end
 

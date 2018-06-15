@@ -57,9 +57,9 @@ class Dashboard extends React.Component {
             Build a new route
           </div>        
         </Link> */}
-        {/* <div id="left-sidebar">
+        <div id="left-sidebar">
           left sidebar
-        </div> */}
+        </div>
         <div id="activity-feed">
           <ul>
             {activities ? activities : loading}
