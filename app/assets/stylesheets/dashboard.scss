@@ -1,10 +1,17 @@
 
 #activity-feed {
-  // margin-left: calc(15vw + 250px);
-  // margin-left: 15vw;
-  // position: relative;
-  // margin-right: 20px;
+  height: calc(100vh - 95px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 700px;
 }
+
+@media all and (max-width: 920px) {
+  #activity-feed {
+    overflow: auto;
+  }
+}
+
 
 #dashboard {
   background: whitesmoke;

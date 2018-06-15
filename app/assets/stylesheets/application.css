@@ -38,3 +38,7 @@
   width: 75%;
   font-family: Verdana;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}

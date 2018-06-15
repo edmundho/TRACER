@@ -3,10 +3,10 @@
 }
 
 #routes-index {
-  height: 100%;
+  height: calc(100vh);
   width: 80%;
   margin: 0 auto;
-  overflow: initial;
+  overflow: scroll;
 }
 
 #index-buttons-div {
