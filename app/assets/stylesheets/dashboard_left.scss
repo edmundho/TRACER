@@ -1,3 +1,7 @@
+#stats-sidebar {
+  // position: fixed;
+  // left: 15vw;
+}
 
 #left-sidebar {
   width: 250px;
@@ -6,6 +10,7 @@
   margin: 10px 15px 10px 0;
   // height: 300px;
   position: relative;
+  // left: 18vw;
   font-family: Helvetica Neue;
   font-weight: 300;
   text-align: center;
@@ -85,7 +90,7 @@
   padding: 10px;
   background: white;
   margin: 10px 15px 10px 0;
-  height: 400px;
+  // height: 400px;
   box-shadow: 2px 2px 5px rgb(230, 230, 230);
 }
 
@@ -101,3 +106,43 @@
   left: 101px;
 }
 
+#weeks-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#weeks-stats ul {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid lightgray;
+}
+
+#weeks-stats ul:last-child {
+  border-bottom: none;
+}
+
+#weeks-stats ul > li {
+  padding: 10px;
+  font-size: 13px;
+  text-align: center;
+  font-weight: 300;
+}
+
+#weeks-stats h2 {
+  font-size: 14px;
+  font-family: Helvetica Neue;
+  font-weight: 300;
+  padding: 15px;
+  border-bottom: 1px lightgray solid;
+}
+
+#weeks-stats h3 {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#week-stats > p {
+  font-size: 14px !important;
+  font-weight: 300 !important;
+}

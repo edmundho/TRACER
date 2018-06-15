@@ -1,6 +1,6 @@
 #nav-bar-container {
   height: 60px;
-  position: absolute;
+  position: fixed;
   width: 100%;
   background: white;
   box-shadow: 0 1px 1px darkgray;  
@@ -23,7 +23,7 @@
   align-items: center;
   height: 60px;
   border-radius: 1px;
-  position: absolute;
+  position: fixed;
   width: 80%;
   left: 10%;
   margin: 0 auto;

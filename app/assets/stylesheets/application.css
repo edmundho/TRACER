@@ -19,7 +19,6 @@
   margin: 0 auto;
   /* height: 100vh; */
   color: rgb(35, 35, 35);
-  /* overflow: hidden; */
 }
 
 .app {
@@ -39,7 +38,3 @@
   width: 75%;
   font-family: Verdana;
 }
-
-/* body {
-  overflow: hidden;
-} */

@@ -5,6 +5,7 @@ import { Placeholder } from './dashboard_placeholder';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn, fadeOut } from 'react-animations';
 import StatsSidebar from './stats_sidebar';
+import PastWeekStats from './past_week_stats';
 
 const styles = StyleSheet.create({
   fadeIn: {
@@ -69,7 +70,7 @@ class Dashboard extends React.Component {
             routes={this.props.routes} 
             activities={this.props.activities} />
           <div id="periodic-stats">
-            This week's stats:
+            <PastWeekStats activities={this.props.activities} />
           </div>
         </div>
         <div id="activity-feed">
