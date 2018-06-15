@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FeedItem from './feed_item';
+import { Placeholder } from './dashboard_placeholder';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn, fadeOut } from 'react-animations';
 
@@ -47,8 +48,11 @@ class Dashboard extends React.Component {
           activity={activity} />;
         }
       });
-    } 
-    const loading = <div>loading...</div>;
+    } else {
+      var noActivities = <Placeholder />;
+    }
+    // const loading = <div>loading...</div>;
+    // const noActivities = <div>No activities yet!</div>;
 
     return (
       <div id="dashboard">
@@ -57,12 +61,12 @@ class Dashboard extends React.Component {
             Build a new route
           </div>        
         </Link> */}
-        <div id="left-sidebar">
+        {/* <div id="left-sidebar">
           left sidebar
-        </div>
+        </div> */}
         <div id="activity-feed">
           <ul>
-            {activities ? activities : loading}
+            {activities ? activities : noActivities}
           </ul>
         </div>
         {/* <div id="new-user-tooltip" className={css(styles.fadeIn2)}>

@@ -6,7 +6,7 @@
 
 #dashboard {
   background: whitesmoke;
-  height: 100%;
+  // height: 100vh;
   padding-top: 75px;
   overflow: hidden;
   display: flex;
@@ -139,4 +139,17 @@
 
 #feed-activity-icon > i {
   // padding: 0 0 0 15px;
+}
+
+#dashboard-placeholder {
+  width: 480px;
+  height: 100px;
+  background: white;
+  text-align: center;
+  color: darkslateblue;
+  font-family: Helvetica Neue;
+  font-weight: 300;
+  padding: 100px;
+  margin: 10px 0 25px 0;
+  font-size: 40px;
 }
