@@ -127,6 +127,7 @@
   font-size: 13px;
   text-align: center;
   font-weight: 300;
+  letter-spacing: 1px;
 }
 
 #weeks-stats h2 {
@@ -140,9 +141,11 @@
 #weeks-stats h3 {
   font-size: 15px;
   font-weight: 300;
+  letter-spacing: 1px;
 }
 
-#week-stats > p {
-  font-size: 14px !important;
-  font-weight: 300 !important;
+#periodic-stats div > p {
+  font-size: 17px;
+  font-weight: 300;
+  color: mediumseagreen;
 }
