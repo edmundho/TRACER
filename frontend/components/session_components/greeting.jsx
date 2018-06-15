@@ -41,7 +41,8 @@ class Greeting extends React.Component {
             <p>Hi, {currentUser.firstName}</p>
             <div id="user-menu-hover">
               <div id="user-menu">
-                <i id="avatar" className="fas fa-user"></i>
+                {/* <i id="avatar" className="fas fa-user"></i> */}
+                <div id="nav-bar-avatar-image"></div>
                 <i className="fas fa-caret-down"></i>
               </div>
               <div id="user-menu-dropdown" className="user-menu-dropdown">

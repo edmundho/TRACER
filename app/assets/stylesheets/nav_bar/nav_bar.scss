@@ -6,6 +6,16 @@
   box-shadow: 0 1px 1px darkgray;  
 }
 
+#nav-bar-avatar-image {
+  width: 35px;
+  height: 35px;
+  background-image: image-url('klay.gif');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin: 0 7px;
+}
+
 .nav-bar {
   display: flex;
   background: white;

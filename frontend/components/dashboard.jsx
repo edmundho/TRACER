@@ -4,6 +4,7 @@ import FeedItem from './feed_item';
 import { Placeholder } from './dashboard_placeholder';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn, fadeOut } from 'react-animations';
+import StatsSidebar from './stats_sidebar';
 
 const styles = StyleSheet.create({
   fadeIn: {
@@ -35,6 +36,7 @@ class Dashboard extends React.Component {
  
   render () {
     if (this.props.activities.length > 0) {
+      const today = new Date();
       var activities = this.props.activities.map(activity => {
         if (activity.routeId) {
           let route = this.props.routes[activity.routeId];
@@ -48,11 +50,10 @@ class Dashboard extends React.Component {
           activity={activity} />;
         }
       });
+
     } else {
       var noActivities = <Placeholder />;
     }
-    // const loading = <div>loading...</div>;
-    // const noActivities = <div>No activities yet!</div>;
 
     return (
       <div id="dashboard">
@@ -61,9 +62,16 @@ class Dashboard extends React.Component {
             Build a new route
           </div>        
         </Link> */}
-        {/* <div id="left-sidebar">
-          left sidebar
-        </div> */}
+        <div id="stats-sidebar">
+
+          <StatsSidebar 
+            user={this.props.user}
+            routes={this.props.routes} 
+            activities={this.props.activities} />
+          <div id="periodic-stats">
+            This week's stats:
+          </div>
+        </div>
         <div id="activity-feed">
           <ul>
             {activities ? activities : noActivities}

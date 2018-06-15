@@ -262,7 +262,7 @@ class ActivitiesIndex extends React.Component {
                 onChange={this.update('time')} 
                 value={this.state.time}/></label>
           </div>
-          <label id="activity-title">Title
+          <label id="activity-title-form">Title
               <input
                 id="activity-title-input"
                 type="text"

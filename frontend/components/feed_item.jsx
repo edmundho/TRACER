@@ -57,7 +57,8 @@ class FeedItem extends React.Component {
       <li>
         <div id="feed-item-div">
           <div id="user-div">
-            <i className="fas fa-user"></i>
+            {/* <i className="fas fa-user"></i> */}
+            <div id="feed-avatar-image"></div>
             <div>
               <h3 id="feed-user-name">
                 {this.props.user.firstName}&nbsp;{this.props.user.lastName}

@@ -1,13 +1,12 @@
 
-// #activity-feed {
-//   width: 650px;
-//   margin: 0 50%;
-// }
+#activity-feed {
+  overflow: auto;
+}
 
 #dashboard {
   background: whitesmoke;
   // height: 100vh;
-  padding-top: 75px;
+  padding-top: 95px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -41,6 +40,7 @@
   align-items: center;
   background: white;
   border-radius: 1px;
+  box-shadow: 2px 2px 5px rgb(230, 230, 230);
 }
 
 #feed-item-top {
@@ -135,10 +135,11 @@
 #feed-activity-icon {
   display: flex;
   align-items: center;
+  width: 600px;
 }
 
 #feed-activity-icon > i {
-  // padding: 0 0 0 15px;
+  padding-left: 8px;
 }
 
 #dashboard-placeholder {
@@ -152,4 +153,14 @@
   padding: 100px;
   margin: 10px 0 25px 0;
   font-size: 40px;
+  box-shadow: 1px 1px 5px rgb(230, 230, 230);
+}
+
+#feed-avatar-image {
+  width: 50px;
+  height: 50px;
+  background-image: image-url('klay.gif');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
 }

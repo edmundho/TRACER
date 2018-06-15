@@ -1,9 +1,103 @@
 
-
 #left-sidebar {
   width: 250px;
-  background: lightcyan;
-  padding: 10px;
-  margin: 10px;
-  height: 600px;
+  background: white;
+  padding: 50px 10px 10px 10px;
+  margin: 10px 15px 10px 0;
+  // height: 300px;
+  position: relative;
+  font-family: Helvetica Neue;
+  font-weight: 300;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgb(230, 230, 230);
 }
+
+#left-sidebar > h3 {
+  font-weight: 400;
+  font-size: 18px;
+  margin: 10px;
+}
+
+#left-sidebar ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 10px;
+}
+
+#left-sidebar ul > li {
+  width: 80px;
+  border-right: 1px solid lightgray;
+  font-size: 22px;
+  font-family: Helvetica Neue;
+  font-weight: 300;
+}
+
+#left-sidebar li > p {
+  font-size: 14px;
+}
+
+#left-sidebar ul > li:last-child {
+  border-right: none;
+}
+
+#latest-activity {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 10px 5px;
+  margin: 15px 5px;
+  text-align: left;
+  font-size: 13px;
+}
+
+#latest-activity a, #latest-activity p {
+  margin: 5px;
+}
+
+#latest-activity a:hover {
+  text-decoration: underline;
+}
+
+#latest-activity strong {
+  font-weight: 400;
+}
+
+#your-training-log {
+  text-align: left;
+  margin: 5px 15px;
+}
+
+#your-training-log a > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#left-sidebar a:hover {
+  color: #317EB1;
+}
+
+#right-carat {
+  font-size: 24px;
+}
+
+#periodic-stats {
+  padding: 10px;
+  background: white;
+  margin: 10px 15px 10px 0;
+  height: 400px;
+  box-shadow: 2px 2px 5px rgb(230, 230, 230);
+}
+
+#avatar-image {
+  width: 65px;
+  height: 65px;
+  background-image: image-url('klay.gif');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  position: absolute;
+  top: -32px;
+  left: 101px;
+}
+
