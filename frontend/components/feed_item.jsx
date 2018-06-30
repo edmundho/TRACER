@@ -2,6 +2,15 @@ import React from 'react';
 import { imageUrlBuilder } from '../util/static_map_url';
 import { Link } from 'react-router-dom';
 import timeConvert from '../util/time_convert';
+import { StyleSheet, css } from 'aphrodite';
+import { zoomIn } from 'react-animations';
+
+const styles = StyleSheet.create({
+  zoomIn: {
+    animationName: zoomIn,
+    animationDuration: '0.5s'
+  }
+});
 
 class FeedItem extends React.Component {
   constructor (props) {
@@ -55,7 +64,7 @@ class FeedItem extends React.Component {
 
     return (
       <li>
-        <div id="feed-item-div">
+        <div id="feed-item-div" className={css(styles.zoomIn)}>
           <div id="user-div">
             {/* <i className="fas fa-user"></i> */}
             <div id="feed-avatar-image"></div>

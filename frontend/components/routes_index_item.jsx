@@ -1,5 +1,14 @@
 import React from 'react';
 import { imageUrlBuilder } from '../util/static_map_url';
+import { StyleSheet, css } from 'aphrodite';
+import { fadeIn } from 'react-animations';
+
+const styles = StyleSheet.create({
+  fadeIn: {
+    animationName: fadeIn,
+    animationDuration: '0.5s'
+  }
+});
 
 class RoutesIndexItem extends React.Component {
   constructor (props) {
@@ -17,7 +26,7 @@ class RoutesIndexItem extends React.Component {
     const dateCreated = new Date(this.props.route.createdAt).toDateString();
 
     return (
-      <li className="routes-index-item">
+      <li id="routes-index-item" className={css(styles.fadeIn)}>
         <div>
           <ul>
             <img id="route-image" 
