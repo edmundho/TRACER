@@ -21,7 +21,7 @@ Track your cycling & running activities with the TRACER tracker app! Create your
 Users can...
 * Create their own cycling and running routes in a built-in Google map, and save them for future use.
 
-![](https://i.imgur.com/CWmGW6k.gif)
+![tracer](https://i.imgur.com/CWmGW6k.gif)
 
 * Log workouts (activities) with or without reference to a previously created route.
 * View past activities in their dashboard's activity feed.
