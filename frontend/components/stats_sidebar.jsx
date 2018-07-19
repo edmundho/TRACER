@@ -17,7 +17,8 @@ class StatsSidebar extends React.Component {
 
     let title, date, lastActivityId;
     if (activitiesArray.length > 0) {
-      const lastActivity = activitiesArray[activitiesArray.length - 1];
+      // const lastActivity = activitiesArray[activitiesArray.length - 1];
+      const lastActivity = activitiesArray[0];
       title = lastActivity.title;
       date = new Date(lastActivity.date);
       date = date.toDateString();
