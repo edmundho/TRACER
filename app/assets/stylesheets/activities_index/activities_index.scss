@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Montserrat:700');
 
 #activities-index h1 {
   color: slateblue;
@@ -63,7 +64,8 @@
 }
 
 #activity-index-buttons a {
-  font-family: Geneva;
+  // font-family: Geneva;
+  font-family: 'Catamaran', sans-serif;
   display: inline-block;
   margin: 20px;
   padding: 12px;

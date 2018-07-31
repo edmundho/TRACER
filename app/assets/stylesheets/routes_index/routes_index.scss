@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Montserrat:700');
+
 #routes-index-div {
   display: flex;
 }
@@ -29,14 +31,15 @@
 }
 
 #routes-index a {
-  font-family: Geneva;
+  // font-family: Geneva;
+  font-family: 'Catamaran', sans-serif;
   display: inline-block;
   margin: 20px;
   padding: 12px;
   background: orangered;
   color: white;
   border-radius: 2px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 #routes-index a:hover {

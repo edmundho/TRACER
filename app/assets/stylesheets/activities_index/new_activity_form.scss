@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Montserrat:700');
 
 #new-activity-form {
   padding: 25px 15px 0 15px;
@@ -67,21 +68,23 @@
 }
 
 #new-activity-button  {
-  font-family: Geneva;
+  // font-family: Geneva;
+  font-family: 'Catamaran', sans-serif;
   display: inline-block;
   margin: 20px;
   padding: 12px;
   background: orangered;
   color: white;
   border-radius: 2px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 #active-new-activity-button  {
-  font-family: Geneva;
+  // font-family: Geneva;
+  font-family: 'Catamaran', sans-serif;
   display: inline-block;
   margin: 20px;
-  padding: 12px;
+  padding: 15px;
   background: #F1976F;
   color: white;
   border-radius: 2px;
@@ -93,13 +96,14 @@
 }
 
 #activity-submit-button {
-  font-family: Geneva;
+  // font-family: Geneva;
+  font-family: 'Catamaran', sans-serif;
   display: block;
   background: orangered;
   border: none !important;
   color: white;
   border-radius: 2px;
-  font-size: 12px;
+  font-size: 15px;
   width: 55px;
   text-align: center;
   height: 30px;

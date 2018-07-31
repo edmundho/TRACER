@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Montserrat:700');
 
 $imgKey: random(6);
 $list: "1", "2", "3", "4", "5", "6";
@@ -6,7 +7,8 @@ $nth: nth($list, $imgKey);
 .session-main {
   display: flex;
   justify-content: center;
-  font-family: Geneva;
+  // font-family: Geneva;
+  font-family: 'Catamaran', sans-serif;
   background-image: image-url("splash_background#{$nth}");
   // background-image: image-url('splash_background2');
   background-size: cover;
@@ -44,7 +46,8 @@ $nth: nth($list, $imgKey);
   flex-direction: column;
   align-items: center;
   color: whitesmoke;
-  font-family: Geneva;
+  // font-family: Geneva;
+  font-family: 'Catamaran', sans-serif;
 }
 
 .session-main h3 {

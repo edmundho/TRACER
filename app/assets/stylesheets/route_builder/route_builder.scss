@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Montserrat:700');
+
 #route-builder-container {
   width: 100%;
   margin: 0;
@@ -41,7 +43,8 @@
 
 #route-builder-header h1 {
   padding: 15px;
-  font-family: Avenir Next;
+  // font-family: Avenir Next;
+  font-family: 'Montserrat', sans-serif;
   font-size: 40px;
   font-weight: 700;
   color: orangered;

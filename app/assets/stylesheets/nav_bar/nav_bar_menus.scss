@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Catamaran|Montserrat:700');
+
 
 #user-menu {
   width: 70px;
@@ -76,8 +78,9 @@
 }
 
 #activity-menu-list li {
-  font-family: Geneva;
-  font-size: 13px;
+  // font-family: Geneva;
+  font-family: 'Catamaran', sans-serif;
+  font-size: 15px;
   padding: 10px;
   border-bottom: 1px solid lightgray;
   text-align: center;
@@ -91,8 +94,9 @@
 }
 
 #logout-button {
-  font-family: Geneva;
-  font-size: 13px;
+  // font-family: Geneva;
+  font-family: 'Catamaran', sans-serif;
+  font-size: 15px;
   padding: 10px;
   text-align: center;
 }
