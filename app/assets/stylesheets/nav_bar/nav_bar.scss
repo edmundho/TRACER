@@ -81,24 +81,37 @@
   border-bottom: 5px orangered solid;  
 }
 
-@media all and (max-width: 500px) {
+
+@media all and (max-width: 925px) {
   .nav-bar {
-    height: 134px;
-    display: block;
-    text-align: center;
+    width: 100%;
+    left: 0;
   }
 
-  #nav-bar-container {
-    height: 134px;
-    display: block;
-    text-align: center;
+  #nav-buttons-logged-in > ul > li {
+    margin: 15px 5px;
+  }
+}
+
+@media all and (max-width: 700px) {
+  .session-logged-in {
+      display: none;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .nav-bar {
+    width: 100%;
+    left: 0;
   }
 
-  .session-buttons {
-    justify-content: center;
+  #nav-bar-buttons {
+    padding: 16px 1px;
   }
 
-  
+  .session-logged-in {
+    display: none;
+  }
 }
 
 #nav-buttons-logged-in {

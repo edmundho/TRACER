@@ -1,10 +1,14 @@
 
+$imgKey: random(6);
+$list: "1", "2", "3", "4", "5", "6";
+$nth: nth($list, $imgKey);
 
 .session-main {
   display: flex;
   justify-content: center;
   font-family: Geneva;
-  background-image: image-url('splash_background');
+  background-image: image-url("splash_background#{$nth}");
+  // background-image: image-url('splash_background2');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
