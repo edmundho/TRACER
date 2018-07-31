@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { StyleSheet, css } from 'aphrodite';
-import { fadeIn, fadeOut } from 'react-animations';
+import { fadeIn } from 'react-animations';
 
 const styles = StyleSheet.create({
   fadeIn: {

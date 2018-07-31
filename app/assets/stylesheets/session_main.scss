@@ -165,3 +165,21 @@ $nth: nth($list, $imgKey);
     height: 800px;
   }
 }
+
+#app-desc {
+  padding: 275px 125px;
+  display: block;
+}
+
+#app-desc > h2 {
+  color: whitesmoke;
+  text-align: center;
+  font-size: 22px;
+  display: block;
+  text-shadow: 2px 2px darkslategray;
+  margin: 0 auto;
+  width: 60%;
+  font-family: Verdana;
+  padding: 75px;
+  line-height: 40px;
+}

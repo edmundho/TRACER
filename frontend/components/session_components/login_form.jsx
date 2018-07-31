@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
-import { fadeIn, fadeOut } from 'react-animations';
+import { fadeIn } from 'react-animations';
 
 const styles = StyleSheet.create({
   fadeIn: {
