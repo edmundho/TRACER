@@ -28,7 +28,7 @@ class RouteBuilder extends React.Component {
     this.clicks = [];
     this.routePolyline = undefined;
     this.markersArray = [];
-    this.ignoreClicks = false;
+    // this.ignoreClicks = false;
     this.distanceDelta = 0;
     this.elevationGain = 0;
     this.undoneClicks = [];
@@ -92,7 +92,7 @@ class RouteBuilder extends React.Component {
           });
         }
       } else {
-        this.ignoreClicks = true;
+        // this.ignoreClicks = true;
         window.alert('An elevation request error returned due to ' + status);
       }
     });
@@ -136,7 +136,7 @@ class RouteBuilder extends React.Component {
         }
         this.directionsDisplay.setDirections(response);
       } else {
-        this.ignoreClicks = true;
+        // this.ignoreClicks = true;
         window.alert('Directions failed to load due to ' + status);
       }
     });
@@ -249,9 +249,7 @@ class RouteBuilder extends React.Component {
     const rideEl = document.getElementsByClassName('ride-mode');
     runEl[0].id = "run-mode";
     rideEl[0].id = "";
-    this.setState({ 
-      sport: "Run" 
-    });
+    this.setState({ sport: "Run" });
   }
 
   setRide () {
@@ -268,9 +266,7 @@ class RouteBuilder extends React.Component {
       this.destination = this.clicks[this.clicks.length - 1];
       const closedModalEl = document.getElementById('route-form-modal-hidden');
       closedModalEl.id = "route-form-modal";
-      this.setState({
-        showModal: true
-      });
+      this.setState({ showModal: true });
     }
   }
 
@@ -280,9 +276,7 @@ class RouteBuilder extends React.Component {
     this.props.clearRouteErrors();
     document.getElementById('route-name-input').className = "";
     document.getElementById('route-name-required').innerText = "";
-    this.setState({
-      showModal: false
-    });
+    this.setState({ showModal: false });
   }
 
   handleSubmit (e) {
