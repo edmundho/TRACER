@@ -3,6 +3,5 @@ class Route < ApplicationRecord
 
   belongs_to :user
 
-  enum sport: [:bike, :run] 
-
+  enum sport: [:bike, :run]
 end

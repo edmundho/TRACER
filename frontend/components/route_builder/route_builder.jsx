@@ -28,7 +28,6 @@ class RouteBuilder extends React.Component {
     this.clicks = [];
     this.routePolyline = undefined;
     this.markersArray = [];
-    // this.ignoreClicks = false;
     this.distanceDelta = 0;
     this.elevationGain = 0;
     this.undoneClicks = [];
@@ -64,7 +63,6 @@ class RouteBuilder extends React.Component {
     this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer({
       suppressBicyclingLayer: true,
-      // draggable: true
     });
     this.geocoder = new google.maps.Geocoder;
     this.elevator = new google.maps.ElevationService;
@@ -92,7 +90,6 @@ class RouteBuilder extends React.Component {
           });
         }
       } else {
-        // this.ignoreClicks = true;
         window.alert('An elevation request error returned due to ' + status);
       }
     });
@@ -124,7 +121,6 @@ class RouteBuilder extends React.Component {
 
     this.directionsService.route(request, (response, status) => {
       if (status === 'OK') {
-        // console.log(response.routes[0]);
         const lastLeg = response.routes[0].legs[this.waypoints.length - 1];
         const lastLegPath = [lastLeg.start_location, lastLeg.end_location];
         this.distanceDelta = lastLeg.distance.value;
@@ -169,9 +165,7 @@ class RouteBuilder extends React.Component {
         document.getElementsByClassName("route-save-button")[0].id = "route-save-button";
         this.calculateRoute(this.origin, coords);
       }
-
     });
-    
   }
 
   update(field) {
@@ -194,7 +188,6 @@ class RouteBuilder extends React.Component {
   }
 
   undoRouteLeg () {
-    
     if (this.clicks.length > 2) {
       this.undoneClicks.push(this.clicks.pop());
       this.undoneWaypoints.push(this.waypoints.pop());

@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { imageUrlBuilder } from '../../util/static_map_url';
 import timeConvert from '../../util/time_convert';
 
 class ActivityShow extends React.Component {
   constructor (props) {
     super(props);
-
   }
 
   componentDidMount () {
@@ -29,8 +27,6 @@ class ActivityShow extends React.Component {
       const imageUrl = imageUrlBuilder(polyline, origin, destination, 'large');
       routeImage = (<img id="large-route-image" src={imageUrl} alt=""/>);
     }
-
-    // console.log(activity);
 
     let sport, icon;
     if (activity && activity.sport === 'bike') {
@@ -64,12 +60,10 @@ class ActivityShow extends React.Component {
       duration = <div></div>;
     }
     
-
     let time;
     if (activity && activity.time) {
       time = <h3>{timeConvert(activity.time.slice(11,16))} on</h3>;
     }
-
 
     if (this.props.activity === undefined) {
       return <div id="activity-show-page">loading...</div>;

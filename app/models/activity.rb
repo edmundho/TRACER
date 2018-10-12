@@ -3,6 +3,5 @@ class Activity < ApplicationRecord
 
   enum sport: [:bike, :run]
 
-  
   belongs_to :user
 end
