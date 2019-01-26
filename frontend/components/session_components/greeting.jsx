@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink, withRouter, Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 class Greeting extends React.Component {
   constructor (props) {
     super(props);
-
   }
 
   render() {
