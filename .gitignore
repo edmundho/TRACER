@@ -30,3 +30,6 @@ bundle.js
 bundle.js.map
 .DS_Store
 npm-debug.log
+
+.idea
+.tool-versions
