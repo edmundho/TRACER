@@ -28,21 +28,19 @@ class RoutesIndex extends React.Component {
     document.getElementById("running-routes-only").className = "running-routes-only";
     this.setState({ sport: "run" });
   }
+
+  displayRoutes (cyclingRoutes, runningRoutes) {
+    if (this.state.sport === 'bike') {
+      return cyclingRoutes.map(route => <RoutesIndexItem key={route.id} route={route} />);
+    } else if (this.state.sport === 'run') {
+      return runningRoutes.map(route => <RoutesIndexItem key={route.id} route={route} />);
+    }
+  }
   
   render () {
-    let displayRoutes;
-    const cyclingRoutes = this.props.cyclingRoutes.map(route => {
-      return (<RoutesIndexItem key={route.id} route={route} />);
-    });
-    const runningRoutes = this.props.runningRoutes.map(route => {
-      return (<RoutesIndexItem key={route.id} route={route} />);
-    });
-    if (this.state.sport === 'bike') {
-      displayRoutes = cyclingRoutes;
-    } else if (this.state.sport === 'run') {
-      displayRoutes = runningRoutes;
-    }
-    
+    const { cyclingRoutes, runningRoutes } = this.props;
+    const displayRoutes = this.displayRoutes(cyclingRoutes, runningRoutes);
+
     return (
       <div id="routes-index">
         <header>
