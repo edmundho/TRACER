@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import configureStore from './store/store';
+import preloadedStore from './store/store';
 import Root from './components/root';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       session: { id: window.currentUser.id }
     };
-    store = configureStore(preloadedState);
+    store = preloadedStore(preloadedState);
     delete window.currentUser;
   } else {
-    store = configureStore();
+    store = preloadedStore();
   }
 
   ReactDOM.render(<Root store={store} />, root);
