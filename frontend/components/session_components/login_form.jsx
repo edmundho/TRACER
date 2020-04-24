@@ -1,11 +1,23 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn } from 'react-animations';
+import { connect } from "react-redux";
+import { loginUser, clearErrors } from "../../actions/session_actions";
+
+const mapStateToProps = (state) => ({
+  errors: state.errors.session,
+  formType: "Log In",
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  processForm: (user) => dispatch(loginUser(user)),
+  clearErrors: () => dispatch(clearErrors()),
+});
 
 const styles = StyleSheet.create({
   fadeIn: {
     animationName: fadeIn,
-    animationDuration: '0.5s'
+    animationDuration: "0.5s",
   },
 });
 
@@ -85,4 +97,4 @@ class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm;
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

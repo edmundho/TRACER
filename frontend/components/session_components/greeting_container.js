@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import Greeting from './greeting';
 import { withRouter } from 'react-router-dom';
-import { logoutUser } from '../../actions/session_actions';
-import { showActivityForm } from '../../actions/ui_actions';
+import { showActivityForm } from '../../reducers/ui_reducer';
 
 const mapStateToProps = ({ entities, session }, ownProps) => ({
   currentUser: entities.users[session.id]
