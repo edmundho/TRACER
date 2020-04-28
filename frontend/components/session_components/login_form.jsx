@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn } from 'react-animations';
 import { connect } from "react-redux";
@@ -21,80 +21,69 @@ const styles = StyleSheet.create({
   },
 });
 
-class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
+const LoginForm = (props) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-    this.state = {
-      username: '',
-      password: ''
-    };
+  const errors = props.errors.map((error, i) => {
+    return <li key={i}>{error}</li>;
+  });
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDemoUser = this.handleDemoUser.bind(this);
-  }
-
-  update(field) {
-    return (e) => {
-      this.setState({ [field]: e.target.value });
-    };
-  }
-
-  handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
-  }
+    const user = Object.assign({}, { username, password });
+    props.processForm(user);
+  };
 
-  handleDemoUser(e) {
+  const handleDemoUser = (e) => {
     if (e) {
       e.preventDefault();
     }
-    let demoUser = { username: 'demouser', password: 'password' };
-    this.setState(demoUser);
-    setTimeout(() => this.props.processForm(demoUser), 500);
-  }
-
-  componentDidMount () {
-    if (this.props.match.params.demo) {
-      this.handleDemoUser();
-    }
-  }
-
-  componentWillUnmount () {
-    this.props.clearErrors();
-  }
-
-  render () {
-    const errors = this.props.errors.map((error, i) => {
-      return (<li key={i}>{error}</li>);
-    });
-    
-    return (
-      <div className="session-main">
-        <div className={css(styles.fadeIn)}>
-          <h3>{this.props.formType}</h3>
-
-          <ul className="errors-list">{errors}</ul>
-          <form onSubmit={this.handleSubmit}>
-            <input 
-              type="text" 
-              onChange={this.update('username')} 
-              value={this.state.username}
-              placeholder="Username" />
-            <input 
-              type="password" 
-              onChange={this.update('password')} 
-              value={this.state.password} 
-              placeholder="Password" />
-            <input id="submit-input" type="submit" value={this.props.formType} />
-          </form>
-          
-          <button onClick={this.handleDemoUser}>Demo Login</button>
-        </div>
-      </div>
+    const demoUser = "demouser";
+    const demoPw = "password";
+    setUsername(demoUser);
+    setPassword(demoPw);
+    setTimeout(
+      () => props.processForm({ username: demoUser, password: demoPw }),
+      500
     );
-  }
-}
+  };
+
+  useEffect(() => {
+    if (props.match.params.demo) {
+      handleDemoUser();
+    }
+
+    return () => {
+      props.clearErrors();
+    };
+  }, []);
+
+  return (
+    <div className="session-main">
+      <div className={css(styles.fadeIn)}>
+        <h3>{props.formType}</h3>
+        <ul className="errors-list">{errors}</ul>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+            placeholder="Username"
+          />
+          <input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            placeholder="Password"
+          />
+          <input id="submit-input" type="submit" value={props.formType} />
+        </form>
+
+        <button onClick={handleDemoUser}>Demo Login</button>
+      </div>
+    </div>
+  );
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
