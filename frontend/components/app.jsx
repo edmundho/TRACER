@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import LoginForm from './session_components/login_form';
 import SignupFormContainer from './session_components/signup_form_container';
-import GreetingContainer from './session_components/greeting_container';
+import Navbar from './Navbar/Navbar';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from './session_components/splash';
 import DashboardContainer from './dashboard_components/dashboard_container';
@@ -13,7 +13,7 @@ import ActivityShowContainer from './activities_components/activity_show_contain
 
 const App = () => (
   <div className="app">
-      <GreetingContainer />
+      <Navbar />
       <Switch>
         <AuthRoute exact path="/" component={Splash} />
         <AuthRoute path='/login/:demo' component={LoginForm} />
