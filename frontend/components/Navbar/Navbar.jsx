@@ -6,12 +6,11 @@ import { loginUser, logoutUser } from "../../actions/session_actions";
 import { showActivityForm } from "../../reducers/ui_reducer";
 import NoUserNavbar from './NoUserNavbar';
 
-const mapStateToProps = ({ entities, session }, ownProps) => ({
+const mapStateToProps = ({ entities, session }) => ({
   currentUser: entities.users[session.id],
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  demoLogin: () => dispatch(loginUser()),
+const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logoutUser()),
   showActivityForm: () => dispatch(showActivityForm()),
 });

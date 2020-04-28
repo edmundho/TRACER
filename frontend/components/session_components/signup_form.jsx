@@ -2,6 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn } from 'react-animations';
+import { connect } from "react-redux";
+import { signupUser, clearErrors } from "../../actions/session_actions";
+
+const mapStateToProps = (state) => ({
+  errors: state.errors.session,
+  formType: "Sign Up",
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  processForm: (user) => dispatch(signupUser(user)),
+  clearErrors: () => dispatch(clearErrors()),
+});
 
 const styles = StyleSheet.create({
   fadeIn: {
@@ -122,4 +134,4 @@ class SignupForm extends React.Component {
   }
 }
 
-export default SignupForm;
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
