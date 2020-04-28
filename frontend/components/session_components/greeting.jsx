@@ -9,20 +9,28 @@ class Greeting extends React.Component {
   render() {
     const { currentUser } = this.props;
     if (currentUser === undefined) {
-      return (
-        <div id="nav-bar-container">
+      return <div id="nav-bar-container">
           <div className="nav-bar">
-            <Link to="/dashboard"><h1>TRACER</h1></Link>
+            <Link to="/dashboard">
+              <h1>TRACER</h1>
+            </Link>
             <div className="session-buttons">
               <ul>
-                <li><NavLink activeClassName="active" to="/signup">Sign Up</NavLink></li>
-                <li><NavLink activeClassName="active" to="/login">Log In</NavLink></li>
-                <li><NavLink activeClassName="active" to="/demologin">Demo Login</NavLink></li>
+                <li>
+                  <NavLink activeClassName="active" to="/signup">
+                    Sign Up
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink activeClassName="active" to="/login">
+                    Log In
+                  </NavLink>
+                </li>
+                <li><NavLink activeClassName="active" to="/login/demo">Demo Login</NavLink></li>
               </ul>
             </div>
           </div>
-        </div>
-      );
+        </div>;
     }
 
     return (
