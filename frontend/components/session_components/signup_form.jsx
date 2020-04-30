@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn } from 'react-animations';
 import { connect } from "react-redux";
 import { signupUser, clearErrors } from "../../actions/session_actions";
+import { useEffect } from 'react/cjs/react.development';
+import UsernameInput from './form_components/UsernameInput';
+import PasswordInput from './form_components/PasswordInput';
+import SubmitButton from './form_components/SubmitButton';
+
+const formErrors = {
+  usernameRequiredError: "Username can't be blank",
+  usernameTakenError: 'Username has already been taken',
+  passwordError: 'Password is too short (minimum is 6 characters)',
+  firstNameError: "First name can't be blank",
+  lastNameError: "Last name can't be blank"
+};
 
 const mapStateToProps = (state) => ({
   errors: state.errors.session,
-  formType: "Sign Up",
+  formType: 'Sign Up',
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -22,116 +34,89 @@ const styles = StyleSheet.create({
   },
 });
 
-class SignupForm extends React.Component {
-  constructor(props) {
-    super(props);
+const SignupForm = (props) => {
+  const { errors, formType } = props;
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [birthDate, setBirthDate] = useState('2000-01-01');
 
-    this.state = {
-      username: '',
-      password: '',
-      firstName: '',
-      lastName: '',
-      birthDate: '2000-01-01'
-    };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  update(field) {
-    return (e) => {
-      this.setState({ [field]: e.target.value });
-    };
-  }
-
-  handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const user = Object.assign({}, this.state);
-    this.props.processForm(user);
-  }
+    const user = {
+      username: username, 
+      password: password, 
+      firstName: firstName, 
+      lastName: lastName, 
+      birthDate: birthDate
+    };
+    props.processForm(user);
+  };
 
-  componentWillUnmount () {
-    this.props.clearErrors();
-  }
+  const hasUsernameRequiredError = errors.includes(formErrors.usernameRequiredError);
+  const hasUsernameTakenError = errors.includes(formErrors.usernameTakenError);
+  const hasUsernameError = hasUsernameRequiredError || hasUsernameTakenError;
+  const hasPasswordError = errors.includes(formErrors.passwordError);
+  const hasFirstNameError = errors.includes(formErrors.firstNameError);
+  const hasLastNameError = errors.includes(formErrors.lastNameError);
 
-  highlightIncorrectInputs (errors) {
-    const usernameInput = document.getElementsByName('username')[0];
-    if (errors.includes("Username can't be blank")) {
-      document.getElementById('username-p').innerText = "Required";
-      usernameInput.id = 'signup-form-with-errors'; 
-    }
-    if (errors.includes("Username has already been taken")) {
-      document.getElementById('username-p').innerText = "Username has already been taken";      
-      usernameInput.id = 'signup-form-with-errors';       
-    }
-    if (errors.includes("First name can't be blank")) {
-      const firstnameInput = document.getElementsByName('first-name')[0];
-      document.getElementById('first-name-p').innerText = "Required";
-      firstnameInput.id = 'signup-form-with-errors';
-    }
-    if (errors.includes("Last name can't be blank")) {
-      const lastnameInput = document.getElementsByName('last-name')[0];   
-      document.getElementById('last-name-p').innerText = "Required";
-      lastnameInput.id = 'signup-form-with-errors';
-    }
-    if (errors.includes("Password is too short (minimum is 6 characters)")) {
-      const passwordInput = document.getElementsByName('password')[0];
-      document.getElementById('password-p').innerText = "Password is too short (minimum is 6 characters)";
-      passwordInput.id = 'signup-form-with-errors';
-    }
-  }
+  const usernameError = () => {
+    if (hasUsernameTakenError) return formErrors.usernameTakenError;
+    if (hasUsernameRequiredError) return 'Required';
+    return '';
+  };
 
-  render() {
-    const errors = this.props.errors;
-    this.highlightIncorrectInputs(errors);
-    
-    return (
-      <div className="session-main">
-        <div className={css(styles.fadeIn)}>
-          <h3>{this.props.formType}</h3>
+  useEffect(() => {
+    return () => {
+      props.clearErrors();
+    };
+  }, []);
 
-          <form id="signup-form" onSubmit={this.handleSubmit}>
-            <p id="username-p"></p>
+  return (
+    <div className="session-main">
+      <div className={css(styles.fadeIn)}>
+        <h3>{formType}</h3>
+        <form id="signup-form" onSubmit={handleSubmit}>
+          <p>{usernameError()}</p>
+          <UsernameInput 
+            username={username} 
+            setUsername={setUsername} 
+            className={hasUsernameError && 'signup-form-with-errors'}
+          />
+          <p>{hasPasswordError && formErrors.passwordError}</p>
+          <PasswordInput 
+            password={password} 
+            setPassword={setPassword} 
+            className={hasPasswordError && 'signup-form-with-errors'}
+          />
+          <p>{hasFirstNameError && 'Required'}</p>
+          <input
+            className={hasFirstNameError && 'signup-form-with-errors'}
+            type="text"
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
+            placeholder="First Name" />
+          <p>{hasLastNameError && "Required"}</p>
+          <input
+            className={hasLastNameError && 'signup-form-with-errors'}
+            type="text"
+            onChange={(e) => setLastName(e.target.value)}
+            value={lastName}
+            placeholder="Last Name" />
+          <label>Date of Birth:
             <input
-              name="username"
-              type="text"
-              onChange={this.update('username')}
-              value={this.state.username}
-              placeholder="Username" />   
-            <p id="password-p"></p>
-            <input
-              name="password"
-              type="password"
-              onChange={this.update('password')}
-              value={this.state.password}
-              placeholder="Password" />    
-            <p id="first-name-p"></p>
-            <input
-              name="first-name"
-              type="text"
-              onChange={this.update('firstName')}
-              value={this.state.firstName}
-              placeholder="First Name" />
-            <p id="last-name-p"></p>
-            <input
-              name="last-name"
-              type="text"
-              onChange={this.update('lastName')}
-              value={this.state.lastName}
-              placeholder="Last Name" />
-            <label>Date of Birth:
-              <input
-                type="date"
-                onChange={this.update('birthDate')}
-                value={this.state.birthDate} />
-            </label>
-            <input id="submit-input" type="submit" value={this.props.formType} />
-          </form>
+              type="date"
+              onChange={(e) => setBirthDate(e.target.value)}
+              value={birthDate} />
+          </label>
+          <SubmitButton formType={formType} />
+        </form>
 
-          <Link id="demo-redirect" to="/login/demo">Demo Login</Link>
-        </div>
+        <Link id="demo-redirect" to="/login/demo">Demo Login</Link>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);

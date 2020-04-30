@@ -145,7 +145,7 @@ $nth: nth($list, $imgKey);
 }
 
 
-#signup-form-with-errors {
+#signup-form > .signup-form-with-errors {
   border: 2px red solid;
   background: whitesmoke;
   width: 236px;
