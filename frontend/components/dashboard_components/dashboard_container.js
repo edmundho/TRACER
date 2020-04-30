@@ -2,20 +2,9 @@ import { connect } from 'react-redux';
 import { getAllRoutes } from '../../actions/route_actions';
 import { getAllActivities } from '../../actions/activities_actions';
 import Dashboard from './dashboard';
+import sort from '../../util/sortObjectArrayByProperty';
 
-const sort = (property, array) => {
-  array.sort((a, b) => {
-    if (a[property] <= b[property]) {
-      return 1;
-    } else if (a[property] > b[property]) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
-};
-
-const mapStateToProps = (state = {}, ownProps) => {
+const mapStateToProps = (state = {}) => {
   const activities = [];
   const routes = [];
 

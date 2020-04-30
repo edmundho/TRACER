@@ -3,21 +3,9 @@ import { getAllActivities, postNewActivity, clearActivityErrors, destroyActivity
 import { getAllRoutes } from '../../actions/route_actions';
 import ActivitiesIndex from './activities_index';
 import { showActivityForm, hideActivityForm } from '../../reducers/ui_reducer';
+import sort from '../../util/sortObjectArrayByProperty';
 
-// sort function referenced from: https://stackoverflow.com/questions/5073799/how-to-sort-a-javascript-array-of-objects-by-nested-object-property?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
-const sort = (property, array) => {
-  array.sort((a, b) => {
-    if (a[property] <= b[property]) {
-      return 1;
-    } else if (a[property] > b[property]) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
-};
-
-const mapStateToProps = (state = {}, ownProps) => {
+const mapStateToProps = (state = {}) => {
   let activities = [];
   Object.values(state.entities.activities).forEach(activity => {
     activities.push(activity);
@@ -44,7 +32,7 @@ const mapStateToProps = (state = {}, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
   getAllActivities: () => dispatch(getAllActivities()),
   getAllRoutes: () => dispatch(getAllRoutes()),
   postNewActivity: activity => dispatch(postNewActivity(activity)),
