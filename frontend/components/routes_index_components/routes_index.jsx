@@ -7,24 +7,10 @@ import { getAllRoutes } from '../../actions/route_actions';
 const RoutesIndex = () => {
   const dispatch = useDispatch();
   const [sport, setSport] = useState('bike');
-
-  const cyclingRoutes = [];
-  const runningRoutes = [];
-  const routes = useSelector(state => state.entities.routes);
-  Object.values(routes).forEach(route => {
-    if (route.sport === 'bike') {
-      cyclingRoutes.push(route);
-    } else if (route.sport === 'run') {
-      runningRoutes.push(route);
-    }
-  });
-
-  const cyclingRouteItems = cyclingRoutes.map(route => (
-    <RoutesIndexItem key={route.id} route={route} />
-  ));
-  const runningRouteItems = runningRoutes.map(route => (
-    <RoutesIndexItem key={route.id} route={route} />
-  ));
+  const allRoutes = useSelector(state => state.entities.routes);
+  const routes = Object.values(allRoutes)
+    .filter(route => route.sport === sport)
+    .map(route => <RoutesIndexItem key={route.id} route={route} />);
 
   useEffect(() => {
     dispatch(getAllRoutes());
@@ -40,15 +26,17 @@ const RoutesIndex = () => {
         <div id="index-buttons-div">
           <button
             className={sport === 'bike' ? 'cycling-routes-only' : ''}
-            onClick={() => setSport('bike')}>Cycling</button>
+            onClick={() => setSport('bike')}>
+              Cycling
+          </button>
           <button
             className={sport === 'run' ? 'running-routes-only' : ''}
-            onClick={() => setSport('run')}>Running</button>
+            onClick={() => setSport('run')}>
+              Running
+          </button>
         </div>
         <div id="routes-index-div">
-          <ul id="routes-index-items-list">
-            {sport === 'bike' ? cyclingRouteItems : runningRouteItems}
-          </ul>
+          <ul id="routes-index-items-list">{routes}</ul>
         </div>
       </main>
     </div>
