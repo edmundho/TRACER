@@ -25,6 +25,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+.env
 
 bundle.js
 bundle.js.map
@@ -33,3 +34,10 @@ npm-debug.log
 
 .idea
 .tool-versions
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
