@@ -45,10 +45,10 @@ const SignupForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
-      username: username, 
-      password: password, 
-      firstName: firstName, 
-      lastName: lastName, 
+      username: username,
+      password: password,
+      firstName: firstName,
+      lastName: lastName,
       birthDate: birthDate
     };
     props.processForm(user);
@@ -79,27 +79,27 @@ const SignupForm = (props) => {
         <h3>{formType}</h3>
         <form id="signup-form" onSubmit={handleSubmit}>
           <p>{usernameError()}</p>
-          <UsernameInput 
-            username={username} 
-            setUsername={setUsername} 
-            className={hasUsernameError && 'signup-form-with-errors'}
+          <UsernameInput
+            username={username}
+            setUsername={setUsername}
+            className={hasUsernameError ? 'signup-form-with-errors' : ''}
           />
           <p>{hasPasswordError && formErrors.passwordError}</p>
-          <PasswordInput 
-            password={password} 
-            setPassword={setPassword} 
-            className={hasPasswordError && 'signup-form-with-errors'}
+          <PasswordInput
+            password={password}
+            setPassword={setPassword}
+            className={hasPasswordError ? 'signup-form-with-errors': ''}
           />
           <p>{hasFirstNameError && 'Required'}</p>
           <input
-            className={hasFirstNameError && 'signup-form-with-errors'}
+            className={hasFirstNameError ? 'signup-form-with-errors': ''}
             type="text"
             onChange={(e) => setFirstName(e.target.value)}
             value={firstName}
             placeholder="First Name" />
           <p>{hasLastNameError && "Required"}</p>
           <input
-            className={hasLastNameError && 'signup-form-with-errors'}
+            className={hasLastNameError ? 'signup-form-with-errors': ''}
             type="text"
             onChange={(e) => setLastName(e.target.value)}
             value={lastName}
