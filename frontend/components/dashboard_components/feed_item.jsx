@@ -1,7 +1,7 @@
 import React from 'react';
 import { imageUrlBuilder } from '../../util/static_map_url';
 import { Link } from 'react-router-dom';
-import timeConvert from '../../util/time_convert';
+import { timeConvert } from '../../util/conversions';
 import { StyleSheet, css } from 'aphrodite';
 import { zoomIn } from 'react-animations';
 
@@ -93,7 +93,7 @@ class FeedItem extends React.Component {
               </li>
             </ul>
           </div>
-          
+
           <ul className="show-bottom-info">
             <li><div id="show-image-container">{routeImage}</div></li>
           </ul>

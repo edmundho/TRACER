@@ -1,6 +1,6 @@
 import React from 'react';
 import { imageUrlBuilder } from '../../util/static_map_url';
-import timeConvert from '../../util/time_convert';
+import { timeConvert } from '../../util/conversions';
 
 class ActivityShow extends React.Component {
   constructor (props) {
@@ -59,7 +59,7 @@ class ActivityShow extends React.Component {
     } else {
       duration = <div></div>;
     }
-    
+
     let time;
     if (activity && activity.time) {
       time = <h3>{timeConvert(activity.time.slice(11,16))} on</h3>;
