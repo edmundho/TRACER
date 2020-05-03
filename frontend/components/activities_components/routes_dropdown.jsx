@@ -1,32 +1,24 @@
 import React from 'react';
+import {
+  convertDistanceToMiles,
+  convertElevationToFeet
+} from '../../util/conversions';
 
-class RoutesDropdown extends React.Component {
-  constructor (props) {
-    super(props);
-
-  }
-
-  render () {
-    const routes = (this.props.routes).map(route => {
-      const distance = Number((route.distance * 0.0006).toFixed(2));
-      const elevation = Number((route.elevation * 3.28).toFixed());
-      return (
-        <option key={route.id} 
-          value={route.id}>
-            {route.title} (Distance: {distance} mi, Elevation Gain: {elevation} ft)
-        </option>
-      );
-    });
-
-
+export default function RoutesDropdown({ routes, update }) {
+  const dropdownItems = routes.map(route => {
+    const distance = convertDistanceToMiles(route.distance);
+    const elevation = convertElevationToFeet(route.elevation);
     return (
-      <select 
-        onChange={this.props.update('routeId')}>
-        <option value="">No Known Route Taken</option>
-        {routes}
-      </select>
+      <option key={route.id} value={route.id}>
+          {`${route.title} (Distance: ${distance} mi, Elevation Gain: ${elevation} ft)`}
+      </option>
     );
-  }
-}
+  });
 
-export default RoutesDropdown;
+  return (
+    <select onChange={update('routeId')}>
+      <option value="">No Known Route Taken</option>
+      {dropdownItems}
+    </select>
+  );
+}
