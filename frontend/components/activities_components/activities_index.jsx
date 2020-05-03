@@ -1,6 +1,6 @@
 import React from 'react';
 import ActivitiesIndexItem from './ActivitiesIndexItem';
-import RoutesDropdown from './routes_dropdown';
+import RoutesDropdown from './RoutesDropdown';
 import { Link } from 'react-router-dom';
 import {
   convertDistanceToMiles,
