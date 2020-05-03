@@ -4,15 +4,10 @@ import { getRoute } from '../../actions/route_actions';
 import ActivityShow from './activity_show';
 
 const mapStateToProps = (state = {}, ownProps) => {
+  const { activities, routes } = state.entities;
   const activityId = ownProps.match.params.activityId;
-  const activity = state.entities.activities[activityId];
-
-  let route = [];
-  Object.values(state.entities.routes).forEach(routeInState => {
-    if (routeInState.id === activity.routeId) {
-      route.push(routeInState);
-    }
-  });
+  const activity = activities[activityId];
+  const route = activity && routes[activity.routeId];
 
   return {
     activityId: activityId,
@@ -21,7 +16,7 @@ const mapStateToProps = (state = {}, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
   getActivity: activityId => dispatch(getActivity(activityId)),
   getRoute: routeId => dispatch(getRoute(routeId)),
 });

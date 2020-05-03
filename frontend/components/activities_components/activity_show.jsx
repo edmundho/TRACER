@@ -1,114 +1,91 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { imageUrlBuilder } from '../../util/static_map_url';
 import { timeConvert } from '../../util/conversions';
+import formatDuration from '../../util/formatDuration';
 
-class ActivityShow extends React.Component {
-  constructor (props) {
-    super(props);
-  }
+export default function ActivityShow({
+  activityId,
+  activity,
+  route,
+  getActivity,
+  getRoute,
+  history
+}) {
+  useEffect(() => {
+    if (!activity) {
+      getActivity(activityId).then(response => {
+        getRoute(response.activity[activityId].routeId);
+      });
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
-  componentDidMount () {
-    this.props.getActivity(this.props.activityId).then(response => {
-      const routeId = this.props.activity.routeId;
-      if (routeId) {
-        this.props.getRoute(routeId);
-      }
-      window.scrollTo(0, 0);
-    });
-  }
+  if (activity === undefined) {
+    return <div id="activity-show-page">loading...</div>;
+  } else {
+    const { sport, time, date, title, description, distance, elevation, duration } = activity;
 
-  render () {
-    const activity = this.props.activity;
     let routeImage;
-    if (this.props.route.length > 0) {
-      const polyline = this.props.route[0].polylineString;
-      const origin = this.props.route[0].origin;
-      const destination = this.props.route[0].destination;
-      const imageUrl = imageUrlBuilder(polyline, origin, destination, 'large');
+    if (route) {
+      const { polylineString, origin, destination } = route;
+      const imageUrl = imageUrlBuilder(polylineString, origin, destination, 'large');
       routeImage = (<img id="large-route-image" src={imageUrl} alt=""/>);
     }
 
-    let sport, icon;
-    if (activity && activity.sport === 'bike') {
-      sport = "Ride";
-      icon = <i className="fas fa-bicycle"></i>;
-    } else if (activity && activity.sport === 'run') {
-      sport = "Run";
-      icon = <i className="fas fa-walking"></i>;
-    }
-
-    let description;
-    if (activity && activity.description.length > 0) {
-      description = (
-        <div id="activity-description-div">
-          <h3>Description:</h3>
-          <p>{activity.description}</p>
-        </div>
-      );
-    } else {
-      description = <div></div>;
-    }
-
-    let duration;
-    if (activity && activity.duration) {
-      duration = new Date(null);
-      duration.setHours(0);
-      duration.setSeconds(activity.duration);
-      duration = duration.toTimeString().slice(0, 8);
-      duration = <div>{duration}<p>Moving Time</p></div>;
-    } else {
-      duration = <div></div>;
-    }
-
-    let time;
-    if (activity && activity.time) {
-      time = <h3>{timeConvert(activity.time.slice(11,16))} on</h3>;
-    }
-
-    if (this.props.activity === undefined) {
-      return <div id="activity-show-page">loading...</div>;
-    } else {
-      return (
-        <div id="activity-show-page">
-          <header>
-            <div id="show-header-div">
-              {icon}
-              <h1>{sport}</h1>
-            </div>
-            <button onClick={() => this.props.history.goBack()}>Back</button>
-          </header>
-          <div id="activity-show-block">
-            <ul id="show-top-row-info">
-              <li>
-                <div id="show-title-div">
-                  <div>
-                    {time}<h3>&nbsp;{activity.date.slice(0, 10)}</h3>
-                  </div>
-                  <div id="activity-title"><p>{activity.title}</p></div>
-                </div>
-              </li>
-              <li>
-                <div id="show-stats-div" >
-                  <div>{activity.distance} mi. <p>Distance</p></div>
-                  <div>{activity.elevation} ft. <p>Elevation Gain</p></div>
-                  <div>{duration}</div>
-                </div>
-              </li>
-            </ul>
-            <ul className="show-bottom-info">
-              <li>
-                <div>
-                  <h3>Route Taken:</h3>
-                  <div id="show-image-container">{routeImage}</div>
-                  {description}
-                </div>
-              </li>
-            </ul>
+    return (
+      <div id="activity-show-page">
+        <header>
+          <div id="show-header-div">
+            <i className={sport === 'bike' ? 'fas fa-bicycle' : 'fas fa-walking'}></i>
+            <h1>{sport === 'bike' ? 'Ride' : 'Run'}</h1>
           </div>
+          <button onClick={() => history.goBack()}>Back</button>
+        </header>
+        <div id="activity-show-block">
+          <ul id="show-top-row-info">
+            <li>
+              <div id="show-title-div">
+                <div>
+                  {time && (
+                    <h3>
+                      {`${timeConvert(time.slice(11,16))} on ${date.slice(0, 10)}`}
+                    </h3>
+                  )}
+                </div>
+                <div id="activity-title"><p>{title}</p></div>
+              </div>
+            </li>
+            <li>
+              <div id="show-stats-div" >
+                <div>{`${distance} mi`}<p>Distance</p></div>
+                <div>{`${elevation} ft`}<p>Elevation Gain</p></div>
+                {duration && (
+                  <div>
+                    {formatDuration(duration)}
+                    <p>Moving Time</p>
+                  </div>
+                )}
+              </div>
+            </li>
+          </ul>
+          <ul className="show-bottom-info">
+            <li>
+              <div>
+                <h3>Route Taken:</h3>
+                <div id="show-image-container">{routeImage}</div>
+                {description && (
+                  <div id="activity-description-div">
+                    <h3>Description:</h3>
+                    <p>{description}</p>
+                  </div>
+                )}
+              </div>
+            </li>
+          </ul>
         </div>
-      );
-    }
+      </div>
+    );
   }
-}
 
-export default ActivityShow;
+
+}
