@@ -1,13 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-function formatDuration(duration) {
-  let formattedDuration = new Date(null);
-  formattedDuration.setHours(0);
-  formattedDuration.setSeconds(duration);
-  formattedDuration = formattedDuration.toTimeString().slice(0, 8);
-  return formattedDuration;
-}
+import formatDuration from '../../util/formatDuration';
 
 export default function ActivitiesIndexItem({
   activity,
