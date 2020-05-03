@@ -1,7 +1,11 @@
 import React from 'react';
-import ActivitiesIndexItem from './activities_index_item';
+import ActivitiesIndexItem from './ActivitiesIndexItem';
 import RoutesDropdown from './routes_dropdown';
 import { Link } from 'react-router-dom';
+import {
+  convertDistanceToMiles,
+  convertElevationToFeet
+} from '../../util/conversions';
 
 const currentTime = new Date();
 
@@ -48,8 +52,8 @@ class ActivitiesIndex extends React.Component {
   update (field) {
     return (e) => {
       let matchingRoute = this.dropdownRoutes.find(route => route.id == e.target.value );
-      const distance = matchingRoute && Number((matchingRoute.distance * 0.0006).toFixed(2));
-      const elevation = matchingRoute && Number((matchingRoute.elevation * 3.28).toFixed());
+      const distance = matchingRoute && convertDistanceToMiles(matchingRoute.distance);
+      const elevation = matchingRoute && convertElevationToFeet(matchingRoute.elevation);
       if (distance && elevation) {
         this.setState({
           [field]: e.target.value,
@@ -60,7 +64,7 @@ class ActivitiesIndex extends React.Component {
         this.setState({ [field]: e.target.value });
       }
     };
-    
+
   }
 
   componentDidMount () {
@@ -71,7 +75,7 @@ class ActivitiesIndex extends React.Component {
       $('#new-activity-form').removeClass('hidden');
       $('#active-new-activity-button').removeClass('hidden');
       $('#new-activity-button').addClass('hidden');
-    } 
+    }
 
     let timeOfDay;
     let hourNow = new Date().getHours();
@@ -114,7 +118,7 @@ class ActivitiesIndex extends React.Component {
     };
 
     // console.log(newActivity.date);
-    
+
     this.props.postNewActivity(newActivity).then(response => {
       const activityId = response.activity.id;
       this.props.history.push(`/activities/${activityId}`);
@@ -184,10 +188,10 @@ class ActivitiesIndex extends React.Component {
 
     const activities = Object.values(this.props.activities).map(activity => {
       return (
-        <ActivitiesIndexItem 
-          key={activity.id} 
-          activity={activity} 
-          delete={this.props.destroyActivity}
+        <ActivitiesIndexItem
+          key={activity.id}
+          activity={activity}
+          deleteActivity={this.props.destroyActivity}
           route={this.props.routes[activity.routeId]} />
       );
     });
@@ -198,7 +202,7 @@ class ActivitiesIndex extends React.Component {
           <h1>My Activities</h1>
           <div id="activity-button-container" >
             <button id="new-activity-button" onClick={this.showForm} >Log New Activity</button>
-            <button id="active-new-activity-button" 
+            <button id="active-new-activity-button"
               className="hidden"
               onClick={this.closeForm} >Log New Activity</button>
             <div id="activity-index-buttons">
@@ -223,7 +227,7 @@ class ActivitiesIndex extends React.Component {
             </label>
           </div>
           <div id="activity-form-row-1">
-            <label>Distance 
+            <label>Distance
               <div id="distance-elevation-divs">
                 <input
                   type="number" min="0" step="0.01"
@@ -234,21 +238,21 @@ class ActivitiesIndex extends React.Component {
             </label>
             <label id="duration-label">Duration
               <div id="duration-input">
-                <input type="number" min="0" 
-                  onChange={this.update('hours')} 
+                <input type="number" min="0"
+                  onChange={this.update('hours')}
                   value={this.state.hours} />
                 <p>hr</p>
-                <input type="number" min="0" 
-                  onChange={this.update('minutes')} 
+                <input type="number" min="0"
+                  onChange={this.update('minutes')}
                   value={this.state.minutes} />
                 <p>min</p>
-                <input type="number" min="0" 
-                  onChange={this.update('seconds')} 
+                <input type="number" min="0"
+                  onChange={this.update('seconds')}
                   value={this.state.seconds} />
                 <p>s</p>
               </div>
             </label>
-            <label>Elevation 
+            <label>Elevation
               <div id="distance-elevation-divs">
                 <input
                   type="number" min="0"
@@ -259,17 +263,17 @@ class ActivitiesIndex extends React.Component {
             </label>
           </div>
           <div id="activity-form-row-2">
-            <label>Date 
+            <label>Date
               <input id="activity-date-input"
-                type="date" 
-                onChange={this.update('date')} 
+                type="date"
+                onChange={this.update('date')}
                 value={this.state.date}/>
                 <p id="activity-date-input-error"></p>
             </label>
-            <label>Time 
+            <label>Time
               <input id="activity-time-input"
-                type="time" 
-                onChange={this.update('time')} 
+                type="time"
+                onChange={this.update('time')}
                 value={this.state.time}/></label>
           </div>
           <label id="activity-title-form">Title
@@ -281,16 +285,16 @@ class ActivitiesIndex extends React.Component {
                 <p id="activity-title-input-error"></p>
           <div id="activity-description">
             <label>Description
-              <textarea id="" 
-                placeholder="How did it go? Were you tired or rested? How was the weather?" 
+              <textarea id=""
+                placeholder="How did it go? Were you tired or rested? How was the weather?"
                 onChange={this.update('description')} value={this.state.description}>
               </textarea>
             </label>
           </div>
           <div id="close-form-buttons">
             <input id="activity-submit-button" type="submit" value="Create"/>
-            <button 
-              id="cancel-new-activity" 
+            <button
+              id="cancel-new-activity"
               onClick={this.closeForm}>Cancel</button>
           </div>
         </form>
