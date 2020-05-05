@@ -2,6 +2,10 @@ import React from 'react';
 import { imageUrlBuilder } from '../../util/static_map_url';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn } from 'react-animations';
+import {
+  convertDistanceToMiles,
+  convertElevationToFeet
+} from '../../util/conversions';
 
 const styles = StyleSheet.create({
   fadeIn: {
@@ -12,14 +16,6 @@ const styles = StyleSheet.create({
 
 function formatDateCreated(createdAt) {
   return new Date(createdAt).toDateString();
-}
-
-function convertElevationToFeet(elevation) {
-  return Number((elevation * 3.28).toFixed());
-}
-
-function convertDistanceToMiles(distance) {
-  return Number((distance * 0.0006).toFixed(2));
 }
 
 const RoutesIndexItem = (props) => {
