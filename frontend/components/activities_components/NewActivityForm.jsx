@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import RoutesDropdown from './RoutesDropdown';
 import {
   convertDistanceToMiles,
@@ -36,14 +36,10 @@ export default function NewActivityForm({
     setRouteId(e.target.value);
   }
 
-  const formatDuration = () => {
-    return (hours * 3600 + minutes * 60 + seconds);
-  }
-
   const history = useHistory();
 
   const submit = () => {
-    const duration = formatDuration();
+    const duration = hours * 3600 + minutes * 60 + seconds;
 
     const newActivity = {
       title,
