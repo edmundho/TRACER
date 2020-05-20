@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getAllActivities, postNewActivity, clearActivityErrors, destroyActivity } from '../../actions/activities_actions';
 import { getAllRoutes } from '../../actions/route_actions';
-import ActivitiesIndex from './activities_index';
+import ActivitiesIndex from './ActivitiesIndex';
 import { showActivityForm, hideActivityForm } from '../../reducers/ui_reducer';
 import sort from '../../util/sortObjectArrayByProperty';
 
@@ -22,7 +22,7 @@ const mapStateToProps = (state = {}) => {
     }
   });
 
-  return { 
+  return {
     activities: activities,
     routes: state.entities.routes,
     cyclingRoutes: cyclingRoutes,
