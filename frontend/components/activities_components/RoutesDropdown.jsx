@@ -17,7 +17,7 @@ export default function RoutesDropdown({ routes, update }) {
 
   return (
     <select onChange={update}>
-      <option value="">No Known Route Taken</option>
+      <option value=''>No Known Route Taken</option>
       {dropdownItems}
     </select>
   );

@@ -8,10 +8,9 @@ import { getAllRoutes } from '../../actions/route_actions';
 import { showActivityForm, hideActivityForm } from '../../reducers/ui_reducer';
 import sort from '../../util/sortObjectArrayByProperty';
 
-export default function ActivitiesIndex(props) {
+export default function ActivitiesIndex() {
   const dispatch = useDispatch();
   const routes = useSelector(state => state.entities.routes);
-  const errors = useSelector(state => state.errors.activity);
   const formActive = useSelector(state => state.ui.showActivityForm);
   const activitiesObject = useSelector(state => state.entities.activities);
   const activitiesSortedByDate = sort('date', Object.values(activitiesObject))
@@ -58,7 +57,7 @@ export default function ActivitiesIndex(props) {
           </div>
         </div>
       </header>
-      {formActive && <NewActivityForm routes={routes} errors={errors}/>}
+      {formActive && <NewActivityForm />}
       <h2>{`${activities.length} activities`}</h2>
       <table id='activities-list-table' cellSpacing='0' cellPadding='5'>
         <tbody>

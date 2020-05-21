@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { postNewActivity } from '../../actions/activities_actions';
 import { hideActivityForm } from '../../reducers/ui_reducer';
 import RoutesDropdown from './RoutesDropdown';
@@ -9,7 +9,7 @@ import {
   convertElevationToFeet
 } from '../../util/conversions';
 
-export default function NewActivityForm({ routes, errors }) {
+export default function NewActivityForm() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [sport, setSport] = useState('bike');
@@ -24,26 +24,25 @@ export default function NewActivityForm({ routes, errors }) {
   const [description, setDescription] = useState('');
   const [routeId, setRouteId] = useState('');
 
-  const cyclingRoutes = [];
-  const runningRoutes = [];
-  Object.values(routes).forEach(route => {
-    if (route.sport === 'bike') {
-      cyclingRoutes.push(route);
-    } else if (route.sport === 'run') {
-      runningRoutes.push(route);
-    }
-  });
+  const errors = useSelector(state => state.errors.activity);
+  const cyclingRoutes = useSelector(state =>
+    Object.values(state.entities.routes).filter(route => route.sport === 'bike')
+  )
+  const runningRoutes = useSelector(state =>
+    Object.values(state.entities.routes).filter(route => route.sport === 'run')
+  )
   const [dropdownRoutes, setDropdownRoutes] = useState(cyclingRoutes)
 
-  const setDistanceAndElevationFromDropdown = (e) => {
-    const matchingRoute = dropdownRoutes.find(route => route.id == e.target.value );
-    const distance = matchingRoute && convertDistanceToMiles(matchingRoute.distance);
-    const elevation = matchingRoute && convertElevationToFeet(matchingRoute.elevation);
+  const setRouteInfoFromDropdown = (e) => {
+    const matchingRoute = dropdownRoutes.find(route => route.id == e.target.value);
+    const distance = convertDistanceToMiles(matchingRoute.distance);
+    const elevation = convertElevationToFeet(matchingRoute.elevation);
 
     if (distance && elevation) {
       setDistance(distance);
       setElevation(elevation);
     }
+
     setRouteId(e.target.value);
   }
 
@@ -90,51 +89,60 @@ export default function NewActivityForm({ routes, errors }) {
     if (sport === 'bike') {
       setTitle(`${timeOfDay} Ride`);
       setDropdownRoutes(cyclingRoutes);
+      setRouteId('')
     } else if (sport === 'run') {
       setTitle(`${timeOfDay} Run`);
       setDropdownRoutes(runningRoutes);
+      setRouteId('')
     }
   }, [sport])
 
+  useEffect(() => {
+    if (!routeId) {
+      setDistance('');
+      setElevation('');
+    }
+  }, [routeId])
+
   return (
-    <form id="new-activity-form" onSubmit={submit}>
-      <div id="activity-form-row-3">
+    <form id='new-activity-form' onSubmit={submit}>
+      <div id='activity-form-row-3'>
         <label>
           Sport
           <select onChange={e => setSport(e.target.value)}>
-            <option value="bike">Ride</option>
-            <option value="run">Run</option>
+            <option value='bike'>Ride</option>
+            <option value='run'>Run</option>
           </select>
         </label>
         <label>
           Known Route Taken?
           <RoutesDropdown
-            update={setDistanceAndElevationFromDropdown}
+            update={setRouteInfoFromDropdown}
             routes={dropdownRoutes} />
         </label>
       </div>
-      <div id="activity-form-row-1">
+      <div id='activity-form-row-1'>
         <label>
           Distance
-          <div id="distance-elevation-divs">
+          <div id='distance-elevation-divs'>
             <input
-              type="number" min="0" step="0.01"
+              type='number' min='0' step='0.01'
               onChange={e => setDistance(e.target.value)}
               value={distance} />
               <p>mi.</p>
           </div>
         </label>
-        <label id="duration-label">Duration
-          <div id="duration-input">
-            <input type="number" min="0"
+        <label id='duration-label'>Duration
+          <div id='duration-input'>
+            <input type='number' min='0'
               onChange={e => setHours(e.target.value)}
               value={hours} />
             <p>hr</p>
-            <input type="number" min="0"
+            <input type='number' min='0'
               onChange={e => setMinutes(e.target.value)}
               value={minutes} />
             <p>min</p>
-            <input type="number" min="0"
+            <input type='number' min='0'
               onChange={e => setSeconds(e.target.value)}
               value={seconds} />
             <p>s</p>
@@ -142,63 +150,63 @@ export default function NewActivityForm({ routes, errors }) {
         </label>
         <label>
           Elevation
-          <div id="distance-elevation-divs">
+          <div id='distance-elevation-divs'>
             <input
-              type="number" min="0"
+              type='number' min='0'
               onChange={e => setElevation(e.target.value)}
               value={elevation} />
             <p>ft.</p>
           </div>
         </label>
       </div>
-      <div id="activity-form-row-2">
+      <div id='activity-form-row-2'>
         <label>
           Date
-          <input id="activity-date-input"
-            type="date"
+          <input id='activity-date-input'
+            type='date'
             onChange={e => setDate(e.target.value)}
             value={date}
             className={
               dateRequiredError() ? 'activity-date-input-error' : ''
             }/>
-            <p id="activity-date-input-error">{
+            <p id='activity-date-input-error'>{
               dateRequiredError() ? 'Required' : ''
             }</p>
         </label>
         <label>
           Time
-          <input id="activity-time-input"
-            type="time"
+          <input id='activity-time-input'
+            type='time'
             onChange={e => setTime(e.target.value)}
             value={time}/></label>
       </div>
-      <label id="activity-title-form">
+      <label id='activity-title-form'>
         Title
         <input
-          id="activity-title-input"
-          type="text"
+          id='activity-title-input'
+          type='text'
           onChange={e => setTitle(e.target.value)}
           value={title}
           className={
             titleRequiredError() ? 'activity-title-input-error' : ''
           }/>
-        <p id="activity-title-input-error">{
+        <p id='activity-title-input-error'>{
           titleRequiredError() ? 'Required' : ''
         }</p>
       </label>
-      <div id="activity-description">
+      <div id='activity-description'>
         <label>
           Description
-          <textarea id=""
-            placeholder="How did it go? Were you tired or rested? How was the weather?"
+          <textarea id=''
+            placeholder='How did it go? Were you tired or rested? How was the weather?'
             onChange={e => setDescription(e.target.value)} value={description}>
           </textarea>
         </label>
       </div>
-      <div id="close-form-buttons">
-        <input id="activity-submit-button" type="submit" value="Create"/>
+      <div id='close-form-buttons'>
+        <input id='activity-submit-button' type='submit' value='Create'/>
         <button
-          id="cancel-new-activity"
+          id='cancel-new-activity'
           onClick={() => dispatch(hideActivityForm())}>
           Cancel
         </button>
