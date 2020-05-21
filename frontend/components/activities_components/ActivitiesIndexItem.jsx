@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import formatDuration from '../../util/formatDuration';
+import { destroyActivity } from '../../actions/activities_actions';
+import { useDispatch } from 'react-redux';
 
-export default function ActivitiesIndexItem({
-  activity,
-  route,
-  deleteActivity
-}) {
+export default function ActivitiesIndexItem({ activity, route }) {
+  const dispatch = useDispatch();
   const { sport, date, duration, distance, elevation, id, title } = activity;
 
   return (
@@ -18,7 +17,7 @@ export default function ActivitiesIndexItem({
       <td>{distance ? distance : " "} mi.</td>
       <td>{elevation ? elevation : " "} ft.</td>
       <td>{route ? route.title : " "}</td>
-      <td><button onClick={() => deleteActivity(id)}>Delete</button></td>
+      <td><button onClick={() => dispatch(destroyActivity(id))}>Delete</button></td>
     </tr>
   );
 }
