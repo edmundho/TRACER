@@ -8,7 +8,7 @@ import Splash from './session_components/splash';
 import DashboardContainer from './dashboard_components/dashboard_container';
 import RoutesIndex from './routes_index_components/routes_index';
 import RouteBuilderContainer from './route_builder/route_builder_container';
-import ActivitiesIndexContainer from './activities_components/activities_index_container';
+import ActivitiesIndex from './activities_components/ActivitiesIndex';
 import ActivityShowContainer from './activities_components/activity_show_container';
 
 const App = () => (
@@ -23,7 +23,7 @@ const App = () => (
         <ProtectedRoute path="/routes" component={RoutesIndex} />
         <ProtectedRoute path="/dashboard" component={DashboardContainer} />
         <ProtectedRoute path="/activities/:activityId" component={ActivityShowContainer} />
-        <ProtectedRoute path="/activities" component={ActivitiesIndexContainer} />
+        <ProtectedRoute path="/activities" component={ActivitiesIndex} />
         <Redirect to="/dashboard"/>
       </Switch>
   </div>

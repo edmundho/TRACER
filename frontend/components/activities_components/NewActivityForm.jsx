@@ -147,7 +147,7 @@ export default function NewActivityForm({ routes, errors }) {
               type="number" min="0"
               onChange={e => setElevation(e.target.value)}
               value={elevation} />
-              <p>ft.</p>
+            <p>ft.</p>
           </div>
         </label>
       </div>
