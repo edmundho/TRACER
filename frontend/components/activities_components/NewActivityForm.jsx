@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { postNewActivity } from '../../actions/activities_actions';
+import { hideActivityForm } from '../../reducers/ui_reducer';
 import RoutesDropdown from './RoutesDropdown';
 import {
   convertDistanceToMiles,
   convertElevationToFeet
 } from '../../util/conversions';
 
-export default function NewActivityForm({
-  dropdownRoutes,
-  postNewActivity,
-  closeForm,
-  setSport,
-  sport,
-  errors
-}) {
+export default function NewActivityForm({ routes, errors }) {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const [sport, setSport] = useState('bike');
   const [distance, setDistance] = useState('');
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -24,6 +23,17 @@ export default function NewActivityForm({
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [routeId, setRouteId] = useState('');
+
+  const cyclingRoutes = [];
+  const runningRoutes = [];
+  Object.values(routes).forEach(route => {
+    if (route.sport === 'bike') {
+      cyclingRoutes.push(route);
+    } else if (route.sport === 'run') {
+      runningRoutes.push(route);
+    }
+  });
+  const [dropdownRoutes, setDropdownRoutes] = useState(cyclingRoutes)
 
   const setDistanceAndElevationFromDropdown = (e) => {
     const matchingRoute = dropdownRoutes.find(route => route.id == e.target.value );
@@ -37,7 +47,13 @@ export default function NewActivityForm({
     setRouteId(e.target.value);
   }
 
-  const history = useHistory();
+  const dateRequiredError = () => {
+    return errors.includes("Date can't be blank");
+  }
+
+  const titleRequiredError = () => {
+    return errors.includes("Title can't be blank");
+  }
 
   const submit = () => {
     const duration = hours * 3600 + minutes * 60 + seconds;
@@ -54,7 +70,7 @@ export default function NewActivityForm({
       routeId
     };
 
-    postNewActivity(newActivity).then(response => {
+    dispatch(postNewActivity(newActivity)).then(response => {
       const activityId = response.activity.id;
       history.push(`/activities/${activityId}`);
     })
@@ -73,8 +89,10 @@ export default function NewActivityForm({
 
     if (sport === 'bike') {
       setTitle(`${timeOfDay} Ride`);
+      setDropdownRoutes(cyclingRoutes);
     } else if (sport === 'run') {
       setTitle(`${timeOfDay} Run`);
+      setDropdownRoutes(runningRoutes);
     }
   }, [sport])
 
@@ -83,7 +101,7 @@ export default function NewActivityForm({
       <div id="activity-form-row-3">
         <label>
           Sport
-          <select onChange={setSport('sport')}>
+          <select onChange={e => setSport(e.target.value)}>
             <option value="bike">Ride</option>
             <option value="run">Run</option>
           </select>
@@ -141,11 +159,10 @@ export default function NewActivityForm({
             onChange={e => setDate(e.target.value)}
             value={date}
             className={
-              errors.includes("Date can't be blank") ? 'activity-date-input-error' : ''
-            }
-          />
+              dateRequiredError() ? 'activity-date-input-error' : ''
+            }/>
             <p id="activity-date-input-error">{
-              errors.includes("Date can't be blank") ? 'Required' : ''
+              dateRequiredError() ? 'Required' : ''
             }</p>
         </label>
         <label>
@@ -163,11 +180,10 @@ export default function NewActivityForm({
           onChange={e => setTitle(e.target.value)}
           value={title}
           className={
-            errors.includes("Title can't be blank") ? 'activity-title-input-error' : ''
-          }
-        />
+            titleRequiredError() ? 'activity-title-input-error' : ''
+          }/>
         <p id="activity-title-input-error">{
-          errors.includes("Title can't be blank") ? 'Required' : ''
+          titleRequiredError() ? 'Required' : ''
         }</p>
       </label>
       <div id="activity-description">
@@ -183,7 +199,9 @@ export default function NewActivityForm({
         <input id="activity-submit-button" type="submit" value="Create"/>
         <button
           id="cancel-new-activity"
-          onClick={closeForm}>Cancel</button>
+          onClick={() => dispatch(hideActivityForm())}>
+          Cancel
+        </button>
       </div>
     </form>
   )

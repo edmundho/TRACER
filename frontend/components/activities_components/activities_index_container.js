@@ -12,21 +12,9 @@ const mapStateToProps = (state = {}) => {
   });
   sort('date', activities);
 
-  const cyclingRoutes = [];
-  const runningRoutes = [];
-  Object.values(state.entities.routes).forEach(route => {
-    if (route.sport === 'bike') {
-      cyclingRoutes.push(route);
-    } else if (route.sport === 'run') {
-      runningRoutes.push(route);
-    }
-  });
-
   return {
     activities: activities,
     routes: state.entities.routes,
-    cyclingRoutes: cyclingRoutes,
-    runningRoutes: runningRoutes,
     errors: state.errors.activity,
     showForm: state.ui.showActivityForm,
   };
@@ -35,8 +23,6 @@ const mapStateToProps = (state = {}) => {
 const mapDispatchToProps = (dispatch) => ({
   getAllActivities: () => dispatch(getAllActivities()),
   getAllRoutes: () => dispatch(getAllRoutes()),
-  postNewActivity: activity => dispatch(postNewActivity(activity)),
-  clearErrors: () => dispatch(clearActivityErrors()),
   destroyActivity: activityId => dispatch(destroyActivity(activityId)),
   showActivityForm: () => dispatch(showActivityForm()),
   hideActivityForm: () => dispatch(hideActivityForm())
