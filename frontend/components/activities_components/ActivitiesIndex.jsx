@@ -41,29 +41,11 @@ class ActivitiesIndex extends React.Component {
     this.props.showActivityForm();
   }
 
-  highlightIncorrectInputs (errors) {
-    const activityDateEl = document.getElementById("activity-date-input");
-    const activityTitleEl = document.getElementById("activity-title-input");
-    if (errors.includes("Date can't be blank")) {
-      const activityDateErrorEl = document.getElementById("activity-date-input-error");
-      activityDateEl.className = 'activity-date-input-error';
-      activityDateErrorEl.innerText = 'Required';
-    }
-    if (errors.includes("Title can't be blank")) {
-      const activityTitleErrorEl = document.getElementById("activity-title-input-error");
-      activityTitleEl.className = 'activity-title-input-error';
-      activityTitleErrorEl.innerText = 'Required';
-    }
-  }
-
   componentWillUnmount () {
     this.props.hideActivityForm();
   }
 
   render () {
-    const errors = this.props.errors;
-    this.highlightIncorrectInputs(errors);
-
     let dropdownRoutes;
     if (this.state.sport === 'bike') {
       dropdownRoutes = this.props.cyclingRoutes;
@@ -105,6 +87,7 @@ class ActivitiesIndex extends React.Component {
           dropdownRoutes={this.dropdownRoutes}
           postNewActivity={this.props.postNewActivity}
           closeForm={this.closeForm}
+          errors={this.props.errors}
         />}
         <h2>{activities.length} activities</h2>
         <table id="activities-list-table" cellSpacing="0" cellPadding="5">

@@ -11,7 +11,8 @@ export default function NewActivityForm({
   postNewActivity,
   closeForm,
   setSport,
-  sport
+  sport,
+  errors
 }) {
   const [distance, setDistance] = useState('');
   const [hours, setHours] = useState(0);
@@ -138,8 +139,14 @@ export default function NewActivityForm({
           <input id="activity-date-input"
             type="date"
             onChange={e => setDate(e.target.value)}
-            value={date}/>
-            <p id="activity-date-input-error"></p>
+            value={date}
+            className={
+              errors.includes("Date can't be blank") ? 'activity-date-input-error' : ''
+            }
+          />
+            <p id="activity-date-input-error">{
+              errors.includes("Date can't be blank") ? 'Required' : ''
+            }</p>
         </label>
         <label>
           Time
@@ -154,9 +161,15 @@ export default function NewActivityForm({
           id="activity-title-input"
           type="text"
           onChange={e => setTitle(e.target.value)}
-          value={title} />
+          value={title}
+          className={
+            errors.includes("Title can't be blank") ? 'activity-title-input-error' : ''
+          }
+        />
+        <p id="activity-title-input-error">{
+          errors.includes("Title can't be blank") ? 'Required' : ''
+        }</p>
       </label>
-      <p id="activity-title-input-error"></p>
       <div id="activity-description">
         <label>
           Description
