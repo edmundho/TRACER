@@ -1,9 +1,9 @@
-import { 
-  RECEIVE_ACTIVITIES, 
+import {
+  RECEIVE_ACTIVITIES,
   RECEIVE_ACTIVITY,
   POST_ACTIVITY,
-  REMOVE_ACTIVITY 
-} from '../../actions/activities_actions';
+  REMOVE_ACTIVITY
+} from '../../actions/ActivitiesActions';
 import merge from 'lodash/merge';
 
 const activitiesReducer = (state = {}, action) => {

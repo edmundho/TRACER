@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getActivity } from '../../actions/activities_actions';
+import { getActivity } from '../../actions/ActivitiesActions';
 import { getRoute } from '../../actions/RouteActions';
 import ActivityShow from './activity_show';
 

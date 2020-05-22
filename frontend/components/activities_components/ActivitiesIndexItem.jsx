@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import formatDuration from '../../util/formatDuration';
-import { destroyActivity } from '../../actions/activities_actions';
+import { destroyActivity } from '../../actions/ActivitiesActions';
 import { useDispatch } from 'react-redux';
 
 export default function ActivitiesIndexItem({ activity, route }) {

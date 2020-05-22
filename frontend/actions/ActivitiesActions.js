@@ -1,16 +1,17 @@
 
-import { 
-  fetchActivities, 
-  postActivity, 
+import {
+  fetchActivities,
+  postActivity,
   fetchActivity,
-  deleteActivity } from '../util/activities_api_util';
+  deleteActivity
+} from '../util/activities_api_util';
 
-export const RECEIVE_ACTIVITIES = "RECEIVE_ACTIVITIES";
-export const POST_ACTIVITY = "POST_ACTIVITY";
-export const RECEIVE_ACTIVITY_ERRORS = "RECEIVE_ACTIVITY_ERRORS";
-export const CLEAR_ERRORS = "CLEAR_ERRORS";
-export const RECEIVE_ACTIVITY = "RECEIVE_ACTIVITY";
-export const REMOVE_ACTIVITY = "REMOVE_ACTIVITY";
+export const RECEIVE_ACTIVITIES = 'RECEIVE_ACTIVITIES';
+export const POST_ACTIVITY = 'POST_ACTIVITY';
+export const RECEIVE_ACTIVITY_ERRORS = 'RECEIVE_ACTIVITY_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const RECEIVE_ACTIVITY = 'RECEIVE_ACTIVITY';
+export const REMOVE_ACTIVITY = 'REMOVE_ACTIVITY';
 
 const receiveAllActivities = activities => ({
   type: RECEIVE_ACTIVITIES,
@@ -42,11 +43,11 @@ export const clearActivityErrors = () => ({
 });
 
 export const getAllActivities = () => dispatch => fetchActivities()
-  .then(response => dispatch(receiveAllActivities(response)), 
+  .then(response => dispatch(receiveAllActivities(response)),
     errors=> dispatch(receiveErrors(errors.responseJSON)));
 
 export const postNewActivity = activity => dispatch => postActivity(activity)
-  .then(response => dispatch(submitActivity(response)), 
+  .then(response => dispatch(submitActivity(response)),
     errors => dispatch(receiveErrors(errors.responseJSON)));
 
 export const getActivity = activity => dispatch => fetchActivity(activity)

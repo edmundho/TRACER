@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { postNewActivity } from '../../actions/activities_actions';
+import { postNewActivity } from '../../actions/ActivitiesActions';
 import { hideActivityForm } from '../../reducers/ui_reducer';
 import RoutesDropdown from './RoutesDropdown';
 import {

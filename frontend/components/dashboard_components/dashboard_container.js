@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getAllRoutes } from '../../actions/RouteActions';
-import { getAllActivities } from '../../actions/activities_actions';
+import { getAllActivities } from '../../actions/ActivitiesActions';
 import Dashboard from './dashboard';
 import sort from '../../util/sortObjectArrayByProperty';
 
