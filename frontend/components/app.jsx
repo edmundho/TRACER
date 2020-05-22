@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Redirect } from 'react-router-dom';
-import LoginForm from './session_components/LoginForm';
-import SignupForm from './session_components/SignupForm';
+import LoginForm from './SessionComponents/LoginForm';
+import SignupForm from './SessionComponents/SignupForm';
 import Navbar from './Navbar/Navbar';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import Splash from './session_components/splash';
+import Splash from './SessionComponents/splash';
 import DashboardContainer from './dashboard_components/dashboard_container';
-import RoutesIndex from './routes_index_components/RoutesIndex';
+import RoutesIndex from './RoutesIndexComponents/RoutesIndex';
 import RouteBuilderContainer from './route_builder/route_builder_container';
 import ActivitiesIndex from './activities_components/ActivitiesIndex';
 import ActivityShowContainer from './activities_components/activity_show_container';

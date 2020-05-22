@@ -3,9 +3,9 @@ import { StyleSheet, css } from 'aphrodite';
 import { fadeIn } from 'react-animations';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, clearErrors } from "../../actions/session_actions";
-import UsernameInput from './form_components/UsernameInput';
-import PasswordInput from './form_components/PasswordInput';
-import SubmitButton from './form_components/SubmitButton';
+import UsernameInput from './FormComponents/UsernameInput';
+import PasswordInput from './FormComponents/PasswordInput';
+import SubmitButton from './FormComponents/SubmitButton';
 
 const styles = StyleSheet.create({
   fadeIn: {

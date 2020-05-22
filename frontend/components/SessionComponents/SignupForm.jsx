@@ -5,9 +5,9 @@ import { fadeIn } from 'react-animations';
 import { useDispatch, useSelector } from 'react-redux';
 import { signupUser, clearErrors } from "../../actions/session_actions";
 import { useEffect } from 'react/cjs/react.development';
-import UsernameInput from './form_components/UsernameInput';
-import PasswordInput from './form_components/PasswordInput';
-import SubmitButton from './form_components/SubmitButton';
+import UsernameInput from './FormComponents/UsernameInput';
+import PasswordInput from './FormComponents/PasswordInput';
+import SubmitButton from './FormComponents/SubmitButton';
 
 const formErrors = {
   usernameRequiredError: "Username can't be blank",
