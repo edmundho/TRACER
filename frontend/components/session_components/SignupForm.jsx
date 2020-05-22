@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn } from 'react-animations';
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { signupUser, clearErrors } from "../../actions/session_actions";
 import { useEffect } from 'react/cjs/react.development';
 import UsernameInput from './form_components/UsernameInput';
@@ -17,16 +17,6 @@ const formErrors = {
   lastNameError: "Last name can't be blank"
 };
 
-const mapStateToProps = (state) => ({
-  errors: state.errors.session,
-  formType: 'Sign Up',
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  processForm: (user) => dispatch(signupUser(user)),
-  clearErrors: () => dispatch(clearErrors()),
-});
-
 const styles = StyleSheet.create({
   fadeIn: {
     animationName: fadeIn,
@@ -34,13 +24,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const SignupForm = (props) => {
-  const { errors, formType } = props;
+const SignupForm = () => {
+  const dispatch = useDispatch();
+  const formType = 'Sign Up';
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [birthDate, setBirthDate] = useState('2000-01-01');
+
+  const errors = useSelector(state => state.errors.session);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +44,7 @@ const SignupForm = (props) => {
       lastName: lastName,
       birthDate: birthDate
     };
-    props.processForm(user);
+    dispatch(signupUser(user));
   };
 
   const hasUsernameRequiredError = errors.includes(formErrors.usernameRequiredError);
@@ -69,7 +62,7 @@ const SignupForm = (props) => {
 
   useEffect(() => {
     return () => {
-      props.clearErrors();
+      dispatch(clearErrors());
     };
   }, []);
 
@@ -119,4 +112,4 @@ const SignupForm = (props) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
+export default (SignupForm);
