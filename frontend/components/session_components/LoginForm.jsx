@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn } from 'react-animations';
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, clearErrors } from "../../actions/session_actions";
 import UsernameInput from './form_components/UsernameInput';
 import PasswordInput from './form_components/PasswordInput';
 import SubmitButton from './form_components/SubmitButton';
-
-const mapStateToProps = (state) => ({
-  errors: state.errors.session,
-  formType: "Log In",
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  processForm: (user) => dispatch(loginUser(user)),
-  clearErrors: () => dispatch(clearErrors()),
-});
 
 const styles = StyleSheet.create({
   fadeIn: {
@@ -25,18 +15,18 @@ const styles = StyleSheet.create({
 });
 
 const LoginForm = (props) => {
-  const { formType } = props;
+  const dispatch = useDispatch();
+  const formType = 'Log In';
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  const errors = props.errors.map((error, i) => {
+  const errors = useSelector(state => state.errors.session.map((error, i) => {
     return <li key={i}>{error}</li>;
-  });
+  }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = Object.assign({}, { username, password });
-    props.processForm(user);
+    dispatch(loginUser(user));
   };
 
   const handleDemoUser = (e) => {
@@ -48,7 +38,7 @@ const LoginForm = (props) => {
     setUsername(demoUser);
     setPassword(demoPw);
     setTimeout(
-      () => props.processForm({ username: demoUser, password: demoPw }),
+      () => dispatch(loginUser({ username: demoUser, password: demoPw })),
       500
     );
   };
@@ -59,7 +49,7 @@ const LoginForm = (props) => {
     }
 
     return () => {
-      props.clearErrors();
+      dispatch(clearErrors());
     };
   }, []);
 
@@ -80,4 +70,4 @@ const LoginForm = (props) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
+export default LoginForm;

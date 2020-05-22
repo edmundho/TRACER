@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Redirect } from 'react-router-dom';
-import LoginForm from './session_components/login_form';
+import LoginForm from './session_components/LoginForm';
 import SignupForm from './session_components/SignupForm';
 import Navbar from './Navbar/Navbar';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
