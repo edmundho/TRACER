@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import RoutesIndexItem from './routes_index_item';
+import RoutesIndexItem from './RoutesIndexItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllRoutes } from '../../actions/route_actions';
+import { getAllRoutes } from '../../actions/RouteActions';
 
 const RoutesIndex = () => {
   const dispatch = useDispatch();

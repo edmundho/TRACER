@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import NewActivityForm from './NewActivityForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllActivities } from '../../actions/activities_actions';
-import { getAllRoutes } from '../../actions/route_actions';
+import { getAllRoutes } from '../../actions/RouteActions';
 import { showActivityForm, hideActivityForm } from '../../reducers/ui_reducer';
 import sort from '../../util/sortObjectArrayByProperty';
 

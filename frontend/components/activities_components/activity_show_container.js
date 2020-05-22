@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getActivity } from '../../actions/activities_actions';
-import { getRoute } from '../../actions/route_actions';
+import { getRoute } from '../../actions/RouteActions';
 import ActivityShow from './activity_show';
 
 const mapStateToProps = (state = {}, ownProps) => {

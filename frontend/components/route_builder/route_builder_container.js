@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { postNewRoute, clearRouteErrors } from '../../actions/route_actions';
+import { postNewRoute, clearRouteErrors } from '../../actions/RouteActions';
 import RouteBuilder from './route_builder';
 
 const mapStateToProps = (state = {}, ownProps) => ({

@@ -6,7 +6,7 @@ import Navbar from './Navbar/Navbar';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from './session_components/splash';
 import DashboardContainer from './dashboard_components/dashboard_container';
-import RoutesIndex from './routes_index_components/routes_index';
+import RoutesIndex from './routes_index_components/RoutesIndex';
 import RouteBuilderContainer from './route_builder/route_builder_container';
 import ActivitiesIndex from './activities_components/ActivitiesIndex';
 import ActivityShowContainer from './activities_components/activity_show_container';

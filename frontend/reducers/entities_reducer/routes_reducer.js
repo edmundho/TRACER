@@ -1,4 +1,4 @@
-import { RECEIVE_ROUTES, POST_ROUTE, RECEIVE_ROUTE } from '../../actions/route_actions';
+import { RECEIVE_ROUTES, POST_ROUTE, RECEIVE_ROUTE } from '../../actions/RouteActions';
 import merge from 'lodash/merge';
 
 const routesReducer = (state = {}, action) => {
@@ -13,7 +13,7 @@ const routesReducer = (state = {}, action) => {
     case POST_ROUTE:
       newState = merge({}, state, action.route);
       return newState;
-    default: 
+    default:
       return state;
   }
 };

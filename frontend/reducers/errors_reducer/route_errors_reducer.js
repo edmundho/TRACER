@@ -3,7 +3,7 @@ import {
   POST_ROUTE,
   RECEIVE_ROUTE_ERRORS,
   CLEAR_ERRORS
-} from '../../actions/route_actions';
+} from '../../actions/RouteActions';
 
 const routeErrorsReducer = (state = [], action) => {
   Object.freeze(state);
@@ -14,7 +14,7 @@ const routeErrorsReducer = (state = [], action) => {
       return [];
     case CLEAR_ERRORS:
       return [];
-    default: 
+    default:
       return state;
   }
 };
