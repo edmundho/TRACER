@@ -5,7 +5,7 @@ import { Placeholder } from './dashboard_placeholder';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn, fadeOut } from 'react-animations';
 import StatsSidebar from './StatsSidebar';
-import PastWeekStats from './past_week_stats';
+import PastWeekStats from './PastWeekStats';
 
 const styles = StyleSheet.create({
   fadeIn: {
