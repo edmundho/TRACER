@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { imageUrlBuilder } from '../../util/static_map_url';
+import { imageUrlBuilder } from '../../util/staticMapUrl';
 import { timeConvert } from '../../util/conversions';
 import formatDuration from '../../util/formatDuration';
 

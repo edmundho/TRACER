@@ -1,5 +1,5 @@
 import React from 'react';
-import { imageUrlBuilder } from '../../util/static_map_url';
+import { imageUrlBuilder } from '../../util/staticMapUrl';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn } from 'react-animations';
 import {

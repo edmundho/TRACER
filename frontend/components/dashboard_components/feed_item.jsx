@@ -1,5 +1,5 @@
 import React from 'react';
-import { imageUrlBuilder } from '../../util/static_map_url';
+import { imageUrlBuilder } from '../../util/staticMapUrl';
 import { Link } from 'react-router-dom';
 import { timeConvert } from '../../util/conversions';
 import { StyleSheet, css } from 'aphrodite';
