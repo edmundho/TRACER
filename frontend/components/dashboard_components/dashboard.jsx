@@ -4,7 +4,7 @@ import FeedItem from './feed_item';
 import { Placeholder } from './dashboard_placeholder';
 import { StyleSheet, css } from 'aphrodite';
 import { fadeIn, fadeOut } from 'react-animations';
-import StatsSidebar from './stats_sidebar';
+import StatsSidebar from './StatsSidebar';
 import PastWeekStats from './past_week_stats';
 
 const styles = StyleSheet.create({
@@ -34,7 +34,7 @@ class Dashboard extends React.Component {
     this.props.getAllActivities();
     this.props.getAllRoutes();
   }
- 
+
   render () {
     if (this.props.activities.length > 0) {
       const today = new Date();
@@ -61,13 +61,12 @@ class Dashboard extends React.Component {
         {/* <Link to="/routebuilder">
           <div className="route-builder-link">
             Build a new route
-          </div>        
+          </div>
         </Link> */}
         <div id="stats-sidebar">
 
-          <StatsSidebar 
+          <StatsSidebar
             user={this.props.user}
-            routes={this.props.routes} 
             activities={this.props.activities} />
           <div id="periodic-stats">
             <PastWeekStats activities={this.props.activities} />
