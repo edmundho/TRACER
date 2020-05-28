@@ -9,7 +9,7 @@ import DashboardContainer from './dashboard_components/dashboard_container';
 import RoutesIndex from './RoutesIndexComponents/RoutesIndex';
 import RouteBuilderContainer from './route_builder/route_builder_container';
 import ActivitiesIndex from './activities_components/ActivitiesIndex';
-import ActivityShowContainer from './activities_components/activity_show_container';
+import ActivityShow from './activities_components/ActivityShow';
 
 const App = () => (
   <div className="app">
@@ -22,7 +22,7 @@ const App = () => (
         <ProtectedRoute path="/routebuilder" component={RouteBuilderContainer} />
         <ProtectedRoute path="/routes" component={RoutesIndex} />
         <ProtectedRoute path="/dashboard" component={DashboardContainer} />
-        <ProtectedRoute path="/activities/:activityId" component={ActivityShowContainer} />
+        <ProtectedRoute path="/activities/:activityId" component={ActivityShow} />
         <ProtectedRoute path="/activities" component={ActivitiesIndex} />
         <Redirect to="/dashboard"/>
       </Switch>

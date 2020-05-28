@@ -2,28 +2,33 @@ import React, { useEffect } from 'react';
 import { imageUrlBuilder } from '../../util/staticMapUrl';
 import { timeConvert } from '../../util/conversions';
 import formatDuration from '../../util/formatDuration';
+import { useDispatch, useSelector } from 'react-redux';
+import { getActivity } from '../../actions/ActivitiesActions';
+import { getRoute } from '../../actions/RouteActions';
+import { useHistory } from 'react-router-dom';
 
-export default function ActivityShow({
-  activityId,
-  activity,
-  route,
-  getActivity,
-  getRoute,
-  history
-}) {
+export default function ActivityShow({ match }) {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const { activityId } = match.params;
+  const activity = useSelector(state => state.entities.activities[activityId])
+  const routes = useSelector(state => state.entities.routes)
+
   useEffect(() => {
     if (!activity) {
-      getActivity(activityId).then(response => {
-        getRoute(response.activity[activityId].routeId);
+      dispatch(getActivity(activityId)).then(response => {
+        dispatch(getRoute(response.activity[activityId].routeId));
       });
     }
+
     window.scrollTo(0, 0);
   }, []);
 
-  if (activity === undefined) {
+  if (!activity) {
     return <div id="activity-show-page">loading...</div>;
   } else {
-    const { sport, time, date, title, description, distance, elevation, duration } = activity;
+    const { sport, time, date, title, description, distance, elevation, duration, routeId } = activity;
+    const route = routes[routeId];
 
     let routeImage;
     if (route) {
@@ -86,6 +91,4 @@ export default function ActivityShow({
       </div>
     );
   }
-
-
 }
