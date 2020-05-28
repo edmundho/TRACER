@@ -5,7 +5,7 @@ import SignupForm from './SessionComponents/SignupForm';
 import Navbar from './Navbar/Navbar';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from './SessionComponents/splash';
-import DashboardContainer from './dashboard_components/dashboard_container';
+import Dashboard from './dashboard_components/Dashboard';
 import RoutesIndex from './RoutesIndexComponents/RoutesIndex';
 import RouteBuilderContainer from './route_builder/route_builder_container';
 import ActivitiesIndex from './activities_components/ActivitiesIndex';
@@ -21,7 +21,7 @@ const App = () => (
         <AuthRoute path='/signup' component={SignupForm} />
         <ProtectedRoute path="/routebuilder" component={RouteBuilderContainer} />
         <ProtectedRoute path="/routes" component={RoutesIndex} />
-        <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+        <ProtectedRoute path="/dashboard" component={Dashboard} />
         <ProtectedRoute path="/activities/:activityId" component={ActivityShow} />
         <ProtectedRoute path="/activities" component={ActivitiesIndex} />
         <Redirect to="/dashboard"/>
