@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const LoginForm = (props) => {
+export default function LoginForm(props) {
   const dispatch = useDispatch();
   const formType = 'Log In';
   const [username, setUsername] = useState('');
@@ -69,5 +69,3 @@ const LoginForm = (props) => {
     </div>
   );
 };
-
-export default LoginForm;
