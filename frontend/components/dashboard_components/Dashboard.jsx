@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import FeedItem from './feed_item'
+import FeedItem from './FeedItem'
 import { StyleSheet } from 'aphrodite';
 import { fadeIn } from 'react-animations';
 import StatsSidebar from './StatsSidebar';
