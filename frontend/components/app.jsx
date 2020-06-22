@@ -5,7 +5,7 @@ import SignupForm from './SessionComponents/SignupForm';
 import Navbar from './Navbar/Navbar';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from './SessionComponents/splash';
-import Dashboard from './dashboard_components/Dashboard';
+import Dashboard from './DashboardComponents/Dashboard';
 import RoutesIndex from './RoutesIndexComponents/RoutesIndex';
 import RouteBuilderContainer from './route_builder/route_builder_container';
 import ActivitiesIndex from './activities_components/ActivitiesIndex';
